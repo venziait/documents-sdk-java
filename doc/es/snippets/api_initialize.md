@@ -1,5 +1,5 @@
 ```java
-            V1Api api = new V1Api();
+            V3Api api = new V3Api();
             api.setBasePath(API_URL);
             api.setConsumerKey(CONSUMER_KEY);
             api.setConsumerSecret(CONSUMER_SECRET);
