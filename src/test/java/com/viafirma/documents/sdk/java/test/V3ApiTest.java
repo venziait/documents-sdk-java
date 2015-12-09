@@ -32,15 +32,15 @@ import com.viafirma.documents.sdk.java.model.Document;
 import com.viafirma.documents.sdk.java.model.Document.TemplateTypeEnum;
 import com.viafirma.documents.sdk.java.model.Download;
 import com.viafirma.documents.sdk.java.model.ErrorResponse;
+import com.viafirma.documents.sdk.java.model.Evidence;
+import com.viafirma.documents.sdk.java.model.Evidence.TypeEnum;
 import com.viafirma.documents.sdk.java.model.Form;
 import com.viafirma.documents.sdk.java.model.Item;
 import com.viafirma.documents.sdk.java.model.Message;
 import com.viafirma.documents.sdk.java.model.Notification;
-import com.viafirma.documents.sdk.java.model.Param;
 import com.viafirma.documents.sdk.java.model.Policy;
-import com.viafirma.documents.sdk.java.model.Policy.TypeFormatSignEnum;
-import com.viafirma.documents.sdk.java.model.Policy.TypeSignEnum;
 import com.viafirma.documents.sdk.java.model.Row;
+import com.viafirma.documents.sdk.java.model.Signature;
 import com.viafirma.documents.sdk.java.model.Template;
 import com.viafirma.documents.sdk.java.model.Workflow;
 
@@ -54,15 +54,15 @@ enum OAuthType{
  */
 public class V3ApiTest {
 
-    private static final String TEMPLATE_CODE = "001_example";
+    private static final String TEMPLATE_CODE = "301_example";
     private static final TemplateTypeEnum TEMPLATE_TYPE = TemplateTypeEnum.docx;
 
-    private static final String USER_CODE = "inyenia";
+    private static final String USER_CODE = "user";
     private static final String USER_PASSWORD = "12345";
-    private static final String DEVICE_CODE = "ipad-jesus";
+    private static final String DEVICE_CODE = "ipad-user";
 
     private static final OAuthType OAUTH_TYPE = OAuthType.OAUTH_APPLICATION;
-    private static final String API_URL = "http://localhost:7080/mobile-services/api";
+    private static final String API_URL = "http://localhost:7080/documents/api";
     private static final String CONSUMER_KEY = "com.viafirma.mobile.services.crm";
     private static final String CONSUMER_SECRET = "XXXXXXXX";
     private static final String AUTH_MODE = "client_auth";
@@ -189,39 +189,20 @@ public class V3ApiTest {
 
             message.setPolicies(new ArrayList<Policy>());
             Policy policy = new Policy();
-            policy.setTypeSign(TypeSignEnum.ATTACHED);
-            policy.setTypeFormatSign(TypeFormatSignEnum.DIGITALIZED_SIGN);
-            policy.setParamList(new ArrayList<Param>());
 
-            Param param01 = new Param();
-            param01.setKey("digitalizedSignHelpText");
-            param01.setValue("Firme Aquí");
-            policy.getParamList().add(param01);
+            policy.setEvidences(new ArrayList<Evidence>());
+            Evidence evidence = new Evidence();
+            evidence.setType(TypeEnum.SIGNATURE);
+            evidence.setHelpText("User signature");
+            evidence.setTypeFormatSign("XADES_B");
+            policy.getEvidences().add(evidence);
 
-            Param param02 = new Param();
-            param02.setKey("fileName");
-            param02.setValue("example.pdf");
-            policy.getParamList().add(param02);
-
-            Param param03 = new Param();
-            param03.setKey("biometricAlias");
-            param03.setValue("viafirmadocuments");
-            policy.getParamList().add(param03);
-
-            Param param04 = new Param();
-            param04.setKey("biometricPass");
-            param04.setValue("12345");
-            policy.getParamList().add(param04);
-
-            Param param05 = new Param();
-            param05.setKey("op");
-            param05.setValue("pen");
-            policy.getParamList().add(param05);
-
-            Param param06 = new Param();
-            param06.setKey("signPositionEnable");
-            param06.setValue("true");
-            policy.getParamList().add(param06);
+            policy.setSignatures(new ArrayList<Signature>());
+            Signature signature = new Signature();
+            signature.setType(com.viafirma.documents.sdk.java.model.Signature.TypeEnum.SERVER);
+            signature.setHelpText("Server signature");
+            signature.setTypeFormatSign(com.viafirma.documents.sdk.java.model.Signature.TypeFormatSignEnum.PADES_LTA);
+            policy.getSignatures().add(signature);
 
             message.getPolicies().add(policy);
 
@@ -457,7 +438,7 @@ public class V3ApiTest {
             //END-SNIPPET
             System.out.println(messageCode);
             Assert.assertNotNull(messageCode);
-            
+
             int count = 100;
             String status = null;
             while (count > 0) {
@@ -481,13 +462,13 @@ public class V3ApiTest {
             Assert.assertNotNull(testApiException(e));
         }
     }
-    
+
     public void t08SignExternalDocument() throws Exception {
 
         try {
             //BEGIN-SNIPPET: api_v3_send_external_doc
             Message message = new Message();
-            
+
             //Find device in user device list
             Device device = null;
             List<Device> devices = V3devicesApi.getInstance().findDeviceByUser(USER_CODE);
@@ -497,7 +478,7 @@ public class V3ApiTest {
                     break;
                 }
             }
-            
+
             // Create notification info
             Notification notification = new Notification();
             notification.setText("External document demo");
@@ -511,39 +492,26 @@ public class V3ApiTest {
             document.setTemplateReference("http://descargas.viavansi.com/mobile-services/example-sign.pdf");
             document.setTemplateType(TemplateTypeEnum.url);
             message.setDocument(document);
-            
+
+            message.setPolicies(new ArrayList<Policy>());
             Policy policy = new Policy();
-            policy.setTypeFormatSign(TypeFormatSignEnum.DIGITALIZED_SIGN);
-            policy.setTypeSign(TypeSignEnum.ATTACHED);
-            
-            List<Param> paramList = new ArrayList<Param>();
-            
-            Param p1 = new Param();
-            p1.setKey("digitalizedSignHelpText");
-            p1.setValue("Firme aquí");
-            paramList.add(p1);
-            
-            Param p2 = new Param();
-            p2.setKey("signPositionEnable");
-            p2.setValue("true");
-            paramList.add(p2);
-            
-            Param p3 = new Param();
-            p3.setKey("fileName");
-            p3.setValue("demo_001.pdf");
-            paramList.add(p3);
-            
-            Param p4 = new Param();
-            p4.setKey("op");
-            p4.setValue("pen");
-            paramList.add(p4);
-            
-            policy.setParamList(paramList);
-            
-            List<Policy> policies = new ArrayList<Policy>();
-            policies.add(policy);
-            message.setPolicies(policies);
-            
+
+            policy.setEvidences(new ArrayList<Evidence>());
+            Evidence evidence = new Evidence();
+            evidence.setType(TypeEnum.SIGNATURE);
+            evidence.setHelpText("User signature");
+            evidence.setTypeFormatSign("XADES_B");
+            policy.getEvidences().add(evidence);
+
+            policy.setSignatures(new ArrayList<Signature>());
+            Signature signature = new Signature();
+            signature.setType(com.viafirma.documents.sdk.java.model.Signature.TypeEnum.SERVER);
+            signature.setHelpText("Server signature");
+            signature.setTypeFormatSign(com.viafirma.documents.sdk.java.model.Signature.TypeFormatSignEnum.PADES_LTA);
+            policy.getSignatures().add(signature);
+
+            message.getPolicies().add(policy);
+
             //java example in https://github.com/viavansi/ms-callback
             message.setCallbackURL("https://localhost:8080/ms-callback/response");
 
