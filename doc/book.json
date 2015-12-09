@@ -5,7 +5,7 @@
     "variables": {},
     "links": {
         "sidebar": {
-            "Documents SDK Java": "http://doc.viafirma.com/ms-sdk-java"
+            "Documents SDK Java": "http://doc.viafirma.com/documents-sdk-java"
         },
         "sharing": {
             "google": false,
