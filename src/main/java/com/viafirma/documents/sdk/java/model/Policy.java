@@ -1,10 +1,10 @@
 package com.viafirma.documents.sdk.java.model;
 
+import com.viafirma.documents.sdk.java.model.Signature;
 import com.viafirma.documents.sdk.java.model.Param;
-import com.viafirma.documents.sdk.java.model.ErrorResponse;
 import com.viafirma.documents.sdk.java.model.Evidence;
 import java.util.*;
-import com.viafirma.documents.sdk.java.model.Signature;
+import com.viafirma.documents.sdk.java.model.ErrorResponse;
 
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
