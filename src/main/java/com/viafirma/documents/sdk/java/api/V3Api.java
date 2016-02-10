@@ -57,6 +57,22 @@ public class V3Api {
     public void setTokenSecret(String tokenSecret) {
         apiInvoker.setTokenSecret(tokenSecret);
     }
+    
+    public String getProxyHost() {
+        return apiInvoker.getProxyHost();
+    }
+
+    public void setProxyHost(String proxyHost) {
+        apiInvoker.setProxyHost(proxyHost);
+    }
+
+    public int getProxyPort() {
+        return apiInvoker.getProxyPort();
+    }
+
+    public void setProxyPort(int proxyPort) {
+        apiInvoker.setProxyPort(proxyPort);
+    }
 
     public Boolean getFirstAttempt() {
         return firstAttempt;
