@@ -31,15 +31,13 @@ public class ApiInvoker {
   private Map<String, Client> hostMap = new HashMap<String, Client>();
   private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
   private boolean isDebug = false;
-
+  
   String basePath = null;
   String consumerKey = null;
   String consumerSecret = null;
   String token = null;
   String tokenSecret = null;
-  String proxyHost = null;
-  int proxyPort = 0;
-
+  
   public void setBasePath(String basePath) {
     this.basePath = basePath;
   }
@@ -47,7 +45,7 @@ public class ApiInvoker {
   public String getBasePath() {
     return basePath;
   }
-
+    
   public void setConsumerKey(String consumerKey) {
      this.consumerKey = consumerKey;
   }
@@ -78,22 +76,6 @@ public class ApiInvoker {
 
   public void setTokenSecret(String tokenSecret) {
     this.tokenSecret = tokenSecret;
-  }
-
-  public String getProxyHost() {
-    return proxyHost;
-  }
-
-  public void setProxyHost(String proxyHost) {
-    this.proxyHost = proxyHost;
-  }
-
-  public int getProxyPort() {
-    return proxyPort;
-  }
-
-  public void setProxyPort(int proxyPort) {
-    this.proxyPort = proxyPort;
   }
 
   public void enableDebug() {
@@ -155,7 +137,7 @@ public class ApiInvoker {
   }
 
   public String invokeAPI(String path, String method, Map<String, String> queryParams, Object body, Map<String, String> headerParams, Map<String, String> formParams, String contentType) throws ApiException {
-    Client client = getClient(basePath, proxyHost, proxyPort);
+    Client client = getClient(basePath);
 
     StringBuilder b = new StringBuilder();
 
@@ -169,26 +151,26 @@ public class ApiInvoker {
         b.append(escapeString(key)).append("=").append(escapeString(value));
       }
     }
-
+    
     String querystring = b.toString();
-
+    
     OAuthParameters params = new OAuthParameters().signature("HAMC-SHA1").consumerKey(consumerKey);
-
+    
     if (token != null) {
        params.setToken(token);
     }
-
+    
     OAuthSecrets secrets = new OAuthSecrets().consumerSecret(consumerSecret);
     if (tokenSecret != null) {
        secrets.setTokenSecret(tokenSecret);
     }
-
+    
     OAuthClientFilter filter = new OAuthClientFilter(client.getProviders(), params, secrets);
     WebResource resource = client.resource(basePath + path + querystring);
     resource.addFilter(filter);
 
     Builder builder = resource.accept("application/json");
-
+    
     for(String key : headerParams.keySet()) {
       builder.header(key, headerParams.get(key));
     }
@@ -282,20 +264,9 @@ public class ApiInvoker {
     }
   }
 
-  private Client getClient(String host, final String proxyHost, final int proxyPort) {
+  private Client getClient(String host) {
     if(!hostMap.containsKey(host)) {
-        Client client = new Client(new URLConnectionClientHandler(new HttpURLConnectionFactory() {
-            @Override
-            public HttpURLConnection getHttpURLConnection(URL url) throws IOException {
-                if (proxyHost != null && proxyPort != 0) {
-                    Proxy p = new Proxy(Proxy.Type.HTTP,new InetSocketAddress(proxyHost,proxyPort));
-                    return (HttpURLConnection) url.openConnection(p);
-                }else {
-                    return (HttpURLConnection) url.openConnection(Proxy.NO_PROXY);
-                }
-            }
-        }));
-
+      Client client = Client.create();
       if(isDebug)
         client.addFilter(new LoggingFilter());
       hostMap.put(host, client);
