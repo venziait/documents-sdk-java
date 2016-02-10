@@ -1,7 +1,7 @@
 package com.viafirma.documents.sdk.java.model;
 
-import com.viafirma.documents.sdk.java.model.Device;
 import com.viafirma.documents.sdk.java.model.Param;
+import com.viafirma.documents.sdk.java.model.Device;
 import java.util.*;
 
 import com.wordnik.swagger.annotations.*;
