@@ -7,6 +7,7 @@ import com.viafirma.documents.sdk.java.model.*;
 
 import java.util.*;
 
+import com.viafirma.documents.sdk.java.model.Base64;
 import com.viafirma.documents.sdk.java.model.DocumentCache;
 import com.viafirma.documents.sdk.java.model.Download;
 
@@ -28,7 +29,7 @@ public class V3documentsApi {
   
   
     
-  public DocumentCache addCache ( body) throws ApiException {
+  public DocumentCache addCache (Base64 body) throws ApiException {
     Object postBody = body;
     
 
@@ -43,7 +44,7 @@ public class V3documentsApi {
     
     
     String[] contentTypes = {
-      "text/plain"
+      "application/json"
     };
 
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
