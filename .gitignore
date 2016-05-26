@@ -7,3 +7,4 @@ target/
 /javadoc
 doc/.git/
 doc/html
+/target/
