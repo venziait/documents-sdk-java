@@ -40,9 +40,6 @@
 
             message.setDocument(document);
 
-            // Copy policies form template
-            message.setPolicies(template.getForm().getSettings().getPolicies());
-
             //java example in https://github.com/viavansi/ms-callback
             message.setCallbackURL("https://localhost:8080/ms-callback/response");
 

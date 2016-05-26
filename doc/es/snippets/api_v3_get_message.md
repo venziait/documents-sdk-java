@@ -1,3 +1,3 @@
 ```java
-            Message message = V3messagesApi.getInstance().getMessageByCode(MESSAGE_CODE);
+            Message message = V3messagesApi.getInstance().getMessageByCode(messageCode);
 ```
