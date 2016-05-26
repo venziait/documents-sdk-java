@@ -198,7 +198,7 @@ public class ApiInvoker {
                     }
 
                     try {
-                        formParamBuilder.append(URLEncoder.encode(key, "utf8")).append("=").append(URLEncoder.encode(value, "utf8"));
+                        formParamBuilder.append(URLEncoder.encode(key, "utf8")).append("=").append(URLEncoder.encode(value, "utf8").replaceAll("\\+", "%20"));
                     } catch (Exception e) {
                         // move on to next
                     }
@@ -253,7 +253,10 @@ public class ApiInvoker {
                 response = builder.type(contentType).post(ClientResponse.class, serialize(body));
             }
         } else if ("PUT".equals(method)) {
-            if (body == null) {
+            if ("application/x-www-form-urlencoded".equals(contentType)) {
+                StringBuilder formParamBuilder = new StringBuilder();
+                response = builder.type(contentType).put(ClientResponse.class, formParamBuilder.toString());
+            } else if (body == null) {
                 response = builder.put(ClientResponse.class, null);
             } else if (body instanceof FormDataMultiPart) {
                 response = builder.type(contentType).put(ClientResponse.class, body);

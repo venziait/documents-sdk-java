@@ -58,16 +58,16 @@ public class V3ApiTest {
     private static final TemplateTypeEnum TEMPLATE_TYPE = TemplateTypeEnum.docx;
 
     private static final String USER_CODE = "test";
-    private static final String USER_PASSWORD = "123456";
+    private static final String USER_PASSWORD = "XXXXXXXXXX";
     private static final String DEVICE_CODE = "ipad-test";
 
     private static final OAuthType OAUTH_TYPE = OAuthType.OAUTH_APPLICATION;
     private static final String API_URL = "http://localhost:7080/documents/api";
     private static final String CONSUMER_KEY = "com.viafirma.mobile.services";
-    private static final String CONSUMER_SECRET = "XXXXXXXXX";
+    private static final String CONSUMER_SECRET = "XXXXXXXXXXXX";
     private static final String AUTH_MODE = "client_auth";
 
-    private static final String MESSAGE_SIGNED_CODE = "XXXXXXXXXXX";
+    private static final String MESSAGE_SIGNED_CODE = "XXXXXXXXXXXXX";
 
     @BeforeClass
     public static void setupOnce() {
@@ -546,6 +546,7 @@ public class V3ApiTest {
             Message rejected = V3messagesApi.getInstance().rejectMessageByCode(messageCode, comment);
             Assert.assertNotNull(rejected);
             Assert.assertEquals("REJECTED", rejected.getWorkflow().getCurrent());
+            Assert.assertEquals(comment, rejected.getCommentReject());
             //END-SNIPPET
         } catch (ApiException e) {
             Assert.assertNotNull(testApiException(e));
