@@ -67,7 +67,7 @@ public class V3ApiTest {
     private static final String CONSUMER_SECRET = "XXXXXXXX";
     private static final String AUTH_MODE = "client_auth";
 
-    private static final String MESSAGE_CODE = "XXXXXXXXXX";
+    private static final String MESSAGE_SIGNED_CODE = "XXXXXXXXXX";
 
     @BeforeClass
     public static void setupOnce() {
@@ -149,75 +149,7 @@ public class V3ApiTest {
     public void t02SendMessage() {
         try {
 
-            //BEGIN-SNIPPET: api_v3_send_message
-            Message message = new Message();
-
-            Document document = new Document();
-            document.setTemplateCode(TEMPLATE_CODE);
-            document.setTemplateType(TEMPLATE_TYPE);
-            document.setItems(new ArrayList<Item>());
-
-            Item item01 = new Item();
-            item01.setKey("KEY_01");
-            item01.setValue("Jhon");
-            document.getItems().add(item01);
-
-            Item item02 = new Item();
-            item02.setKey("KEY_02");
-            item02.setValue("Doe");
-            document.getItems().add(item02);
-
-            Item item03 = new Item();
-            item03.setKey("KEY_03");
-            item03.setValue("11111111T");
-            document.getItems().add(item03);
-
-            message.setDocument(document);
-
-            //Find device in user device list
-            Device device = null;
-            List<Device> devices = V3devicesApi.getInstance().findDeviceByUser(USER_CODE);
-            for (Device d: devices) {
-                if (DEVICE_CODE.equals(d.getCode())) {
-                    device = d;
-                    break;
-                }
-            }
-
-            Notification notification = new Notification();
-            notification.setText("Notification Example");
-            notification.setDevices(new ArrayList<Device>());
-            notification.getDevices().add(device);
-
-            message.setNotification(notification);
-
-            message.setPolicies(new ArrayList<Policy>());
-            Policy policy = new Policy();
-
-            policy.setEvidences(new ArrayList<Evidence>());
-            Evidence evidence = new Evidence();
-            evidence.setType(TypeEnum.SIGNATURE);
-            evidence.setHelpText("User signature");
-            evidence.setTypeFormatSign("XADES_B");
-            policy.getEvidences().add(evidence);
-
-            policy.setSignatures(new ArrayList<Signature>());
-            Signature signature = new Signature();
-            signature.setType(com.viafirma.documents.sdk.java.model.Signature.TypeEnum.SERVER);
-            signature.setHelpText("Server signature");
-            signature.setTypeFormatSign(com.viafirma.documents.sdk.java.model.Signature.TypeFormatSignEnum.PADES_LTA);
-            policy.getSignatures().add(signature);
-
-            message.getPolicies().add(policy);
-
-            //java example in https://github.com/viavansi/ms-callback
-            message.setCallbackURL("https://localhost:8080/ms-callback/response");
-
-            //send document by email (optional)
-            message.setCallbackMails("user1@mail.com,user2@mail.com");
-
-            String messageCode = V3messagesApi.getInstance().sendMessage(message);
-            //END-SNIPPET
+            String messageCode = sendMessage();
 
             Assert.assertNotNull(messageCode);
 
@@ -249,11 +181,85 @@ public class V3ApiTest {
         }
     }
 
+    private String sendMessage() throws ApiException {
+        //BEGIN-SNIPPET: api_v3_send_message
+        Message message = new Message();
+
+        Document document = new Document();
+        document.setTemplateCode(TEMPLATE_CODE);
+        document.setTemplateType(TEMPLATE_TYPE);
+        document.setItems(new ArrayList<Item>());
+
+        Item item01 = new Item();
+        item01.setKey("KEY_01");
+        item01.setValue("Jhon");
+        document.getItems().add(item01);
+
+        Item item02 = new Item();
+        item02.setKey("KEY_02");
+        item02.setValue("Doe");
+        document.getItems().add(item02);
+
+        Item item03 = new Item();
+        item03.setKey("KEY_03");
+        item03.setValue("11111111T");
+        document.getItems().add(item03);
+
+        message.setDocument(document);
+
+        //Find device in user device list
+        Device device = null;
+        List<Device> devices = V3devicesApi.getInstance().findDeviceByUser(USER_CODE);
+        for (Device d: devices) {
+            if (DEVICE_CODE.equals(d.getCode())) {
+                device = d;
+                break;
+            }
+        }
+
+        Notification notification = new Notification();
+        notification.setText("Notification Example");
+        notification.setDevices(new ArrayList<Device>());
+        notification.getDevices().add(device);
+
+        message.setNotification(notification);
+
+        message.setPolicies(new ArrayList<Policy>());
+        Policy policy = new Policy();
+
+        policy.setEvidences(new ArrayList<Evidence>());
+        Evidence evidence = new Evidence();
+        evidence.setType(TypeEnum.SIGNATURE);
+        evidence.setHelpText("User signature");
+        evidence.setTypeFormatSign("XADES_B");
+        policy.getEvidences().add(evidence);
+
+        policy.setSignatures(new ArrayList<Signature>());
+        Signature signature = new Signature();
+        signature.setType(com.viafirma.documents.sdk.java.model.Signature.TypeEnum.SERVER);
+        signature.setHelpText("Server signature");
+        signature.setTypeFormatSign(com.viafirma.documents.sdk.java.model.Signature.TypeFormatSignEnum.PADES_LTA);
+        policy.getSignatures().add(signature);
+
+        message.getPolicies().add(policy);
+
+        //java example in https://github.com/viavansi/ms-callback
+        message.setCallbackURL("https://localhost:8080/ms-callback/response");
+
+        //send document by email (optional)
+        message.setCallbackMails("user1@mail.com,user2@mail.com");
+
+        String messageCode = V3messagesApi.getInstance().sendMessage(message);
+        //END-SNIPPET
+        return messageCode;
+    }
+
     @Test
     public void t04GetMessageByCode() {
         try {
+            String messageCode = sendMessage();
             //BEGIN-SNIPPET: api_v3_get_message
-            Message message = V3messagesApi.getInstance().getMessageByCode(MESSAGE_CODE);
+            Message message = V3messagesApi.getInstance().getMessageByCode(messageCode);
             //END-SNIPPET
             Assert.assertNotNull(message);
         } catch (ApiException e) {
@@ -266,7 +272,7 @@ public class V3ApiTest {
 
         InputStream in = null;
         try {
-            String url = V3documentsApi.getInstance().downloadSigned(MESSAGE_CODE).getLink();
+            String url = V3documentsApi.getInstance().downloadSigned(MESSAGE_SIGNED_CODE).getLink();
             int size = 1024;
             byte[] bytes;
 
@@ -429,9 +435,6 @@ public class V3ApiTest {
 
             message.setDocument(document);
 
-            // Copy policies form template
-            message.setPolicies(template.getForm().getSettings().getPolicies());
-
             //java example in https://github.com/viavansi/ms-callback
             message.setCallbackURL("https://localhost:8080/ms-callback/response");
 
@@ -529,7 +532,26 @@ public class V3ApiTest {
             Assert.assertNotNull(testApiException(e));
         }
     }
+    
+    @Test
+    public void t09RejectMessage() {
+        try {
 
+            String messageCode = sendMessage();
+            
+            Assert.assertNotNull(messageCode);
+
+            //BEGIN-SNIPPET: api_v3_reject_message
+            String comment = "Reject message in JUnit test";
+            Message rejected = V3messagesApi.getInstance().rejectMessageByCode(messageCode, comment);
+            Assert.assertNotNull(rejected);
+            Assert.assertEquals("REJECTED", rejected.getWorkflow().getCurrent());
+            //END-SNIPPET
+        } catch (ApiException e) {
+            Assert.assertNotNull(testApiException(e));
+        } 
+    }
+    
     public ErrorResponse testApiException(ApiException e) {
         try {
             Assert.assertFalse(e.getMessage().contains("<"));
