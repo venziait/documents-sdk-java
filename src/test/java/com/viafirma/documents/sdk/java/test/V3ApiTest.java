@@ -57,17 +57,17 @@ public class V3ApiTest {
     private static final String TEMPLATE_CODE = "301_example";
     private static final TemplateTypeEnum TEMPLATE_TYPE = TemplateTypeEnum.docx;
 
-    private static final String USER_CODE = "user";
-    private static final String USER_PASSWORD = "12345";
-    private static final String DEVICE_CODE = "ipad-user";
+    private static final String USER_CODE = "test";
+    private static final String USER_PASSWORD = "123456";
+    private static final String DEVICE_CODE = "ipad-test";
 
     private static final OAuthType OAUTH_TYPE = OAuthType.OAUTH_APPLICATION;
     private static final String API_URL = "http://localhost:7080/documents/api";
-    private static final String CONSUMER_KEY = "com.viafirma.mobile.services.crm";
-    private static final String CONSUMER_SECRET = "XXXXXXXX";
+    private static final String CONSUMER_KEY = "com.viafirma.mobile.services";
+    private static final String CONSUMER_SECRET = "XXXXXXXXX";
     private static final String AUTH_MODE = "client_auth";
 
-    private static final String MESSAGE_SIGNED_CODE = "XXXXXXXXXX";
+    private static final String MESSAGE_SIGNED_CODE = "XXXXXXXXXXX";
 
     @BeforeClass
     public static void setupOnce() {
@@ -538,9 +538,9 @@ public class V3ApiTest {
         try {
 
             String messageCode = sendMessage();
-            
             Assert.assertNotNull(messageCode);
-
+            Thread.sleep(10000);
+            
             //BEGIN-SNIPPET: api_v3_reject_message
             String comment = "Reject message in JUnit test";
             Message rejected = V3messagesApi.getInstance().rejectMessageByCode(messageCode, comment);
@@ -549,6 +549,8 @@ public class V3ApiTest {
             //END-SNIPPET
         } catch (ApiException e) {
             Assert.assertNotNull(testApiException(e));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         } 
     }
     
