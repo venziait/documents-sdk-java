@@ -19,7 +19,7 @@ public class Document  {
   private String signedID = null;
   private String signedReference = null;
   public enum TemplateTypeEnum {
-     docx,  odt,  url,  pdf, 
+     docx,  odt,  url,  pdf,   cache, 
   };
   private TemplateTypeEnum templateType = null;
   private Boolean formRequired = null;

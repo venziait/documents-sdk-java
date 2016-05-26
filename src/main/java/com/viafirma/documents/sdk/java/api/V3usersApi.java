@@ -7,8 +7,7 @@ import com.viafirma.documents.sdk.java.model.*;
 
 import java.util.*;
 
-import com.viafirma.documents.sdk.java.model.Document;
-import com.viafirma.documents.sdk.java.model.Download;
+import com.viafirma.documents.sdk.java.model.User;
 
 import com.sun.jersey.multipart.FormDataMultiPart;
 
@@ -18,22 +17,22 @@ import java.io.File;
 import java.util.Map;
 import java.util.HashMap;
 
-public class V3templateApi {
+public class V3usersApi {
 
-  private static final V3templateApi INSTANCE = new V3templateApi();
-  private V3templateApi(){}
-  public static V3templateApi getInstance() {
+  private static final V3usersApi INSTANCE = new V3usersApi();
+  private V3usersApi(){}
+  public static V3usersApi getInstance() {
     return INSTANCE;
   }
   
   
     
-  public Download generatePdf (Document body) throws ApiException {
+  public User registerUser (User body) throws ApiException {
     Object postBody = body;
     
 
     // create path and map variables
-    String path = "/v3/template/pdf".replaceAll("\\{format\\}","json");
+    String path = "/v3/users".replaceAll("\\{format\\}","json");
 
     // query params
     Map<String, String> queryParams = new HashMap<String, String>();
@@ -62,7 +61,7 @@ public class V3templateApi {
     try {
       String response = ApiInvoker.getInstance().invokeAPI(path, "POST", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (Download) ApiInvoker.deserialize(response, "", Download.class);
+        return (User) ApiInvoker.deserialize(response, "", User.class);
       }
       else {
         return null;

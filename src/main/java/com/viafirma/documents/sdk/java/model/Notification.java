@@ -1,7 +1,7 @@
 package com.viafirma.documents.sdk.java.model;
 
-import com.viafirma.documents.sdk.java.model.Param;
 import com.viafirma.documents.sdk.java.model.Device;
+import com.viafirma.documents.sdk.java.model.Param;
 import java.util.*;
 
 import com.wordnik.swagger.annotations.*;
@@ -17,7 +17,7 @@ public class Notification  {
   private String detail = null;
   private String sound = null;
   public enum StatusEnum {
-     DISPATCHED,  DISPOSED,  READ,  RECEIVED,  COMPLETED,  REJECTED,  EXPIRED, 
+     DISPATCHED,  DISPOSED,  READ,  RECEIVED,  COMPLETED,  REJECTED,  EXPIRED,  WAITING, 
   };
   private StatusEnum status = null;
   private String location = null;
