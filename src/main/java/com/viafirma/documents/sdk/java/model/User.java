@@ -16,10 +16,14 @@ public class User  {
   private String surname = null;
   private String rol = null;
   private String description = null;
+  private String viafirmaKey = null;
+  private String viafirmaPassword = null;
+  private String viafirmaCertificate = null;
   private String region = null;
   private String pos = null;
   private String confirmToken = null;
   private String changePassToken = null;
+  private Boolean logDevice = null;
   private String mobile = null;
   private String channel = null;
 
@@ -123,6 +127,42 @@ public class User  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
+  @JsonProperty("viafirmaKey")
+  public String getViafirmaKey() {
+    return viafirmaKey;
+  }
+  public void setViafirmaKey(String viafirmaKey) {
+    this.viafirmaKey = viafirmaKey;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("viafirmaPassword")
+  public String getViafirmaPassword() {
+    return viafirmaPassword;
+  }
+  public void setViafirmaPassword(String viafirmaPassword) {
+    this.viafirmaPassword = viafirmaPassword;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("viafirmaCertificate")
+  public String getViafirmaCertificate() {
+    return viafirmaCertificate;
+  }
+  public void setViafirmaCertificate(String viafirmaCertificate) {
+    this.viafirmaCertificate = viafirmaCertificate;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("region")
   public String getRegion() {
     return region;
@@ -171,6 +211,18 @@ public class User  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
+  @JsonProperty("logDevice")
+  public Boolean getLogDevice() {
+    return logDevice;
+  }
+  public void setLogDevice(Boolean logDevice) {
+    this.logDevice = logDevice;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("mobile")
   public String getMobile() {
     return mobile;
@@ -206,10 +258,14 @@ public class User  {
     sb.append("  surname: ").append(surname).append("\n");
     sb.append("  rol: ").append(rol).append("\n");
     sb.append("  description: ").append(description).append("\n");
+    sb.append("  viafirmaKey: ").append(viafirmaKey).append("\n");
+    sb.append("  viafirmaPassword: ").append(viafirmaPassword).append("\n");
+    sb.append("  viafirmaCertificate: ").append(viafirmaCertificate).append("\n");
     sb.append("  region: ").append(region).append("\n");
     sb.append("  pos: ").append(pos).append("\n");
     sb.append("  confirmToken: ").append(confirmToken).append("\n");
     sb.append("  changePassToken: ").append(changePassToken).append("\n");
+    sb.append("  logDevice: ").append(logDevice).append("\n");
     sb.append("  mobile: ").append(mobile).append("\n");
     sb.append("  channel: ").append(channel).append("\n");
     sb.append("}\n");

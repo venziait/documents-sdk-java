@@ -16,6 +16,10 @@ public class Template  {
   private Date creationDate = null;
   private Form form = null;
   private String version = null;
+  public enum TypeEnum {
+     docx,  odt,  url,  pdf,  cache, 
+  };
+  private TypeEnum type = null;
 
   
   /**
@@ -90,6 +94,18 @@ public class Template  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty("type")
+  public TypeEnum getType() {
+    return type;
+  }
+  public void setType(TypeEnum type) {
+    this.type = type;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -102,6 +118,7 @@ public class Template  {
     sb.append("  creationDate: ").append(creationDate).append("\n");
     sb.append("  form: ").append(form).append("\n");
     sb.append("  version: ").append(version).append("\n");
+    sb.append("  type: ").append(type).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

@@ -2,6 +2,7 @@ package com.viafirma.documents.sdk.java.model;
 
 import com.viafirma.documents.sdk.java.model.Item;
 import java.util.*;
+import com.viafirma.documents.sdk.java.model.Font;
 
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -19,12 +20,13 @@ public class Document  {
   private String signedID = null;
   private String signedReference = null;
   public enum TemplateTypeEnum {
-     docx,  odt,  url,  pdf,   cache, 
+     docx,  odt,  url,  pdf,  cache, 
   };
   private TemplateTypeEnum templateType = null;
   private Boolean formRequired = null;
   private Boolean formDisabled = null;
   private List<Item> items = new ArrayList<Item>() ;
+  private Font font = null;
 
   
   /**
@@ -171,6 +173,18 @@ public class Document  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("font")
+  public Font getFont() {
+    return font;
+  }
+  public void setFont(Font font) {
+    this.font = font;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -189,6 +203,7 @@ public class Document  {
     sb.append("  formRequired: ").append(formRequired).append("\n");
     sb.append("  formDisabled: ").append(formDisabled).append("\n");
     sb.append("  items: ").append(items).append("\n");
+    sb.append("  font: ").append(font).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

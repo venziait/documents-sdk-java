@@ -2,6 +2,7 @@ package com.viafirma.documents.sdk.java.model;
 
 import com.viafirma.documents.sdk.java.model.Policy;
 import java.util.*;
+import com.viafirma.documents.sdk.java.model.Font;
 
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -20,6 +21,7 @@ public class Setting  {
   private List<String> callbackMailsFormKeys = new ArrayList<String>() ;
   private String validateCode = null;
   private String workflow = null;
+  private Font font = null;
 
   
   /**
@@ -142,6 +144,18 @@ public class Setting  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("font")
+  public Font getFont() {
+    return font;
+  }
+  public void setFont(Font font) {
+    this.font = font;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -158,6 +172,7 @@ public class Setting  {
     sb.append("  callbackMailsFormKeys: ").append(callbackMailsFormKeys).append("\n");
     sb.append("  validateCode: ").append(validateCode).append("\n");
     sb.append("  workflow: ").append(workflow).append("\n");
+    sb.append("  font: ").append(font).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

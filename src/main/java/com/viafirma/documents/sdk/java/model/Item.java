@@ -26,6 +26,8 @@ public class Item  {
   private String match = null;
   private String update = null;
   private Boolean disabled = null;
+  private Boolean hidden = null;
+  private Boolean random = null;
   private List<String> values = new ArrayList<String>() ;
   private String height = null;
   private String format = null;
@@ -243,6 +245,30 @@ public class Item  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
+  @JsonProperty("hidden")
+  public Boolean getHidden() {
+    return hidden;
+  }
+  public void setHidden(Boolean hidden) {
+    this.hidden = hidden;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("random")
+  public Boolean getRandom() {
+    return random;
+  }
+  public void setRandom(Boolean random) {
+    this.random = random;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("values")
   public List<String> getValues() {
     return values;
@@ -359,6 +385,8 @@ public class Item  {
     sb.append("  match: ").append(match).append("\n");
     sb.append("  update: ").append(update).append("\n");
     sb.append("  disabled: ").append(disabled).append("\n");
+    sb.append("  hidden: ").append(hidden).append("\n");
+    sb.append("  random: ").append(random).append("\n");
     sb.append("  values: ").append(values).append("\n");
     sb.append("  height: ").append(height).append("\n");
     sb.append("  format: ").append(format).append("\n");

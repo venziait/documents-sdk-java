@@ -1,18 +1,15 @@
 package com.viafirma.documents.sdk.java.model;
 
-import java.util.*;
-import com.viafirma.documents.sdk.java.model.Row;
 
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 @ApiModel(description = "")
-public class Container  {
+public class Font  {
   
   private String name = null;
-  private String title = null;
-  private List<Row> rows = new ArrayList<Row>() ;
+  private Integer size = null;
 
   
   /**
@@ -30,24 +27,12 @@ public class Container  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
-  @JsonProperty("title")
-  public String getTitle() {
-    return title;
+  @JsonProperty("size")
+  public Integer getSize() {
+    return size;
   }
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  
-  /**
-   **/
-  @ApiModelProperty(required = false, value = "")
-  @JsonProperty("rows")
-  public List<Row> getRows() {
-    return rows;
-  }
-  public void setRows(List<Row> rows) {
-    this.rows = rows;
+  public void setSize(Integer size) {
+    this.size = size;
   }
 
   
@@ -55,11 +40,10 @@ public class Container  {
   @Override
   public String toString()  {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Container {\n");
+    sb.append("class Font {\n");
     
     sb.append("  name: ").append(name).append("\n");
-    sb.append("  title: ").append(title).append("\n");
-    sb.append("  rows: ").append(rows).append("\n");
+    sb.append("  size: ").append(size).append("\n");
     sb.append("}\n");
     return sb.toString();
   }
