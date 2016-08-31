@@ -23,7 +23,6 @@ public class User  {
   private String pos = null;
   private String confirmToken = null;
   private String changePassToken = null;
-  private Boolean logDevice = null;
   private String mobile = null;
   private String channel = null;
 
@@ -211,18 +210,6 @@ public class User  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
-  @JsonProperty("logDevice")
-  public Boolean getLogDevice() {
-    return logDevice;
-  }
-  public void setLogDevice(Boolean logDevice) {
-    this.logDevice = logDevice;
-  }
-
-  
-  /**
-   **/
-  @ApiModelProperty(required = false, value = "")
   @JsonProperty("mobile")
   public String getMobile() {
     return mobile;
@@ -265,7 +252,6 @@ public class User  {
     sb.append("  pos: ").append(pos).append("\n");
     sb.append("  confirmToken: ").append(confirmToken).append("\n");
     sb.append("  changePassToken: ").append(changePassToken).append("\n");
-    sb.append("  logDevice: ").append(logDevice).append("\n");
     sb.append("  mobile: ").append(mobile).append("\n");
     sb.append("  channel: ").append(channel).append("\n");
     sb.append("}\n");
