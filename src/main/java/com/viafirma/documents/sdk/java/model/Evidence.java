@@ -1,7 +1,10 @@
 package com.viafirma.documents.sdk.java.model;
 
+import com.viafirma.documents.sdk.java.model.EvidenceSignature;
 import com.viafirma.documents.sdk.java.model.Position;
+import com.viafirma.documents.sdk.java.model.EvidenceImage;
 import java.util.*;
+import com.viafirma.documents.sdk.java.model.EvidenceFingerPrint;
 
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -33,6 +36,12 @@ public class Evidence  {
   private String certificatePassword = null;
   private String metadataCipherPublicKey = null;
   private String encryptionKeyAlias = null;
+  private EvidenceSignature signatureData = null;
+  private EvidenceFingerPrint fingerPrintData = null;
+  private EvidenceImage imageData = null;
+  private String positionsKey = null;
+  private Integer stampsMin = null;
+  private String stampsPolicy = null;
 
   
   /**
@@ -239,6 +248,78 @@ public class Evidence  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("signatureData")
+  public EvidenceSignature getSignatureData() {
+    return signatureData;
+  }
+  public void setSignatureData(EvidenceSignature signatureData) {
+    this.signatureData = signatureData;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("fingerPrintData")
+  public EvidenceFingerPrint getFingerPrintData() {
+    return fingerPrintData;
+  }
+  public void setFingerPrintData(EvidenceFingerPrint fingerPrintData) {
+    this.fingerPrintData = fingerPrintData;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("imageData")
+  public EvidenceImage getImageData() {
+    return imageData;
+  }
+  public void setImageData(EvidenceImage imageData) {
+    this.imageData = imageData;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("positionsKey")
+  public String getPositionsKey() {
+    return positionsKey;
+  }
+  public void setPositionsKey(String positionsKey) {
+    this.positionsKey = positionsKey;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("stampsMin")
+  public Integer getStampsMin() {
+    return stampsMin;
+  }
+  public void setStampsMin(Integer stampsMin) {
+    this.stampsMin = stampsMin;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("stampsPolicy")
+  public String getStampsPolicy() {
+    return stampsPolicy;
+  }
+  public void setStampsPolicy(String stampsPolicy) {
+    this.stampsPolicy = stampsPolicy;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -262,6 +343,12 @@ public class Evidence  {
     sb.append("  certificatePassword: ").append(certificatePassword).append("\n");
     sb.append("  metadataCipherPublicKey: ").append(metadataCipherPublicKey).append("\n");
     sb.append("  encryptionKeyAlias: ").append(encryptionKeyAlias).append("\n");
+    sb.append("  signatureData: ").append(signatureData).append("\n");
+    sb.append("  fingerPrintData: ").append(fingerPrintData).append("\n");
+    sb.append("  imageData: ").append(imageData).append("\n");
+    sb.append("  positionsKey: ").append(positionsKey).append("\n");
+    sb.append("  stampsMin: ").append(stampsMin).append("\n");
+    sb.append("  stampsPolicy: ").append(stampsPolicy).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

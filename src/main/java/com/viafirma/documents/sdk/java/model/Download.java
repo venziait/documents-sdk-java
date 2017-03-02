@@ -13,6 +13,7 @@ public class Download  {
   private String md5 = null;
   private String fileName = null;
   private Date expires = null;
+  private String base64 = null;
 
   
   /**
@@ -63,6 +64,18 @@ public class Download  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("base64")
+  public String getBase64() {
+    return base64;
+  }
+  public void setBase64(String base64) {
+    this.base64 = base64;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -73,6 +86,7 @@ public class Download  {
     sb.append("  md5: ").append(md5).append("\n");
     sb.append("  fileName: ").append(fileName).append("\n");
     sb.append("  expires: ").append(expires).append("\n");
+    sb.append("  base64: ").append(base64).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

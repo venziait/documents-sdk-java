@@ -26,6 +26,7 @@ public class Signature  {
   private TypeFormatSignEnum typeFormatSign = null;
   private String dataToSign = null;
   private String idSign = null;
+  private Boolean custodyDisabled = null;
 
   
   /**
@@ -136,6 +137,18 @@ public class Signature  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("custodyDisabled")
+  public Boolean getCustodyDisabled() {
+    return custodyDisabled;
+  }
+  public void setCustodyDisabled(Boolean custodyDisabled) {
+    this.custodyDisabled = custodyDisabled;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -151,6 +164,7 @@ public class Signature  {
     sb.append("  typeFormatSign: ").append(typeFormatSign).append("\n");
     sb.append("  dataToSign: ").append(dataToSign).append("\n");
     sb.append("  idSign: ").append(idSign).append("\n");
+    sb.append("  custodyDisabled: ").append(custodyDisabled).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

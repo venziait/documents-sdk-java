@@ -1,8 +1,8 @@
 package com.viafirma.documents.sdk.java.model;
 
 import com.viafirma.documents.sdk.java.model.Item;
-import java.util.*;
 import com.viafirma.documents.sdk.java.model.Font;
+import java.util.*;
 
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -20,7 +20,7 @@ public class Document  {
   private String signedID = null;
   private String signedReference = null;
   public enum TemplateTypeEnum {
-     docx,  odt,  url,  pdf,  cache, 
+     docx,  odt,  url,  pdf,  cache,  base64, 
   };
   private TemplateTypeEnum templateType = null;
   private Boolean formRequired = null;
