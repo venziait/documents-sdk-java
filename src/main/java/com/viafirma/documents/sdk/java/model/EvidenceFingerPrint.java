@@ -1,9 +1,9 @@
 package com.viafirma.documents.sdk.java.model;
 
-import com.viafirma.documents.sdk.java.model.EvidenceDevice;
-import com.viafirma.documents.sdk.java.model.Position;
-import java.util.*;
 import com.viafirma.documents.sdk.java.model.Geolocation;
+import com.viafirma.documents.sdk.java.model.Position;
+import com.viafirma.documents.sdk.java.model.EvidenceDevice;
+import java.util.*;
 
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
