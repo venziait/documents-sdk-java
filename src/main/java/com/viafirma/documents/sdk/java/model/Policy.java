@@ -1,5 +1,6 @@
 package com.viafirma.documents.sdk.java.model;
 
+import com.viafirma.documents.sdk.java.model.Check;
 import com.viafirma.documents.sdk.java.model.Param;
 import com.viafirma.documents.sdk.java.model.ErrorResponse;
 import com.viafirma.documents.sdk.java.model.Evidence;
@@ -32,6 +33,7 @@ public class Policy  {
   private List<Evidence> evidences = new ArrayList<Evidence>() ;
   private List<Signature> signatures = new ArrayList<Signature>() ;
   private ErrorResponse error = null;
+  private List<Check> checklist = new ArrayList<Check>() ;
 
   
   /**
@@ -190,6 +192,19 @@ public class Policy  {
   }
 
   
+  /**
+   * (since 3.4.0) checklist actions
+   **/
+  @ApiModelProperty(required = false, value = "(since 3.4.0) checklist actions")
+  @JsonProperty("checklist")
+  public List<Check> getChecklist() {
+    return checklist;
+  }
+  public void setChecklist(List<Check> checklist) {
+    this.checklist = checklist;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -209,6 +224,7 @@ public class Policy  {
     sb.append("  evidences: ").append(evidences).append("\n");
     sb.append("  signatures: ").append(signatures).append("\n");
     sb.append("  error: ").append(error).append("\n");
+    sb.append("  checklist: ").append(checklist).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

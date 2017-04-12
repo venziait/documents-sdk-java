@@ -18,6 +18,7 @@ public class EvidenceDevice  {
   private Boolean rotationAllowed = null;
   private Integer screenHeight = null;
   private Integer screenWidth = null;
+  private String app = null;
 
   
   /**
@@ -140,6 +141,18 @@ public class EvidenceDevice  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("app")
+  public String getApp() {
+    return app;
+  }
+  public void setApp(String app) {
+    this.app = app;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -156,6 +169,7 @@ public class EvidenceDevice  {
     sb.append("  rotationAllowed: ").append(rotationAllowed).append("\n");
     sb.append("  screenHeight: ").append(screenHeight).append("\n");
     sb.append("  screenWidth: ").append(screenWidth).append("\n");
+    sb.append("  app: ").append(app).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

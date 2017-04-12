@@ -36,6 +36,7 @@ public class Evidence  {
   private String certificatePassword = null;
   private String metadataCipherPublicKey = null;
   private String encryptionKeyAlias = null;
+  private Boolean optional = null;
   private EvidenceSignature signatureData = null;
   private EvidenceFingerPrint fingerPrintData = null;
   private EvidenceImage imageData = null;
@@ -251,6 +252,18 @@ public class Evidence  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
+  @JsonProperty("optional")
+  public Boolean getOptional() {
+    return optional;
+  }
+  public void setOptional(Boolean optional) {
+    this.optional = optional;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("signatureData")
   public EvidenceSignature getSignatureData() {
     return signatureData;
@@ -343,6 +356,7 @@ public class Evidence  {
     sb.append("  certificatePassword: ").append(certificatePassword).append("\n");
     sb.append("  metadataCipherPublicKey: ").append(metadataCipherPublicKey).append("\n");
     sb.append("  encryptionKeyAlias: ").append(encryptionKeyAlias).append("\n");
+    sb.append("  optional: ").append(optional).append("\n");
     sb.append("  signatureData: ").append(signatureData).append("\n");
     sb.append("  fingerPrintData: ").append(fingerPrintData).append("\n");
     sb.append("  imageData: ").append(imageData).append("\n");

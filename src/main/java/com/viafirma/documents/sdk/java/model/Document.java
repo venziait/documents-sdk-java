@@ -26,6 +26,7 @@ public class Document  {
   private Boolean formRequired = null;
   private Boolean formDisabled = null;
   private List<Item> items = new ArrayList<Item>() ;
+  private Boolean pdfaCompliant = null;
   private Font font = null;
 
   
@@ -174,6 +175,19 @@ public class Document  {
 
   
   /**
+   * generate pdf compliant with PDF/A-3A ISO 19005-3
+   **/
+  @ApiModelProperty(required = false, value = "generate pdf compliant with PDF/A-3A ISO 19005-3")
+  @JsonProperty("pdfaCompliant")
+  public Boolean getPdfaCompliant() {
+    return pdfaCompliant;
+  }
+  public void setPdfaCompliant(Boolean pdfaCompliant) {
+    this.pdfaCompliant = pdfaCompliant;
+  }
+
+  
+  /**
    **/
   @ApiModelProperty(required = false, value = "")
   @JsonProperty("font")
@@ -203,6 +217,7 @@ public class Document  {
     sb.append("  formRequired: ").append(formRequired).append("\n");
     sb.append("  formDisabled: ").append(formDisabled).append("\n");
     sb.append("  items: ").append(items).append("\n");
+    sb.append("  pdfaCompliant: ").append(pdfaCompliant).append("\n");
     sb.append("  font: ").append(font).append("\n");
     sb.append("}\n");
     return sb.toString();

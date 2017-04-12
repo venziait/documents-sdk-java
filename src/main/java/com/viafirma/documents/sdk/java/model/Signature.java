@@ -1,5 +1,7 @@
 package com.viafirma.documents.sdk.java.model;
 
+import java.util.*;
+import com.viafirma.documents.sdk.java.model.Stamper;
 
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -14,7 +16,7 @@ public class Signature  {
   private TypeEnum type = null;
   private String code = null;
   public enum StatusEnum {
-     PENDING,  SIGNED, 
+     PENDING,  RECEIVED,  SIGNED, 
   };
   private StatusEnum status = null;
   private String helpText = null;
@@ -27,6 +29,11 @@ public class Signature  {
   private String dataToSign = null;
   private String idSign = null;
   private Boolean custodyDisabled = null;
+  private List<Stamper> stampers = new ArrayList<Stamper>() ;
+  public enum CertificationLevelEnum {
+     NOT_CERTIFIED,  CERTIFIED_NO_CHANGES_ALLOWED,  CERTIFIED_FORM_FILLING,  CERTIFIED_FORM_FILLING_AND_ANNOTATIONS, 
+  };
+  private CertificationLevelEnum certificationLevel = null;
 
   
   /**
@@ -149,6 +156,30 @@ public class Signature  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("stampers")
+  public List<Stamper> getStampers() {
+    return stampers;
+  }
+  public void setStampers(List<Stamper> stampers) {
+    this.stampers = stampers;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("certificationLevel")
+  public CertificationLevelEnum getCertificationLevel() {
+    return certificationLevel;
+  }
+  public void setCertificationLevel(CertificationLevelEnum certificationLevel) {
+    this.certificationLevel = certificationLevel;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -165,6 +196,8 @@ public class Signature  {
     sb.append("  dataToSign: ").append(dataToSign).append("\n");
     sb.append("  idSign: ").append(idSign).append("\n");
     sb.append("  custodyDisabled: ").append(custodyDisabled).append("\n");
+    sb.append("  stampers: ").append(stampers).append("\n");
+    sb.append("  certificationLevel: ").append(certificationLevel).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

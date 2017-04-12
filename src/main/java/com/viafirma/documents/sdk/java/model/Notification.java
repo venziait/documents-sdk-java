@@ -1,5 +1,6 @@
 package com.viafirma.documents.sdk.java.model;
 
+import com.viafirma.documents.sdk.java.model.SharedLink;
 import com.viafirma.documents.sdk.java.model.Param;
 import com.viafirma.documents.sdk.java.model.Device;
 import java.util.*;
@@ -21,6 +22,7 @@ public class Notification  {
   };
   private StatusEnum status = null;
   private String location = null;
+  private SharedLink sharedLink = null;
   private List<Param> metadata = new ArrayList<Param>() ;
   private List<Device> devices = new ArrayList<Device>() ;
 
@@ -112,6 +114,18 @@ public class Notification  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
+  @JsonProperty("sharedLink")
+  public SharedLink getSharedLink() {
+    return sharedLink;
+  }
+  public void setSharedLink(SharedLink sharedLink) {
+    this.sharedLink = sharedLink;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("metadata")
   public List<Param> getMetadata() {
     return metadata;
@@ -146,6 +160,7 @@ public class Notification  {
     sb.append("  sound: ").append(sound).append("\n");
     sb.append("  status: ").append(status).append("\n");
     sb.append("  location: ").append(location).append("\n");
+    sb.append("  sharedLink: ").append(sharedLink).append("\n");
     sb.append("  metadata: ").append(metadata).append("\n");
     sb.append("  devices: ").append(devices).append("\n");
     sb.append("}\n");
