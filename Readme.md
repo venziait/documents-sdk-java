@@ -1,5 +1,5 @@
-Documents SDK Java
-==========
+viafirma documents (SDK Java)
+=============================
 
 SDK generada para facilitar la integración con los servicios rest desde aplicaciones java.
 
