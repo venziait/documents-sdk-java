@@ -18,6 +18,7 @@ public class Workflow  {
   private Date initiate = null;
   private Date lastUpdated = null;
   private Date expires = null;
+  private String type = null;
 
   
   /**
@@ -104,6 +105,18 @@ public class Workflow  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("type")
+  public String getType() {
+    return type;
+  }
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -117,6 +130,7 @@ public class Workflow  {
     sb.append("  initiate: ").append(initiate).append("\n");
     sb.append("  lastUpdated: ").append(lastUpdated).append("\n");
     sb.append("  expires: ").append(expires).append("\n");
+    sb.append("  type: ").append(type).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

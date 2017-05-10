@@ -43,6 +43,7 @@ public class Evidence  {
   private String positionsKey = null;
   private Integer stampsMin = null;
   private String stampsPolicy = null;
+  private List<String> stylus = new ArrayList<String>() ;
 
   
   /**
@@ -333,6 +334,18 @@ public class Evidence  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty("stylus")
+  public List<String> getStylus() {
+    return stylus;
+  }
+  public void setStylus(List<String> stylus) {
+    this.stylus = stylus;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -363,6 +376,7 @@ public class Evidence  {
     sb.append("  positionsKey: ").append(positionsKey).append("\n");
     sb.append("  stampsMin: ").append(stampsMin).append("\n");
     sb.append("  stampsPolicy: ").append(stampsPolicy).append("\n");
+    sb.append("  stylus: ").append(stylus).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

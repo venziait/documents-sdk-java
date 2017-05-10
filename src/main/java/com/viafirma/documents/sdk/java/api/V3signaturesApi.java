@@ -7,7 +7,9 @@ import com.viafirma.documents.sdk.java.model.*;
 
 import java.util.*;
 
-import com.viafirma.documents.sdk.java.model.Device;
+import com.viafirma.documents.sdk.java.model.Policy;
+import com.viafirma.documents.sdk.java.model.EvidenceSignature;
+import com.viafirma.documents.sdk.java.model.Signature;
 
 import com.sun.jersey.multipart.FormDataMultiPart;
 
@@ -17,22 +19,22 @@ import java.io.File;
 import java.util.Map;
 import java.util.HashMap;
 
-public class V3devicesApi {
+public class V3signaturesApi {
 
-  private static final V3devicesApi INSTANCE = new V3devicesApi();
-  private V3devicesApi(){}
-  public static V3devicesApi getInstance() {
+  private static final V3signaturesApi INSTANCE = new V3signaturesApi();
+  private V3signaturesApi(){}
+  public static V3signaturesApi getInstance() {
     return INSTANCE;
   }
   
   
     
-  public Device registerDevice (Device body) throws ApiException {
+  public Policy addDigitalizedSignature (EvidenceSignature body) throws ApiException {
     Object postBody = body;
     
 
     // create path and map variables
-    String path = "/v3/devices".replaceAll("\\{format\\}","json");
+    String path = "/v3/signatures/digitalized".replaceAll("\\{format\\}","json");
 
     // query params
     Map<String, String> queryParams = new HashMap<String, String>();
@@ -61,7 +63,7 @@ public class V3devicesApi {
     try {
       String response = ApiInvoker.getInstance().invokeAPI(path, "POST", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (Device) ApiInvoker.deserialize(response, "", Device.class);
+        return (Policy) ApiInvoker.deserialize(response, "", Policy.class);
       }
       else {
         return null;
@@ -77,13 +79,12 @@ public class V3devicesApi {
   }
   
     
-  public List<Device> findDeviceByUser (String userCode) throws ApiException {
+  public Signature addServerSignature (String messageCode, String signatureCode) throws ApiException {
     Object postBody = null;
     
 
     // create path and map variables
-    String path = "/v3/devices/user/{userCode}".replaceAll("\\{format\\}","json")
-      .replaceAll("\\{" + "userCode" + "\\}", ApiInvoker.getInstance().escapeString(userCode.toString()));
+    String path = "/v3/signatures/server".replaceAll("\\{format\\}","json");
 
     // query params
     Map<String, String> queryParams = new HashMap<String, String>();
@@ -93,7 +94,7 @@ public class V3devicesApi {
     
     
     String[] contentTypes = {
-      
+      "application/x-www-form-urlencoded"
     };
 
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -102,68 +103,25 @@ public class V3devicesApi {
       boolean hasFields = false;
       FormDataMultiPart mp = new FormDataMultiPart();
       
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
+      hasFields = true;
+      mp.field("messageCode", messageCode, MediaType.MULTIPART_FORM_DATA_TYPE);
       
-    }
-
-    try {
-      String response = ApiInvoker.getInstance().invokeAPI(path, "GET", queryParams, postBody, headerParams, formParams, contentType);
-      if(response != null){
-        return (List<Device>) ApiInvoker.deserialize(response, "array", Device.class);
-      }
-      else {
-        return null;
-      }
-    } catch (ApiException ex) {
-      if(ex.getCode() == 404) {
-      	return  null;
-      }
-      else {
-        throw ex;
-      }
-    }
-  }
-  
-    
-  public Device findDeviceByIdentifier (String identifier) throws ApiException {
-    Object postBody = null;
-    
-
-    // create path and map variables
-    String path = "/v3/devices/{identifier}".replaceAll("\\{format\\}","json")
-      .replaceAll("\\{" + "identifier" + "\\}", ApiInvoker.getInstance().escapeString(identifier.toString()));
-
-    // query params
-    Map<String, String> queryParams = new HashMap<String, String>();
-    Map<String, String> headerParams = new HashMap<String, String>();
-    Map<String, String> formParams = new HashMap<String, String>();
-
-    
-    
-    String[] contentTypes = {
-      
-    };
-
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-
-    if(contentType.startsWith("multipart/form-data")) {
-      boolean hasFields = false;
-      FormDataMultiPart mp = new FormDataMultiPart();
+      hasFields = true;
+      mp.field("signatureCode", signatureCode, MediaType.MULTIPART_FORM_DATA_TYPE);
       
       if(hasFields)
         postBody = mp;
     }
     else {
+      formParams.put("messageCode", messageCode);
+      formParams.put("signatureCode", signatureCode);
       
     }
 
     try {
-      String response = ApiInvoker.getInstance().invokeAPI(path, "GET", queryParams, postBody, headerParams, formParams, contentType);
+      String response = ApiInvoker.getInstance().invokeAPI(path, "POST", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (Device) ApiInvoker.deserialize(response, "", Device.class);
+        return (Signature) ApiInvoker.deserialize(response, "", Signature.class);
       }
       else {
         return null;

@@ -19,6 +19,7 @@ public class Check  {
   private Signature signature = null;
   private String validateCode = null;
   private Date expires = null;
+  private Date date = null;
   private String commentReject = null;
 
   
@@ -101,6 +102,19 @@ public class Check  {
 
   
   /**
+   * (since 3.4.0) date on which the petition was approved or rejected
+   **/
+  @ApiModelProperty(required = false, value = "(since 3.4.0) date on which the petition was approved or rejected")
+  @JsonProperty("date")
+  public Date getDate() {
+    return date;
+  }
+  public void setDate(Date date) {
+    this.date = date;
+  }
+
+  
+  /**
    * (since 3.4.0) check rejection reason
    **/
   @ApiModelProperty(required = false, value = "(since 3.4.0) check rejection reason")
@@ -125,6 +139,7 @@ public class Check  {
     sb.append("  signature: ").append(signature).append("\n");
     sb.append("  validateCode: ").append(validateCode).append("\n");
     sb.append("  expires: ").append(expires).append("\n");
+    sb.append("  date: ").append(date).append("\n");
     sb.append("  commentReject: ").append(commentReject).append("\n");
     sb.append("}\n");
     return sb.toString();
