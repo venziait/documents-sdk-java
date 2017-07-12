@@ -5,8 +5,10 @@ import com.viafirma.documents.sdk.java.model.Position;
 import com.viafirma.documents.sdk.java.model.EvidenceDevice;
 import java.util.*;
 
+
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 
 @ApiModel(description = "")
@@ -21,6 +23,8 @@ public class EvidenceFingerPrint  {
   private Geolocation geolocation = null;
   private EvidenceDevice device = null;
   private List<Position> positions = new ArrayList<Position>() ;
+  private Integer imageQuality = null;
+  private Integer imageScaleFactor = null;
 
   
   /**
@@ -131,6 +135,30 @@ public class EvidenceFingerPrint  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("imageQuality")
+  public Integer getImageQuality() {
+    return imageQuality;
+  }
+  public void setImageQuality(Integer imageQuality) {
+    this.imageQuality = imageQuality;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("imageScaleFactor")
+  public Integer getImageScaleFactor() {
+    return imageScaleFactor;
+  }
+  public void setImageScaleFactor(Integer imageScaleFactor) {
+    this.imageScaleFactor = imageScaleFactor;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -146,7 +174,11 @@ public class EvidenceFingerPrint  {
     sb.append("  geolocation: ").append(geolocation).append("\n");
     sb.append("  device: ").append(device).append("\n");
     sb.append("  positions: ").append(positions).append("\n");
+    sb.append("  imageQuality: ").append(imageQuality).append("\n");
+    sb.append("  imageScaleFactor: ").append(imageScaleFactor).append("\n");
     sb.append("}\n");
     return sb.toString();
   }
 }
+
+

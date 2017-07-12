@@ -12,6 +12,7 @@ import com.viafirma.documents.sdk.java.model.Configuration;
 import com.viafirma.documents.sdk.java.model.InfoSystemStatus;
 import com.viafirma.documents.sdk.java.model.TaskManager;
 
+
 import com.sun.jersey.multipart.FormDataMultiPart;
 
 import javax.ws.rs.core.MediaType;
@@ -19,6 +20,7 @@ import javax.ws.rs.core.MediaType;
 import java.io.File;
 import java.util.Map;
 import java.util.HashMap;
+
 
 public class V3systemApi {
 
@@ -231,3 +233,4 @@ public class V3systemApi {
   }
   
 }
+

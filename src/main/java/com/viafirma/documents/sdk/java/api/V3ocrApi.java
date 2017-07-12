@@ -1,42 +1,85 @@
 package com.viafirma.documents.sdk.java.api;
 
-import com.viafirma.documents.sdk.java.ApiException;
-import com.viafirma.documents.sdk.java.ApiInvoker;
-
-import com.viafirma.documents.sdk.java.model.*;
-
-import java.util.*;
-
-import com.viafirma.documents.sdk.java.model.Policy;
-import com.viafirma.documents.sdk.java.model.EvidenceSignature;
-import com.viafirma.documents.sdk.java.model.Signature;
-
+import java.util.HashMap;
+import java.util.Map;
 
 import com.sun.jersey.multipart.FormDataMultiPart;
+import com.viafirma.documents.sdk.java.ApiException;
+import com.viafirma.documents.sdk.java.ApiInvoker;
+import com.viafirma.documents.sdk.java.model.OcrMaskImage;
+import com.viafirma.documents.sdk.java.model.OcrPageResult;
+import com.viafirma.documents.sdk.java.model.OcrScanImageCustom;
 
-import javax.ws.rs.core.MediaType;
 
-import java.io.File;
-import java.util.Map;
-import java.util.HashMap;
+public class V3ocrApi {
 
-
-public class V3signaturesApi {
-
-  private static final V3signaturesApi INSTANCE = new V3signaturesApi();
-  private V3signaturesApi(){}
-  public static V3signaturesApi getInstance() {
+  private static final V3ocrApi INSTANCE = new V3ocrApi();
+  private V3ocrApi(){}
+  public static V3ocrApi getInstance() {
     return INSTANCE;
   }
   
   
     
-  public Policy addDigitalizedSignature (EvidenceSignature body) throws ApiException {
+  public OcrMaskImage mask (String template, String width, String height) throws ApiException {
+    Object postBody = null;
+    
+
+    // create path and map variables
+    String path = "/v3/ocr/mask/{template}/{width}/{height}".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "template" + "\\}", ApiInvoker.getInstance().escapeString(template.toString()))
+      .replaceAll("\\{" + "width" + "\\}", ApiInvoker.getInstance().escapeString(width.toString()))
+      .replaceAll("\\{" + "height" + "\\}", ApiInvoker.getInstance().escapeString(height.toString()));
+
+    // query params
+    Map<String, String> queryParams = new HashMap<String, String>();
+    Map<String, String> headerParams = new HashMap<String, String>();
+    Map<String, String> formParams = new HashMap<String, String>();
+
+    
+    
+    String[] contentTypes = {
+      
+    };
+
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if(contentType.startsWith("multipart/form-data")) {
+      boolean hasFields = false;
+      FormDataMultiPart mp = new FormDataMultiPart();
+      
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+      
+    }
+
+    try {
+      String response = ApiInvoker.getInstance().invokeAPI(path, "GET", queryParams, postBody, headerParams, formParams, contentType);
+      if(response != null){
+        return (OcrMaskImage) ApiInvoker.deserialize(response, "", OcrMaskImage.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      if(ex.getCode() == 404) {
+      	return  null;
+      }
+      else {
+        throw ex;
+      }
+    }
+  }
+  
+    
+  public OcrPageResult parse (OcrScanImageCustom body) throws ApiException {
     Object postBody = body;
     
 
     // create path and map variables
-    String path = "/v3/signatures/digitalized".replaceAll("\\{format\\}","json");
+    String path = "/v3/ocr/parse".replaceAll("\\{format\\}","json");
 
     // query params
     Map<String, String> queryParams = new HashMap<String, String>();
@@ -65,65 +108,7 @@ public class V3signaturesApi {
     try {
       String response = ApiInvoker.getInstance().invokeAPI(path, "POST", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (Policy) ApiInvoker.deserialize(response, "", Policy.class);
-      }
-      else {
-        return null;
-      }
-    } catch (ApiException ex) {
-      if(ex.getCode() == 404) {
-      	return  null;
-      }
-      else {
-        throw ex;
-      }
-    }
-  }
-  
-    
-  public Signature addServerSignature (String messageCode, String signatureCode) throws ApiException {
-    Object postBody = null;
-    
-
-    // create path and map variables
-    String path = "/v3/signatures/server".replaceAll("\\{format\\}","json");
-
-    // query params
-    Map<String, String> queryParams = new HashMap<String, String>();
-    Map<String, String> headerParams = new HashMap<String, String>();
-    Map<String, String> formParams = new HashMap<String, String>();
-
-    
-    
-    String[] contentTypes = {
-      "application/x-www-form-urlencoded"
-    };
-
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-
-    if(contentType.startsWith("multipart/form-data")) {
-      boolean hasFields = false;
-      FormDataMultiPart mp = new FormDataMultiPart();
-      
-      hasFields = true;
-      mp.field("messageCode", messageCode, MediaType.MULTIPART_FORM_DATA_TYPE);
-      
-      hasFields = true;
-      mp.field("signatureCode", signatureCode, MediaType.MULTIPART_FORM_DATA_TYPE);
-      
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-      formParams.put("messageCode", messageCode);
-      formParams.put("signatureCode", signatureCode);
-      
-    }
-
-    try {
-      String response = ApiInvoker.getInstance().invokeAPI(path, "POST", queryParams, postBody, headerParams, formParams, contentType);
-      if(response != null){
-        return (Signature) ApiInvoker.deserialize(response, "", Signature.class);
+        return (OcrPageResult) ApiInvoker.deserialize(response, "", OcrPageResult.class);
       }
       else {
         return null;

@@ -3,8 +3,10 @@ package com.viafirma.documents.sdk.java.model;
 import com.viafirma.documents.sdk.java.model.Stamper;
 import java.util.*;
 
+
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 
 @ApiModel(description = "")
@@ -202,3 +204,5 @@ public class Signature  {
     return sb.toString();
   }
 }
+
+

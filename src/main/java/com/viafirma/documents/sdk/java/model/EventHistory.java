@@ -3,8 +3,10 @@ package com.viafirma.documents.sdk.java.model;
 import java.util.Date;
 import com.viafirma.documents.sdk.java.model.ErrorResponse;
 
+
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 
 @ApiModel(description = "")
@@ -92,3 +94,5 @@ public class EventHistory  {
     return sb.toString();
   }
 }
+
+

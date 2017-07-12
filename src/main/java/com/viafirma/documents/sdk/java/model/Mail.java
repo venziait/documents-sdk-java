@@ -2,8 +2,10 @@ package com.viafirma.documents.sdk.java.model;
 
 import com.viafirma.documents.sdk.java.model.MailConfig;
 
+
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 
 @ApiModel(description = "")
@@ -133,3 +135,5 @@ public class Mail  {
     return sb.toString();
   }
 }
+
+

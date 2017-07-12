@@ -9,6 +9,7 @@ import java.util.*;
 
 import com.viafirma.documents.sdk.java.model.Notification;
 
+
 import com.sun.jersey.multipart.FormDataMultiPart;
 
 import javax.ws.rs.core.MediaType;
@@ -16,6 +17,7 @@ import javax.ws.rs.core.MediaType;
 import java.io.File;
 import java.util.Map;
 import java.util.HashMap;
+
 
 public class V3notificationsApi {
 
@@ -509,3 +511,4 @@ public class V3notificationsApi {
   }
   
 }
+

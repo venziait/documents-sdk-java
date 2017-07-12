@@ -1,13 +1,16 @@
 package com.viafirma.documents.sdk.java.model;
 
+import com.viafirma.documents.sdk.java.model.Geolocation;
 import com.viafirma.documents.sdk.java.model.Position;
 import com.viafirma.documents.sdk.java.model.EvidenceSignature;
 import com.viafirma.documents.sdk.java.model.EvidenceFingerPrint;
 import java.util.*;
 import com.viafirma.documents.sdk.java.model.EvidenceImage;
 
+
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 
 @ApiModel(description = "")
@@ -44,6 +47,10 @@ public class Evidence  {
   private Integer stampsMin = null;
   private String stampsPolicy = null;
   private List<String> stylus = new ArrayList<String>() ;
+  private Geolocation geolocation = null;
+  private Integer imageQuality = null;
+  private Integer imageScaleFactor = null;
+  private String wacomURL = null;
 
   
   /**
@@ -346,6 +353,58 @@ public class Evidence  {
   }
 
   
+  /**
+   * (since 3.5.0, internal) geolocation info
+   **/
+  @ApiModelProperty(required = false, value = "(since 3.5.0, internal) geolocation info")
+  @JsonProperty("geolocation")
+  public Geolocation getGeolocation() {
+    return geolocation;
+  }
+  public void setGeolocation(Geolocation geolocation) {
+    this.geolocation = geolocation;
+  }
+
+  
+  /**
+   * (since 3.5.0) calidad de la imagen donde 100 representa el máximo de calidad y 0 el máximo nivel de compresión
+   **/
+  @ApiModelProperty(required = false, value = "(since 3.5.0) calidad de la imagen donde 100 representa el máximo de calidad y 0 el máximo nivel de compresión")
+  @JsonProperty("imageQuality")
+  public Integer getImageQuality() {
+    return imageQuality;
+  }
+  public void setImageQuality(Integer imageQuality) {
+    this.imageQuality = imageQuality;
+  }
+
+  
+  /**
+   * (since 3.5.0) factor multiplicador del tamaño de la imagen, para permitir zoom
+   **/
+  @ApiModelProperty(required = false, value = "(since 3.5.0) factor multiplicador del tamaño de la imagen, para permitir zoom")
+  @JsonProperty("imageScaleFactor")
+  public Integer getImageScaleFactor() {
+    return imageScaleFactor;
+  }
+  public void setImageScaleFactor(Integer imageScaleFactor) {
+    this.imageScaleFactor = imageScaleFactor;
+  }
+
+  
+  /**
+   * (since 3.5.0, internal) url que permite el uso de tabletas wacom
+   **/
+  @ApiModelProperty(required = false, value = "(since 3.5.0, internal) url que permite el uso de tabletas wacom")
+  @JsonProperty("wacomURL")
+  public String getWacomURL() {
+    return wacomURL;
+  }
+  public void setWacomURL(String wacomURL) {
+    this.wacomURL = wacomURL;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -377,7 +436,13 @@ public class Evidence  {
     sb.append("  stampsMin: ").append(stampsMin).append("\n");
     sb.append("  stampsPolicy: ").append(stampsPolicy).append("\n");
     sb.append("  stylus: ").append(stylus).append("\n");
+    sb.append("  geolocation: ").append(geolocation).append("\n");
+    sb.append("  imageQuality: ").append(imageQuality).append("\n");
+    sb.append("  imageScaleFactor: ").append(imageScaleFactor).append("\n");
+    sb.append("  wacomURL: ").append(wacomURL).append("\n");
     sb.append("}\n");
     return sb.toString();
   }
 }
+
+

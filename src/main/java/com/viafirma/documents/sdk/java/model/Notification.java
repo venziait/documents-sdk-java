@@ -5,8 +5,10 @@ import com.viafirma.documents.sdk.java.model.Param;
 import java.util.*;
 import com.viafirma.documents.sdk.java.model.SharedLink;
 
+
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 
 @ApiModel(description = "")
@@ -167,3 +169,5 @@ public class Notification  {
     return sb.toString();
   }
 }
+
+

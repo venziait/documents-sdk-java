@@ -2,8 +2,10 @@ package com.viafirma.documents.sdk.java.model;
 
 import java.util.*;
 
+
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 
 @ApiModel(description = "")
@@ -49,3 +51,5 @@ public class FormValue  {
     return sb.toString();
   }
 }
+
+

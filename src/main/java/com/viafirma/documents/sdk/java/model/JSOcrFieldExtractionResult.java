@@ -8,21 +8,47 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 @ApiModel(description = "")
-public class Param  {
+public class JSOcrFieldExtractionResult  {
   
+  private Double confidence = null;
   private String key = null;
+  private Boolean valid = null;
   private String value = null;
 
   
   /**
    **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("confidence")
+  public Double getConfidence() {
+    return confidence;
+  }
+  public void setConfidence(Double confidence) {
+    this.confidence = confidence;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("key")
   public String getKey() {
     return key;
   }
   public void setKey(String key) {
     this.key = key;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("valid")
+  public Boolean getValid() {
+    return valid;
+  }
+  public void setValid(Boolean valid) {
+    this.valid = valid;
   }
 
   
@@ -42,9 +68,11 @@ public class Param  {
   @Override
   public String toString()  {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Param {\n");
+    sb.append("class JSOcrFieldExtractionResult {\n");
     
+    sb.append("  confidence: ").append(confidence).append("\n");
     sb.append("  key: ").append(key).append("\n");
+    sb.append("  valid: ").append(valid).append("\n");
     sb.append("  value: ").append(value).append("\n");
     sb.append("}\n");
     return sb.toString();

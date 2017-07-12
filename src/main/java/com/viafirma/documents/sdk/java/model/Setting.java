@@ -4,8 +4,10 @@ import com.viafirma.documents.sdk.java.model.Policy;
 import java.util.*;
 import com.viafirma.documents.sdk.java.model.Font;
 
+
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 
 @ApiModel(description = "")
@@ -177,3 +179,5 @@ public class Setting  {
     return sb.toString();
   }
 }
+
+

@@ -3,8 +3,10 @@ package com.viafirma.documents.sdk.java.model;
 import com.viafirma.documents.sdk.java.model.Form;
 import java.util.Date;
 
+
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 
 @ApiModel(description = "")
@@ -123,3 +125,5 @@ public class Template  {
     return sb.toString();
   }
 }
+
+

@@ -6,8 +6,10 @@ import com.viafirma.documents.sdk.java.model.EvidenceFingerPrint;
 import java.util.*;
 import com.viafirma.documents.sdk.java.model.EvidenceImage;
 
+
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 
 @ApiModel(description = "")
@@ -95,3 +97,5 @@ public class MessageData  {
     return sb.toString();
   }
 }
+
+

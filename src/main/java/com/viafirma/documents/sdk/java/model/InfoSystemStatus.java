@@ -3,8 +3,10 @@ package com.viafirma.documents.sdk.java.model;
 import com.viafirma.documents.sdk.java.model.SystemStatus;
 import java.util.*;
 
+
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 
 @ApiModel(description = "")
@@ -50,3 +52,5 @@ public class InfoSystemStatus  {
     return sb.toString();
   }
 }
+
+

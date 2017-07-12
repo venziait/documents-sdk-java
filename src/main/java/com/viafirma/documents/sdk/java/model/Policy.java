@@ -7,8 +7,10 @@ import com.viafirma.documents.sdk.java.model.Evidence;
 import java.util.*;
 import com.viafirma.documents.sdk.java.model.ErrorResponse;
 
+
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 
 @ApiModel(description = "")
@@ -229,3 +231,5 @@ public class Policy  {
     return sb.toString();
   }
 }
+
+

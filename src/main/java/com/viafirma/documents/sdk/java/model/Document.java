@@ -4,8 +4,10 @@ import com.viafirma.documents.sdk.java.model.Item;
 import java.util.*;
 import com.viafirma.documents.sdk.java.model.Font;
 
+
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 
 @ApiModel(description = "")
@@ -28,6 +30,7 @@ public class Document  {
   private List<Item> items = new ArrayList<Item>() ;
   private Boolean pdfaCompliant = null;
   private Font font = null;
+  private String policyCode = null;
 
   
   /**
@@ -199,6 +202,19 @@ public class Document  {
   }
 
   
+  /**
+   * (since 3.5.0) code of policy to use
+   **/
+  @ApiModelProperty(required = false, value = "(since 3.5.0) code of policy to use")
+  @JsonProperty("policyCode")
+  public String getPolicyCode() {
+    return policyCode;
+  }
+  public void setPolicyCode(String policyCode) {
+    this.policyCode = policyCode;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -219,7 +235,10 @@ public class Document  {
     sb.append("  items: ").append(items).append("\n");
     sb.append("  pdfaCompliant: ").append(pdfaCompliant).append("\n");
     sb.append("  font: ").append(font).append("\n");
+    sb.append("  policyCode: ").append(policyCode).append("\n");
     sb.append("}\n");
     return sb.toString();
   }
 }
+
+

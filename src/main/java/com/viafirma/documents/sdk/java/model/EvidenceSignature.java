@@ -6,8 +6,10 @@ import com.viafirma.documents.sdk.java.model.EvidenceDevice;
 import java.util.*;
 import com.viafirma.documents.sdk.java.model.EvidenceStroke;
 
+
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 
 @ApiModel(description = "")
@@ -23,6 +25,8 @@ public class EvidenceSignature  {
   private Integer signAreaHeight = null;
   private Integer signAreaWidth = null;
   private List<Position> positions = new ArrayList<Position>() ;
+  private Integer imageQuality = null;
+  private Integer imageScaleFactor = null;
 
   
   /**
@@ -145,6 +149,30 @@ public class EvidenceSignature  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("imageQuality")
+  public Integer getImageQuality() {
+    return imageQuality;
+  }
+  public void setImageQuality(Integer imageQuality) {
+    this.imageQuality = imageQuality;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("imageScaleFactor")
+  public Integer getImageScaleFactor() {
+    return imageScaleFactor;
+  }
+  public void setImageScaleFactor(Integer imageScaleFactor) {
+    this.imageScaleFactor = imageScaleFactor;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -161,7 +189,11 @@ public class EvidenceSignature  {
     sb.append("  signAreaHeight: ").append(signAreaHeight).append("\n");
     sb.append("  signAreaWidth: ").append(signAreaWidth).append("\n");
     sb.append("  positions: ").append(positions).append("\n");
+    sb.append("  imageQuality: ").append(imageQuality).append("\n");
+    sb.append("  imageScaleFactor: ").append(imageScaleFactor).append("\n");
     sb.append("}\n");
     return sb.toString();
   }
 }
+
+

@@ -5,8 +5,10 @@ import com.viafirma.documents.sdk.java.model.MenuOption;
 import com.viafirma.documents.sdk.java.model.Version;
 import java.util.*;
 
+
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 
 @ApiModel(description = "")
@@ -304,3 +306,5 @@ public class Configuration  {
     return sb.toString();
   }
 }
+
+

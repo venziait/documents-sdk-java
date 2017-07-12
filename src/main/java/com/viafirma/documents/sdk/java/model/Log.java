@@ -1,8 +1,10 @@
 package com.viafirma.documents.sdk.java.model;
 
 
+
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 
 @ApiModel(description = "")
@@ -79,3 +81,5 @@ public class Log  {
     return sb.toString();
   }
 }
+
+
