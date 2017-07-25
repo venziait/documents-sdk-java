@@ -5,6 +5,7 @@ import com.viafirma.documents.sdk.java.model.Position;
 import com.viafirma.documents.sdk.java.model.EvidenceSignature;
 import com.viafirma.documents.sdk.java.model.EvidenceFingerPrint;
 import java.util.*;
+import com.viafirma.documents.sdk.java.model.OcrData;
 import com.viafirma.documents.sdk.java.model.EvidenceImage;
 
 
@@ -51,6 +52,7 @@ public class Evidence  {
   private Integer imageQuality = null;
   private Integer imageScaleFactor = null;
   private String wacomURL = null;
+  private OcrData ocr = null;
 
   
   /**
@@ -405,6 +407,18 @@ public class Evidence  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("ocr")
+  public OcrData getOcr() {
+    return ocr;
+  }
+  public void setOcr(OcrData ocr) {
+    this.ocr = ocr;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -440,6 +454,7 @@ public class Evidence  {
     sb.append("  imageQuality: ").append(imageQuality).append("\n");
     sb.append("  imageScaleFactor: ").append(imageScaleFactor).append("\n");
     sb.append("  wacomURL: ").append(wacomURL).append("\n");
+    sb.append("  ocr: ").append(ocr).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

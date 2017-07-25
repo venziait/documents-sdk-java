@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class MessageStatus  {
   
   public enum StatusEnum {
-     DELETED,  EXPIRED,  ERROR,  REJECTED,  RESPONSED,  SERVER_SIGN,  SENT,  SIGNED,  WAITING,  COMMITTED,  RECEIVED,  TEMPORAL_STORED,  STAND_BY,  WAITING_CHECK,  APPROVED,  FINISHED,  MAX_ERROR_REACHED, WAITING_OCR,
+     DELETED,  EXPIRED,  ERROR,  REJECTED,  RESPONSED,  SERVER_SIGN,  SENT,  SIGNED,  WAITING,  COMMITTED,  RECEIVED,  TEMPORAL_STORED,  STAND_BY,  WAITING_CHECK,  APPROVED,  FINISHED,  WAITING_OCR,  MAX_ERROR_REACHED, 
   };
   private StatusEnum status = null;
   private Date lastUpdated = null;

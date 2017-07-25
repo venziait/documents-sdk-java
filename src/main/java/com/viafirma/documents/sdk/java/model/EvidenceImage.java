@@ -4,6 +4,7 @@ import com.viafirma.documents.sdk.java.model.Geolocation;
 import com.viafirma.documents.sdk.java.model.Position;
 import com.viafirma.documents.sdk.java.model.EvidenceDevice;
 import java.util.*;
+import com.viafirma.documents.sdk.java.model.OcrData;
 
 
 import com.wordnik.swagger.annotations.*;
@@ -22,6 +23,7 @@ public class EvidenceImage  {
   private List<Position> positions = new ArrayList<Position>() ;
   private Integer imageQuality = null;
   private Integer imageScaleFactor = null;
+  private OcrData ocr = null;
 
   
   /**
@@ -120,6 +122,18 @@ public class EvidenceImage  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("ocr")
+  public OcrData getOcr() {
+    return ocr;
+  }
+  public void setOcr(OcrData ocr) {
+    this.ocr = ocr;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -134,6 +148,7 @@ public class EvidenceImage  {
     sb.append("  positions: ").append(positions).append("\n");
     sb.append("  imageQuality: ").append(imageQuality).append("\n");
     sb.append("  imageScaleFactor: ").append(imageScaleFactor).append("\n");
+    sb.append("  ocr: ").append(ocr).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

@@ -36,6 +36,7 @@ public class Message  {
   private String server = null;
   private Date processTimeExpired = null;
   private String commentReject = null;
+  private String callbackResponse = null;
 
   
   /**
@@ -254,6 +255,18 @@ public class Message  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("callbackResponse")
+  public String getCallbackResponse() {
+    return callbackResponse;
+  }
+  public void setCallbackResponse(String callbackResponse) {
+    this.callbackResponse = callbackResponse;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -278,6 +291,7 @@ public class Message  {
     sb.append("  server: ").append(server).append("\n");
     sb.append("  processTimeExpired: ").append(processTimeExpired).append("\n");
     sb.append("  commentReject: ").append(commentReject).append("\n");
+    sb.append("  callbackResponse: ").append(callbackResponse).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

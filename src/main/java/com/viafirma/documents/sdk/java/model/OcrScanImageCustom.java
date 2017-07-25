@@ -1,6 +1,5 @@
 package com.viafirma.documents.sdk.java.model;
 
-import com.viafirma.documents.sdk.java.model.OcrTemplateDefinition;
 
 
 import com.wordnik.swagger.annotations.*;
@@ -13,8 +12,6 @@ public class OcrScanImageCustom  {
   
   private String key = null;
   private String base64Image = null;
-  private String imageKey = null;
-  private OcrTemplateDefinition documentDefinition = null;
 
   
   /**
@@ -41,30 +38,6 @@ public class OcrScanImageCustom  {
   }
 
   
-  /**
-   **/
-  @ApiModelProperty(required = false, value = "")
-  @JsonProperty("imageKey")
-  public String getImageKey() {
-    return imageKey;
-  }
-  public void setImageKey(String imageKey) {
-    this.imageKey = imageKey;
-  }
-
-  
-  /**
-   **/
-  @ApiModelProperty(required = false, value = "")
-  @JsonProperty("documentDefinition")
-  public OcrTemplateDefinition getDocumentDefinition() {
-    return documentDefinition;
-  }
-  public void setDocumentDefinition(OcrTemplateDefinition documentDefinition) {
-    this.documentDefinition = documentDefinition;
-  }
-
-  
 
   @Override
   public String toString()  {
@@ -73,8 +46,6 @@ public class OcrScanImageCustom  {
     
     sb.append("  key: ").append(key).append("\n");
     sb.append("  base64Image: ").append(base64Image).append("\n");
-    sb.append("  imageKey: ").append(imageKey).append("\n");
-    sb.append("  documentDefinition: ").append(documentDefinition).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

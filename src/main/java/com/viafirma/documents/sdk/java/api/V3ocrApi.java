@@ -1,14 +1,24 @@
 package com.viafirma.documents.sdk.java.api;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import com.sun.jersey.multipart.FormDataMultiPart;
 import com.viafirma.documents.sdk.java.ApiException;
 import com.viafirma.documents.sdk.java.ApiInvoker;
+
+import com.viafirma.documents.sdk.java.model.*;
+
+import java.util.*;
+
 import com.viafirma.documents.sdk.java.model.OcrMaskImage;
-import com.viafirma.documents.sdk.java.model.OcrPageResult;
 import com.viafirma.documents.sdk.java.model.OcrScanImageCustom;
+import com.viafirma.documents.sdk.java.model.OcrPageResult;
+
+
+import com.sun.jersey.multipart.FormDataMultiPart;
+
+import javax.ws.rs.core.MediaType;
+
+import java.io.File;
+import java.util.Map;
+import java.util.HashMap;
 
 
 public class V3ocrApi {
@@ -21,15 +31,14 @@ public class V3ocrApi {
   
   
     
-  public OcrMaskImage mask (String template, String width, String height) throws ApiException {
+  public OcrMaskImage mask (String template, String width) throws ApiException {
     Object postBody = null;
     
 
     // create path and map variables
-    String path = "/v3/ocr/mask/{template}/{width}/{height}".replaceAll("\\{format\\}","json")
+    String path = "/v3/ocr/mask/{template}/{width}".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "template" + "\\}", ApiInvoker.getInstance().escapeString(template.toString()))
-      .replaceAll("\\{" + "width" + "\\}", ApiInvoker.getInstance().escapeString(width.toString()))
-      .replaceAll("\\{" + "height" + "\\}", ApiInvoker.getInstance().escapeString(height.toString()));
+      .replaceAll("\\{" + "width" + "\\}", ApiInvoker.getInstance().escapeString(width.toString()));
 
     // query params
     Map<String, String> queryParams = new HashMap<String, String>();

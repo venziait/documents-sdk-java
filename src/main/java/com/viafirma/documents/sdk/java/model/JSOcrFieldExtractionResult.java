@@ -14,6 +14,7 @@ public class JSOcrFieldExtractionResult  {
   private String key = null;
   private Boolean valid = null;
   private String value = null;
+  private String title = null;
 
   
   /**
@@ -64,6 +65,18 @@ public class JSOcrFieldExtractionResult  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("title")
+  public String getTitle() {
+    return title;
+  }
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -74,6 +87,7 @@ public class JSOcrFieldExtractionResult  {
     sb.append("  key: ").append(key).append("\n");
     sb.append("  valid: ").append(valid).append("\n");
     sb.append("  value: ").append(value).append("\n");
+    sb.append("  title: ").append(title).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

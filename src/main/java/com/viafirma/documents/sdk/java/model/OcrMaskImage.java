@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class OcrMaskImage  {
   
   private String mask = null;
-  private String version = null;
+  private Double version = null;
 
   
   /**
@@ -30,10 +30,10 @@ public class OcrMaskImage  {
    **/
   @ApiModelProperty(required = false, value = "")
   @JsonProperty("version")
-  public String getVersion() {
+  public Double getVersion() {
     return version;
   }
-  public void setVersion(String version) {
+  public void setVersion(Double version) {
     this.version = version;
   }
 
