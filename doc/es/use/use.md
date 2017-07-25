@@ -1,4 +1,4 @@
-# Ejemplos de uso del SDK
+# Ejemplos de uso
 
 ### Parámetros de configuración para los ejemplos
 

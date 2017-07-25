@@ -20,4 +20,4 @@ private void doService(HttpServletRequest req, HttpServletResponse resp) {
 
 ```
 
-En el ejemplo anterior extraido del proyecto de ejemplo puede ver como procesar las llamadas al servicio (servlet), creando un objeto mensaje que contiene toda la información referente a la petición y desde el que podría descargar el documento firmado, siguiendo los ejemplos de uso del sdk descritos en esta documentación.
+En el ejemplo anterior extraido del proyecto de ejemplo puede ver como procesar las llamadas al servicio (servlet), creando un objeto mensaje que contiene toda la información referente a la petición y desde el que podría descargar el documento firmado, siguiendo los ejemplos de uso descritos en esta documentación.

@@ -21,6 +21,6 @@ Añadir la siguiente dependencia
 </dependency>
 `````
 
-#### Descargar el sdk
+#### Descargar
 
 También puede descargar directamente el jar de la versión correspondiente desde el siguiente enlace http://repositorio.viavansi.com/artifactory/libs-releases/com/viafirma/documents-sdk-java/3.X.X/documents-sdk-java-2.X.X.jar y añadirlo directamente a su proyecto 
