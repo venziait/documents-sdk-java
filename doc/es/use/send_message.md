@@ -9,3 +9,7 @@ En el ejemplo anterior podemos ver como podemos indicar la url del servicio dond
 De todas formas siempre podemos esperar a que el documento sea firmado en el dispositivo, como podemos ver en el siguiente ejemplo.
 
 {% include "../snippets/api_v3_send_messages_poll.md" %}
+
+En el siguiente ejemplo puede ver como solicitar la generación de un documento con evidencia OCR incluida y configurar el dispositivo al que deseamos enviar la solicitud de firma.
+
+{% include "../snippets/api_v3_send_message_with_ocr_evidence.md" %}
