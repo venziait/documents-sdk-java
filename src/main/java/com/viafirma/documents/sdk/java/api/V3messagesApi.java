@@ -14,7 +14,6 @@ import com.viafirma.documents.sdk.java.model.MessageStatus;
 import com.viafirma.documents.sdk.java.model.Document;
 import com.viafirma.documents.sdk.java.model.MessagePaginatedList;
 
-
 import com.sun.jersey.multipart.FormDataMultiPart;
 
 import javax.ws.rs.core.MediaType;
@@ -22,7 +21,6 @@ import javax.ws.rs.core.MediaType;
 import java.io.File;
 import java.util.Map;
 import java.util.HashMap;
-
 
 public class V3messagesApi {
 
@@ -554,4 +552,3 @@ public class V3messagesApi {
   }
   
 }
-

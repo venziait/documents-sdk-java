@@ -11,7 +11,6 @@ import com.viafirma.documents.sdk.java.model.Base64;
 import com.viafirma.documents.sdk.java.model.DocumentCache;
 import com.viafirma.documents.sdk.java.model.Download;
 
-
 import com.sun.jersey.multipart.FormDataMultiPart;
 
 import javax.ws.rs.core.MediaType;
@@ -19,7 +18,6 @@ import javax.ws.rs.core.MediaType;
 import java.io.File;
 import java.util.Map;
 import java.util.HashMap;
-
 
 public class V3documentsApi {
 
@@ -234,4 +232,3 @@ public class V3documentsApi {
   }
   
 }
-

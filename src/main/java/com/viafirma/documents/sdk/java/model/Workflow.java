@@ -4,10 +4,8 @@ import com.viafirma.documents.sdk.java.model.EventHistory;
 import java.util.*;
 import java.util.Date;
 
-
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 
 
 @ApiModel(description = "")
@@ -137,5 +135,3 @@ public class Workflow  {
     return sb.toString();
   }
 }
-
-

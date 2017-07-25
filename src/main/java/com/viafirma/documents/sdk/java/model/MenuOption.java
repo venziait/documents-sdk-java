@@ -2,10 +2,8 @@ package com.viafirma.documents.sdk.java.model;
 
 import com.viafirma.documents.sdk.java.model.Mail;
 
-
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 
 
 @ApiModel(description = "")
@@ -121,5 +119,3 @@ public class MenuOption  {
     return sb.toString();
   }
 }
-
-

@@ -3,10 +3,8 @@ package com.viafirma.documents.sdk.java.model;
 import java.util.*;
 import com.viafirma.documents.sdk.java.model.MessageList;
 
-
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 
 
 @ApiModel(description = "")
@@ -54,5 +52,3 @@ public class MessagePaginatedList  {
     return sb.toString();
   }
 }
-
-

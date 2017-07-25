@@ -11,7 +11,6 @@ import com.viafirma.documents.sdk.java.model.Policy;
 import com.viafirma.documents.sdk.java.model.EvidenceSignature;
 import com.viafirma.documents.sdk.java.model.Signature;
 
-
 import com.sun.jersey.multipart.FormDataMultiPart;
 
 import javax.ws.rs.core.MediaType;
@@ -19,7 +18,6 @@ import javax.ws.rs.core.MediaType;
 import java.io.File;
 import java.util.Map;
 import java.util.HashMap;
-
 
 public class V3signaturesApi {
 
@@ -139,4 +137,3 @@ public class V3signaturesApi {
   }
   
 }
-

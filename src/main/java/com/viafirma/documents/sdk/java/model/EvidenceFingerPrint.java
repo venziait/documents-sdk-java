@@ -5,10 +5,8 @@ import com.viafirma.documents.sdk.java.model.Position;
 import com.viafirma.documents.sdk.java.model.EvidenceDevice;
 import java.util.*;
 
-
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 
 
 @ApiModel(description = "")
@@ -180,5 +178,3 @@ public class EvidenceFingerPrint  {
     return sb.toString();
   }
 }
-
-

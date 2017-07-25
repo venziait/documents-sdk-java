@@ -12,7 +12,6 @@ import com.viafirma.documents.sdk.java.model.TemplateList;
 import com.viafirma.documents.sdk.java.model.Document;
 import com.viafirma.documents.sdk.java.model.Template;
 
-
 import com.sun.jersey.multipart.FormDataMultiPart;
 
 import javax.ws.rs.core.MediaType;
@@ -20,7 +19,6 @@ import javax.ws.rs.core.MediaType;
 import java.io.File;
 import java.util.Map;
 import java.util.HashMap;
-
 
 public class V3templateApi {
 
@@ -286,4 +284,3 @@ public class V3templateApi {
   }
   
 }
-

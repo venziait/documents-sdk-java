@@ -11,7 +11,6 @@ import com.viafirma.documents.sdk.java.model.OcrMaskImage;
 import com.viafirma.documents.sdk.java.model.OcrScanImageCustom;
 import com.viafirma.documents.sdk.java.model.OcrPageResult;
 
-
 import com.sun.jersey.multipart.FormDataMultiPart;
 
 import javax.ws.rs.core.MediaType;
@@ -19,7 +18,6 @@ import javax.ws.rs.core.MediaType;
 import java.io.File;
 import java.util.Map;
 import java.util.HashMap;
-
 
 public class V3ocrApi {
 
@@ -133,4 +131,3 @@ public class V3ocrApi {
   }
   
 }
-

@@ -8,10 +8,8 @@ import java.util.*;
 import com.viafirma.documents.sdk.java.model.OcrData;
 import com.viafirma.documents.sdk.java.model.EvidenceImage;
 
-
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 
 
 @ApiModel(description = "")
@@ -459,5 +457,3 @@ public class Evidence  {
     return sb.toString();
   }
 }
-
-

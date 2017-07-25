@@ -4,10 +4,8 @@ import com.viafirma.documents.sdk.java.model.WorkflowConfig;
 import com.viafirma.documents.sdk.java.model.Task;
 import java.util.*;
 
-
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 
 
 @ApiModel(description = "")
@@ -53,5 +51,3 @@ public class TaskManager  {
     return sb.toString();
   }
 }
-
-

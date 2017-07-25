@@ -12,7 +12,6 @@ import com.viafirma.documents.sdk.java.model.EvidenceFingerPrint;
 import com.viafirma.documents.sdk.java.model.EvidenceImage;
 import com.viafirma.documents.sdk.java.model.EvidenceSignature;
 
-
 import com.sun.jersey.multipart.FormDataMultiPart;
 
 import javax.ws.rs.core.MediaType;
@@ -20,7 +19,6 @@ import javax.ws.rs.core.MediaType;
 import java.io.File;
 import java.util.Map;
 import java.util.HashMap;
-
 
 public class V3evidencesApi {
 
@@ -182,4 +180,3 @@ public class V3evidencesApi {
   }
   
 }
-

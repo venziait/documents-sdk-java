@@ -2,10 +2,8 @@ package com.viafirma.documents.sdk.java.model;
 
 import java.util.Date;
 
-
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 
 
 @ApiModel(description = "")
@@ -93,5 +91,3 @@ public class Download  {
     return sb.toString();
   }
 }
-
-

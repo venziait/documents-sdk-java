@@ -9,10 +9,8 @@ import com.viafirma.documents.sdk.java.model.Notification;
 import java.util.Date;
 import com.viafirma.documents.sdk.java.model.ErrorResponse;
 
-
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 
 
 @ApiModel(description = "")
@@ -296,5 +294,3 @@ public class Message  {
     return sb.toString();
   }
 }
-
-
