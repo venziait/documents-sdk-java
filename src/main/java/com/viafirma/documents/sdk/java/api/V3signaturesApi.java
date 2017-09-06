@@ -8,12 +8,11 @@ import com.viafirma.documents.sdk.java.model.*;
 import java.util.*;
 
 import com.viafirma.documents.sdk.java.model.DataToWrapSign;
-import com.viafirma.documents.sdk.java.model.SignatureDTO;
+import com.viafirma.documents.sdk.java.model.Signature;
 import com.viafirma.documents.sdk.java.model.DataToPrepareSign;
 import com.viafirma.documents.sdk.java.model.DataToSign;
 import com.viafirma.documents.sdk.java.model.Policy;
 import com.viafirma.documents.sdk.java.model.EvidenceSignature;
-import com.viafirma.documents.sdk.java.model.Signature;
 
 import com.sun.jersey.multipart.FormDataMultiPart;
 
@@ -33,7 +32,7 @@ public class V3signaturesApi {
   
   
     
-  public SignatureDTO getSignedMessage (DataToWrapSign body) throws ApiException {
+  public Signature getSignedMessage (DataToWrapSign body) throws ApiException {
     Object postBody = body;
     
 
@@ -67,7 +66,7 @@ public class V3signaturesApi {
     try {
       String response = ApiInvoker.getInstance().invokeAPI(path, "POST", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (SignatureDTO) ApiInvoker.deserialize(response, "", SignatureDTO.class);
+        return (Signature) ApiInvoker.deserialize(response, "", Signature.class);
       }
       else {
         return null;
