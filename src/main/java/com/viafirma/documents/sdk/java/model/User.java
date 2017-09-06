@@ -24,6 +24,7 @@ public class User  {
   private String confirmToken = null;
   private String changePassToken = null;
   private Boolean logDevice = null;
+  private String status = null;
   private String mobile = null;
   private String channel = null;
 
@@ -223,6 +224,18 @@ public class User  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
+  @JsonProperty("status")
+  public String getStatus() {
+    return status;
+  }
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("mobile")
   public String getMobile() {
     return mobile;
@@ -266,6 +279,7 @@ public class User  {
     sb.append("  confirmToken: ").append(confirmToken).append("\n");
     sb.append("  changePassToken: ").append(changePassToken).append("\n");
     sb.append("  logDevice: ").append(logDevice).append("\n");
+    sb.append("  status: ").append(status).append("\n");
     sb.append("  mobile: ").append(mobile).append("\n");
     sb.append("  channel: ").append(channel).append("\n");
     sb.append("}\n");
