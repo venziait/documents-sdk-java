@@ -1,7 +1,7 @@
 package com.viafirma.documents.sdk.java.model;
 
-import com.viafirma.documents.sdk.java.model.Stamper;
 import java.util.*;
+import com.viafirma.documents.sdk.java.model.Stamper;
 
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,7 +16,7 @@ public class Signature  {
   private TypeEnum type = null;
   private String code = null;
   public enum StatusEnum {
-     PENDING,  RECEIVED,  SIGNED, 
+     PENDING,  RECEIVED,  SIGNED,   PREPARED, 
   };
   private StatusEnum status = null;
   private String helpText = null;

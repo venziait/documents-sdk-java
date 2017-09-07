@@ -1,12 +1,13 @@
 package com.viafirma.documents.sdk.java.model;
 
-import com.viafirma.documents.sdk.java.model.Geolocation;
-import com.viafirma.documents.sdk.java.model.Position;
-import com.viafirma.documents.sdk.java.model.EvidenceSignature;
-import com.viafirma.documents.sdk.java.model.EvidenceFingerPrint;
-import java.util.*;
 import com.viafirma.documents.sdk.java.model.OcrData;
+import com.viafirma.documents.sdk.java.model.EvidenceSignature;
+import com.viafirma.documents.sdk.java.model.EvidenceOtpSms;
+import com.viafirma.documents.sdk.java.model.Position;
 import com.viafirma.documents.sdk.java.model.EvidenceImage;
+import java.util.*;
+import com.viafirma.documents.sdk.java.model.Geolocation;
+import com.viafirma.documents.sdk.java.model.EvidenceFingerPrint;
 
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Evidence  {
   
   public enum TypeEnum {
-     SIGNATURE,  FINGERPRINT,  IMAGE,  ANNOTATION,  FINGER_PRINT, 
+     SIGNATURE,  FINGERPRINT,  IMAGE,  ANNOTATION,  FINGER_PRINT,  OTP_SMS, 
   };
   private TypeEnum type = null;
   private String code = null;
@@ -51,6 +52,8 @@ public class Evidence  {
   private Integer imageScaleFactor = null;
   private String wacomURL = null;
   private OcrData ocr = null;
+  private EvidenceOtpSms otpSmsData = null;
+  private String phone = null;
 
   
   /**
@@ -417,6 +420,30 @@ public class Evidence  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("otpSmsData")
+  public EvidenceOtpSms getOtpSmsData() {
+    return otpSmsData;
+  }
+  public void setOtpSmsData(EvidenceOtpSms otpSmsData) {
+    this.otpSmsData = otpSmsData;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("phone")
+  public String getPhone() {
+    return phone;
+  }
+  public void setPhone(String phone) {
+    this.phone = phone;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -453,6 +480,8 @@ public class Evidence  {
     sb.append("  imageScaleFactor: ").append(imageScaleFactor).append("\n");
     sb.append("  wacomURL: ").append(wacomURL).append("\n");
     sb.append("  ocr: ").append(ocr).append("\n");
+    sb.append("  otpSmsData: ").append(otpSmsData).append("\n");
+    sb.append("  phone: ").append(phone).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

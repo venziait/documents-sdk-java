@@ -19,6 +19,7 @@ public class EvidenceDevice  {
   private Integer screenHeight = null;
   private Integer screenWidth = null;
   private String app = null;
+  private String ip = null;
 
   
   /**
@@ -153,6 +154,18 @@ public class EvidenceDevice  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("ip")
+  public String getIp() {
+    return ip;
+  }
+  public void setIp(String ip) {
+    this.ip = ip;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -170,6 +183,7 @@ public class EvidenceDevice  {
     sb.append("  screenHeight: ").append(screenHeight).append("\n");
     sb.append("  screenWidth: ").append(screenWidth).append("\n");
     sb.append("  app: ").append(app).append("\n");
+    sb.append("  ip: ").append(ip).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

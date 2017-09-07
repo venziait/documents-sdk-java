@@ -130,6 +130,129 @@ public class V3evidencesApi {
   }
   
     
+  public Evidence prepareOtpSmsEvidence (String messageCode, String policyCode, String evidenceCode) throws ApiException {
+    Object postBody = null;
+    
+
+    // create path and map variables
+    String path = "/v3/evidences/otp/sms/prepare/{messageCode}/{policyCode}/{evidenceCode}".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "messageCode" + "\\}", ApiInvoker.getInstance().escapeString(messageCode.toString()))
+      .replaceAll("\\{" + "policyCode" + "\\}", ApiInvoker.getInstance().escapeString(policyCode.toString()))
+      .replaceAll("\\{" + "evidenceCode" + "\\}", ApiInvoker.getInstance().escapeString(evidenceCode.toString()));
+
+    // query params
+    Map<String, String> queryParams = new HashMap<String, String>();
+    Map<String, String> headerParams = new HashMap<String, String>();
+    Map<String, String> formParams = new HashMap<String, String>();
+
+    
+    
+    String[] contentTypes = {
+      
+    };
+
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if(contentType.startsWith("multipart/form-data")) {
+      boolean hasFields = false;
+      FormDataMultiPart mp = new FormDataMultiPart();
+      
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+      
+    }
+
+    try {
+      String response = ApiInvoker.getInstance().invokeAPI(path, "GET", queryParams, postBody, headerParams, formParams, contentType);
+      if(response != null){
+        return (Evidence) ApiInvoker.deserialize(response, "", Evidence.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      if(ex.getCode() == 404) {
+      	return  null;
+      }
+      else {
+        throw ex;
+      }
+    }
+  }
+  
+    
+  public Evidence validateOtpSmsEvidence (String messageCode, String policyCode, String evidenceCode, String operatioId, String token) throws ApiException {
+    Object postBody = null;
+    
+
+    // create path and map variables
+    String path = "/v3/evidences/otp/sms/validate".replaceAll("\\{format\\}","json");
+
+    // query params
+    Map<String, String> queryParams = new HashMap<String, String>();
+    Map<String, String> headerParams = new HashMap<String, String>();
+    Map<String, String> formParams = new HashMap<String, String>();
+
+    
+    
+    String[] contentTypes = {
+      "application/x-www-form-urlencoded"
+    };
+
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if(contentType.startsWith("multipart/form-data")) {
+      boolean hasFields = false;
+      FormDataMultiPart mp = new FormDataMultiPart();
+      
+      hasFields = true;
+      mp.field("messageCode", messageCode, MediaType.MULTIPART_FORM_DATA_TYPE);
+      
+      hasFields = true;
+      mp.field("policyCode", policyCode, MediaType.MULTIPART_FORM_DATA_TYPE);
+      
+      hasFields = true;
+      mp.field("evidenceCode", evidenceCode, MediaType.MULTIPART_FORM_DATA_TYPE);
+      
+      hasFields = true;
+      mp.field("operatioId", operatioId, MediaType.MULTIPART_FORM_DATA_TYPE);
+      
+      hasFields = true;
+      mp.field("token", token, MediaType.MULTIPART_FORM_DATA_TYPE);
+      
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+      formParams.put("messageCode", messageCode);
+      formParams.put("policyCode", policyCode);
+      formParams.put("evidenceCode", evidenceCode);
+      formParams.put("operatioId", operatioId);
+      formParams.put("token", token);
+      
+    }
+
+    try {
+      String response = ApiInvoker.getInstance().invokeAPI(path, "POST", queryParams, postBody, headerParams, formParams, contentType);
+      if(response != null){
+        return (Evidence) ApiInvoker.deserialize(response, "", Evidence.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      if(ex.getCode() == 404) {
+      	return  null;
+      }
+      else {
+        throw ex;
+      }
+    }
+  }
+  
+    
   public Evidence addSignatureAsEvidence (EvidenceSignature body) throws ApiException {
     Object postBody = body;
     

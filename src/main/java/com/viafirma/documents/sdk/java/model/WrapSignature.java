@@ -6,24 +6,24 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 @ApiModel(description = "")
-public class DataToWrapSign  {
+public class WrapSignature  {
   
-  private String signatureId = null;
+  private String signatureCode = null;
   private String publicKey = null;
   private String messageCode = null;
   private String signedDataBase64 = null;
 
   
   /**
-   * (since 3.5.0) signature id
+   * (since 3.5.0) signature code
    **/
-  @ApiModelProperty(required = true, value = "(since 3.5.0) signature id")
-  @JsonProperty("signatureId")
-  public String getSignatureId() {
-    return signatureId;
+  @ApiModelProperty(required = true, value = "(since 3.5.0) signature code")
+  @JsonProperty("signatureCode")
+  public String getSignatureCode() {
+    return signatureCode;
   }
-  public void setSignatureId(String signatureId) {
-    this.signatureId = signatureId;
+  public void setSignatureCode(String signatureCode) {
+    this.signatureCode = signatureCode;
   }
 
   
@@ -70,9 +70,9 @@ public class DataToWrapSign  {
   @Override
   public String toString()  {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DataToWrapSign {\n");
+    sb.append("class WrapSignature {\n");
     
-    sb.append("  signatureId: ").append(signatureId).append("\n");
+    sb.append("  signatureCode: ").append(signatureCode).append("\n");
     sb.append("  publicKey: ").append(publicKey).append("\n");
     sb.append("  messageCode: ").append(messageCode).append("\n");
     sb.append("  signedDataBase64: ").append(signedDataBase64).append("\n");

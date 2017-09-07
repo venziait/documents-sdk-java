@@ -7,12 +7,12 @@ import com.viafirma.documents.sdk.java.model.*;
 
 import java.util.*;
 
-import com.viafirma.documents.sdk.java.model.DataToWrapSign;
+import com.viafirma.documents.sdk.java.model.WrapSignature;
 import com.viafirma.documents.sdk.java.model.Signature;
-import com.viafirma.documents.sdk.java.model.DataToPrepareSign;
+import com.viafirma.documents.sdk.java.model.PrepareSignature;
 import com.viafirma.documents.sdk.java.model.DataToSign;
-import com.viafirma.documents.sdk.java.model.Policy;
 import com.viafirma.documents.sdk.java.model.EvidenceSignature;
+import com.viafirma.documents.sdk.java.model.Policy;
 
 import com.sun.jersey.multipart.FormDataMultiPart;
 
@@ -32,12 +32,12 @@ public class V3signaturesApi {
   
   
     
-  public Signature getSignedMessage (DataToWrapSign body) throws ApiException {
+  public Signature finalizeClientSignature (WrapSignature body) throws ApiException {
     Object postBody = body;
     
 
     // create path and map variables
-    String path = "/v3/signatures/clientFinalize".replaceAll("\\{format\\}","json");
+    String path = "/v3/signatures/client/finalize".replaceAll("\\{format\\}","json");
 
     // query params
     Map<String, String> queryParams = new HashMap<String, String>();
@@ -82,12 +82,12 @@ public class V3signaturesApi {
   }
   
     
-  public DataToSign getDataToSign (DataToPrepareSign body) throws ApiException {
+  public DataToSign prepareClientSignature (PrepareSignature body) throws ApiException {
     Object postBody = body;
     
 
     // create path and map variables
-    String path = "/v3/signatures/clientPrepare".replaceAll("\\{format\\}","json");
+    String path = "/v3/signatures/client/prepare".replaceAll("\\{format\\}","json");
 
     // query params
     Map<String, String> queryParams = new HashMap<String, String>();

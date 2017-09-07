@@ -1,7 +1,6 @@
 package com.viafirma.documents.sdk.java.model;
 
 import com.viafirma.documents.sdk.java.model.EvidenceDevice;
-import com.viafirma.documents.sdk.java.model.OcrData;
 import com.viafirma.documents.sdk.java.model.Position;
 import java.util.*;
 import com.viafirma.documents.sdk.java.model.Geolocation;
@@ -11,17 +10,17 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 @ApiModel(description = "")
-public class EvidenceImage  {
+public class EvidenceOtpSms  {
   
   private String messageCode = null;
   private String evidenceCode = null;
-  private String base64Image = null;
   private Geolocation geolocation = null;
   private EvidenceDevice device = null;
   private List<Position> positions = new ArrayList<Position>() ;
+  private String operationId = null;
+  private String server = null;
   private Integer imageQuality = null;
   private Integer imageScaleFactor = null;
-  private OcrData ocr = null;
 
   
   /**
@@ -45,18 +44,6 @@ public class EvidenceImage  {
   }
   public void setEvidenceCode(String evidenceCode) {
     this.evidenceCode = evidenceCode;
-  }
-
-  
-  /**
-   **/
-  @ApiModelProperty(required = false, value = "")
-  @JsonProperty("base64Image")
-  public String getBase64Image() {
-    return base64Image;
-  }
-  public void setBase64Image(String base64Image) {
-    this.base64Image = base64Image;
   }
 
   
@@ -99,6 +86,30 @@ public class EvidenceImage  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
+  @JsonProperty("operationId")
+  public String getOperationId() {
+    return operationId;
+  }
+  public void setOperationId(String operationId) {
+    this.operationId = operationId;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("server")
+  public String getServer() {
+    return server;
+  }
+  public void setServer(String server) {
+    this.server = server;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("imageQuality")
   public Integer getImageQuality() {
     return imageQuality;
@@ -120,33 +131,21 @@ public class EvidenceImage  {
   }
 
   
-  /**
-   **/
-  @ApiModelProperty(required = false, value = "")
-  @JsonProperty("ocr")
-  public OcrData getOcr() {
-    return ocr;
-  }
-  public void setOcr(OcrData ocr) {
-    this.ocr = ocr;
-  }
-
-  
 
   @Override
   public String toString()  {
     StringBuilder sb = new StringBuilder();
-    sb.append("class EvidenceImage {\n");
+    sb.append("class EvidenceOtpSms {\n");
     
     sb.append("  messageCode: ").append(messageCode).append("\n");
     sb.append("  evidenceCode: ").append(evidenceCode).append("\n");
-    sb.append("  base64Image: ").append(base64Image).append("\n");
     sb.append("  geolocation: ").append(geolocation).append("\n");
     sb.append("  device: ").append(device).append("\n");
     sb.append("  positions: ").append(positions).append("\n");
+    sb.append("  operationId: ").append(operationId).append("\n");
+    sb.append("  server: ").append(server).append("\n");
     sb.append("  imageQuality: ").append(imageQuality).append("\n");
     sb.append("  imageScaleFactor: ").append(imageScaleFactor).append("\n");
-    sb.append("  ocr: ").append(ocr).append("\n");
     sb.append("}\n");
     return sb.toString();
   }
