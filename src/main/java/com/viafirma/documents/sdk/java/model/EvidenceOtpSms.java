@@ -19,8 +19,8 @@ public class EvidenceOtpSms  {
   private List<Position> positions = new ArrayList<Position>() ;
   private String operationId = null;
   private String server = null;
-  private Integer imageQuality = null;
   private Integer imageScaleFactor = null;
+  private Integer imageQuality = null;
 
   
   /**
@@ -110,24 +110,24 @@ public class EvidenceOtpSms  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
-  @JsonProperty("imageQuality")
-  public Integer getImageQuality() {
-    return imageQuality;
-  }
-  public void setImageQuality(Integer imageQuality) {
-    this.imageQuality = imageQuality;
-  }
-
-  
-  /**
-   **/
-  @ApiModelProperty(required = false, value = "")
   @JsonProperty("imageScaleFactor")
   public Integer getImageScaleFactor() {
     return imageScaleFactor;
   }
   public void setImageScaleFactor(Integer imageScaleFactor) {
     this.imageScaleFactor = imageScaleFactor;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("imageQuality")
+  public Integer getImageQuality() {
+    return imageQuality;
+  }
+  public void setImageQuality(Integer imageQuality) {
+    this.imageQuality = imageQuality;
   }
 
   
@@ -144,8 +144,8 @@ public class EvidenceOtpSms  {
     sb.append("  positions: ").append(positions).append("\n");
     sb.append("  operationId: ").append(operationId).append("\n");
     sb.append("  server: ").append(server).append("\n");
-    sb.append("  imageQuality: ").append(imageQuality).append("\n");
     sb.append("  imageScaleFactor: ").append(imageScaleFactor).append("\n");
+    sb.append("  imageQuality: ").append(imageQuality).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

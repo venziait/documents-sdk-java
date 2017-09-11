@@ -1,6 +1,7 @@
 package com.viafirma.documents.sdk.java.model;
 
 import com.viafirma.documents.sdk.java.model.EvidenceSignature;
+import com.viafirma.documents.sdk.java.model.EvidenceOtpSms;
 import com.viafirma.documents.sdk.java.model.Item;
 import com.viafirma.documents.sdk.java.model.EvidenceImage;
 import java.util.*;
@@ -18,6 +19,7 @@ public class MessageData  {
   private List<EvidenceSignature> biometricSignaturesData = new ArrayList<EvidenceSignature>() ;
   private List<EvidenceFingerPrint> fingerPrintsData = new ArrayList<EvidenceFingerPrint>() ;
   private List<EvidenceImage> imagesData = new ArrayList<EvidenceImage>() ;
+  private List<EvidenceOtpSms> otpSmsData = new ArrayList<EvidenceOtpSms>() ;
 
   
   /**
@@ -80,6 +82,18 @@ public class MessageData  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("otpSmsData")
+  public List<EvidenceOtpSms> getOtpSmsData() {
+    return otpSmsData;
+  }
+  public void setOtpSmsData(List<EvidenceOtpSms> otpSmsData) {
+    this.otpSmsData = otpSmsData;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -91,6 +105,7 @@ public class MessageData  {
     sb.append("  biometricSignaturesData: ").append(biometricSignaturesData).append("\n");
     sb.append("  fingerPrintsData: ").append(fingerPrintsData).append("\n");
     sb.append("  imagesData: ").append(imagesData).append("\n");
+    sb.append("  otpSmsData: ").append(otpSmsData).append("\n");
     sb.append("}\n");
     return sb.toString();
   }
