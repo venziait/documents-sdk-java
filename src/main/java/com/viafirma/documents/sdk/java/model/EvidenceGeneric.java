@@ -1,9 +1,9 @@
 package com.viafirma.documents.sdk.java.model;
 
 import com.viafirma.documents.sdk.java.model.EvidenceDevice;
+import com.viafirma.documents.sdk.java.model.Param;
 import com.viafirma.documents.sdk.java.model.Position;
 import java.util.*;
-import com.viafirma.documents.sdk.java.model.JSEvidenceGenericProperty;
 import com.viafirma.documents.sdk.java.model.Geolocation;
 
 import com.wordnik.swagger.annotations.*;
@@ -18,11 +18,11 @@ public class EvidenceGeneric  {
   private Geolocation geolocation = null;
   private EvidenceDevice device = null;
   private List<Position> positions = new ArrayList<Position>() ;
-  private List<JSEvidenceGenericProperty> properties = new ArrayList<JSEvidenceGenericProperty>() ;
+  private List<Param> properties = new ArrayList<Param>() ;
   private String providerId = null;
   private String evidenceDescription = null;
-  private Integer imageQuality = null;
   private Integer imageScaleFactor = null;
+  private Integer imageQuality = null;
 
   
   /**
@@ -89,10 +89,10 @@ public class EvidenceGeneric  {
    **/
   @ApiModelProperty(required = false, value = "")
   @JsonProperty("properties")
-  public List<JSEvidenceGenericProperty> getProperties() {
+  public List<Param> getProperties() {
     return properties;
   }
-  public void setProperties(List<JSEvidenceGenericProperty> properties) {
+  public void setProperties(List<Param> properties) {
     this.properties = properties;
   }
 
@@ -124,24 +124,24 @@ public class EvidenceGeneric  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
-  @JsonProperty("imageQuality")
-  public Integer getImageQuality() {
-    return imageQuality;
-  }
-  public void setImageQuality(Integer imageQuality) {
-    this.imageQuality = imageQuality;
-  }
-
-  
-  /**
-   **/
-  @ApiModelProperty(required = false, value = "")
   @JsonProperty("imageScaleFactor")
   public Integer getImageScaleFactor() {
     return imageScaleFactor;
   }
   public void setImageScaleFactor(Integer imageScaleFactor) {
     this.imageScaleFactor = imageScaleFactor;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("imageQuality")
+  public Integer getImageQuality() {
+    return imageQuality;
+  }
+  public void setImageQuality(Integer imageQuality) {
+    this.imageQuality = imageQuality;
   }
 
   
@@ -159,8 +159,8 @@ public class EvidenceGeneric  {
     sb.append("  properties: ").append(properties).append("\n");
     sb.append("  providerId: ").append(providerId).append("\n");
     sb.append("  evidenceDescription: ").append(evidenceDescription).append("\n");
-    sb.append("  imageQuality: ").append(imageQuality).append("\n");
     sb.append("  imageScaleFactor: ").append(imageScaleFactor).append("\n");
+    sb.append("  imageQuality: ").append(imageQuality).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

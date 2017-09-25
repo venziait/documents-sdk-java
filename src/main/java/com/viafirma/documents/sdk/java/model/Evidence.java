@@ -55,7 +55,6 @@ public class Evidence  {
   private String wacomURL = null;
   private OcrData ocr = null;
   private EvidenceGeneric genericData = null;
-  private String phone = null;
 
   
   /**
@@ -446,18 +445,6 @@ public class Evidence  {
   }
 
   
-  /**
-   **/
-  @ApiModelProperty(required = false, value = "")
-  @JsonProperty("phone")
-  public String getPhone() {
-    return phone;
-  }
-  public void setPhone(String phone) {
-    this.phone = phone;
-  }
-
-  
 
   @Override
   public String toString()  {
@@ -496,7 +483,6 @@ public class Evidence  {
     sb.append("  wacomURL: ").append(wacomURL).append("\n");
     sb.append("  ocr: ").append(ocr).append("\n");
     sb.append("  genericData: ").append(genericData).append("\n");
-    sb.append("  phone: ").append(phone).append("\n");
     sb.append("}\n");
     return sb.toString();
   }
