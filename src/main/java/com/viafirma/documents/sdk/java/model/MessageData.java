@@ -1,8 +1,8 @@
 package com.viafirma.documents.sdk.java.model;
 
 import com.viafirma.documents.sdk.java.model.EvidenceSignature;
-import com.viafirma.documents.sdk.java.model.EvidenceOtpSms;
 import com.viafirma.documents.sdk.java.model.Item;
+import com.viafirma.documents.sdk.java.model.EvidenceGeneric;
 import com.viafirma.documents.sdk.java.model.EvidenceImage;
 import java.util.*;
 import com.viafirma.documents.sdk.java.model.EvidenceFingerPrint;
@@ -19,7 +19,7 @@ public class MessageData  {
   private List<EvidenceSignature> biometricSignaturesData = new ArrayList<EvidenceSignature>() ;
   private List<EvidenceFingerPrint> fingerPrintsData = new ArrayList<EvidenceFingerPrint>() ;
   private List<EvidenceImage> imagesData = new ArrayList<EvidenceImage>() ;
-  private List<EvidenceOtpSms> otpSmsData = new ArrayList<EvidenceOtpSms>() ;
+  private List<EvidenceGeneric> genericData = new ArrayList<EvidenceGeneric>() ;
 
   
   /**
@@ -85,12 +85,12 @@ public class MessageData  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
-  @JsonProperty("otpSmsData")
-  public List<EvidenceOtpSms> getOtpSmsData() {
-    return otpSmsData;
+  @JsonProperty("genericData")
+  public List<EvidenceGeneric> getGenericData() {
+    return genericData;
   }
-  public void setOtpSmsData(List<EvidenceOtpSms> otpSmsData) {
-    this.otpSmsData = otpSmsData;
+  public void setGenericData(List<EvidenceGeneric> genericData) {
+    this.genericData = genericData;
   }
 
   
@@ -105,7 +105,7 @@ public class MessageData  {
     sb.append("  biometricSignaturesData: ").append(biometricSignaturesData).append("\n");
     sb.append("  fingerPrintsData: ").append(fingerPrintsData).append("\n");
     sb.append("  imagesData: ").append(imagesData).append("\n");
-    sb.append("  otpSmsData: ").append(otpSmsData).append("\n");
+    sb.append("  genericData: ").append(genericData).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

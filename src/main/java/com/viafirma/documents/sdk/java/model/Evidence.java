@@ -2,7 +2,8 @@ package com.viafirma.documents.sdk.java.model;
 
 import com.viafirma.documents.sdk.java.model.OcrData;
 import com.viafirma.documents.sdk.java.model.EvidenceSignature;
-import com.viafirma.documents.sdk.java.model.EvidenceOtpSms;
+import com.viafirma.documents.sdk.java.model.Param;
+import com.viafirma.documents.sdk.java.model.EvidenceGeneric;
 import com.viafirma.documents.sdk.java.model.Position;
 import com.viafirma.documents.sdk.java.model.EvidenceImage;
 import java.util.*;
@@ -17,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Evidence  {
   
   public enum TypeEnum {
-     SIGNATURE,  FINGERPRINT,  IMAGE,  ANNOTATION,  FINGER_PRINT,  OTP_SMS, 
+     SIGNATURE,  FINGERPRINT,  IMAGE,  ANNOTATION,  FINGER_PRINT,  OTP_SMS,  GENERIC, 
   };
   private TypeEnum type = null;
   private String code = null;
@@ -28,6 +29,7 @@ public class Evidence  {
   private String helpText = null;
   private String temporalReference = null;
   private List<Position> positions = new ArrayList<Position>() ;
+  private List<Param> metadataList = new ArrayList<Param>() ;
   private String metadata = null;
   private String deviceType = null;
   private List<String> hashPdf = new ArrayList<String>() ;
@@ -52,7 +54,7 @@ public class Evidence  {
   private Integer imageScaleFactor = null;
   private String wacomURL = null;
   private OcrData ocr = null;
-  private EvidenceOtpSms otpSmsData = null;
+  private EvidenceGeneric genericData = null;
   private String phone = null;
 
   
@@ -125,6 +127,18 @@ public class Evidence  {
   }
   public void setPositions(List<Position> positions) {
     this.positions = positions;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("metadataList")
+  public List<Param> getMetadataList() {
+    return metadataList;
+  }
+  public void setMetadataList(List<Param> metadataList) {
+    this.metadataList = metadataList;
   }
 
   
@@ -423,12 +437,12 @@ public class Evidence  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
-  @JsonProperty("otpSmsData")
-  public EvidenceOtpSms getOtpSmsData() {
-    return otpSmsData;
+  @JsonProperty("genericData")
+  public EvidenceGeneric getGenericData() {
+    return genericData;
   }
-  public void setOtpSmsData(EvidenceOtpSms otpSmsData) {
-    this.otpSmsData = otpSmsData;
+  public void setGenericData(EvidenceGeneric genericData) {
+    this.genericData = genericData;
   }
 
   
@@ -456,6 +470,7 @@ public class Evidence  {
     sb.append("  helpText: ").append(helpText).append("\n");
     sb.append("  temporalReference: ").append(temporalReference).append("\n");
     sb.append("  positions: ").append(positions).append("\n");
+    sb.append("  metadataList: ").append(metadataList).append("\n");
     sb.append("  metadata: ").append(metadata).append("\n");
     sb.append("  deviceType: ").append(deviceType).append("\n");
     sb.append("  hashPdf: ").append(hashPdf).append("\n");
@@ -480,7 +495,7 @@ public class Evidence  {
     sb.append("  imageScaleFactor: ").append(imageScaleFactor).append("\n");
     sb.append("  wacomURL: ").append(wacomURL).append("\n");
     sb.append("  ocr: ").append(ocr).append("\n");
-    sb.append("  otpSmsData: ").append(otpSmsData).append("\n");
+    sb.append("  genericData: ").append(genericData).append("\n");
     sb.append("  phone: ").append(phone).append("\n");
     sb.append("}\n");
     return sb.toString();
