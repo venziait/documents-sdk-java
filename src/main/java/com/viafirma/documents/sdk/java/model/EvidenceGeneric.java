@@ -19,10 +19,11 @@ public class EvidenceGeneric  {
   private EvidenceDevice device = null;
   private List<Position> positions = new ArrayList<Position>() ;
   private List<Param> properties = new ArrayList<Param>() ;
+  private String base64Image = null;
   private String providerId = null;
   private String evidenceDescription = null;
-  private Integer imageScaleFactor = null;
   private Integer imageQuality = null;
+  private Integer imageScaleFactor = null;
 
   
   /**
@@ -100,6 +101,18 @@ public class EvidenceGeneric  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
+  @JsonProperty("base64Image")
+  public String getBase64Image() {
+    return base64Image;
+  }
+  public void setBase64Image(String base64Image) {
+    this.base64Image = base64Image;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("providerId")
   public String getProviderId() {
     return providerId;
@@ -124,24 +137,24 @@ public class EvidenceGeneric  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
-  @JsonProperty("imageScaleFactor")
-  public Integer getImageScaleFactor() {
-    return imageScaleFactor;
-  }
-  public void setImageScaleFactor(Integer imageScaleFactor) {
-    this.imageScaleFactor = imageScaleFactor;
-  }
-
-  
-  /**
-   **/
-  @ApiModelProperty(required = false, value = "")
   @JsonProperty("imageQuality")
   public Integer getImageQuality() {
     return imageQuality;
   }
   public void setImageQuality(Integer imageQuality) {
     this.imageQuality = imageQuality;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("imageScaleFactor")
+  public Integer getImageScaleFactor() {
+    return imageScaleFactor;
+  }
+  public void setImageScaleFactor(Integer imageScaleFactor) {
+    this.imageScaleFactor = imageScaleFactor;
   }
 
   
@@ -157,10 +170,11 @@ public class EvidenceGeneric  {
     sb.append("  device: ").append(device).append("\n");
     sb.append("  positions: ").append(positions).append("\n");
     sb.append("  properties: ").append(properties).append("\n");
+    sb.append("  base64Image: ").append(base64Image).append("\n");
     sb.append("  providerId: ").append(providerId).append("\n");
     sb.append("  evidenceDescription: ").append(evidenceDescription).append("\n");
-    sb.append("  imageScaleFactor: ").append(imageScaleFactor).append("\n");
     sb.append("  imageQuality: ").append(imageQuality).append("\n");
+    sb.append("  imageScaleFactor: ").append(imageScaleFactor).append("\n");
     sb.append("}\n");
     return sb.toString();
   }
