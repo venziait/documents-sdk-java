@@ -181,14 +181,13 @@ public class V3evidencesApi {
   }
   
     
-  public Evidence prepareOtpSmsEvidence (String messageCode, String policyCode, String evidenceCode) throws ApiException {
+  public Evidence prepareOtpSmsEvidence (String messageCode, String evidenceCode) throws ApiException {
     Object postBody = null;
     
 
     // create path and map variables
     String path = "/v3/evidences/otp/sms/prepare/{messageCode}/{policyCode}/{evidenceCode}".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "messageCode" + "\\}", ApiInvoker.getInstance().escapeString(messageCode.toString()))
-      .replaceAll("\\{" + "policyCode" + "\\}", ApiInvoker.getInstance().escapeString(policyCode.toString()))
       .replaceAll("\\{" + "evidenceCode" + "\\}", ApiInvoker.getInstance().escapeString(evidenceCode.toString()));
 
     // query params
@@ -234,7 +233,7 @@ public class V3evidencesApi {
   }
   
     
-  public Evidence validateOtpSmsEvidence (String messageCode, String policyCode, String evidenceCode, String operatioId, String token) throws ApiException {
+  public Evidence validateOtpSmsEvidence (String messageCode, String evidenceCode, String token) throws ApiException {
     Object postBody = null;
     
 
@@ -262,13 +261,7 @@ public class V3evidencesApi {
       mp.field("messageCode", messageCode, MediaType.MULTIPART_FORM_DATA_TYPE);
       
       hasFields = true;
-      mp.field("policyCode", policyCode, MediaType.MULTIPART_FORM_DATA_TYPE);
-      
-      hasFields = true;
       mp.field("evidenceCode", evidenceCode, MediaType.MULTIPART_FORM_DATA_TYPE);
-      
-      hasFields = true;
-      mp.field("operatioId", operatioId, MediaType.MULTIPART_FORM_DATA_TYPE);
       
       hasFields = true;
       mp.field("token", token, MediaType.MULTIPART_FORM_DATA_TYPE);
@@ -278,9 +271,7 @@ public class V3evidencesApi {
     }
     else {
       formParams.put("messageCode", messageCode);
-      formParams.put("policyCode", policyCode);
       formParams.put("evidenceCode", evidenceCode);
-      formParams.put("operatioId", operatioId);
       formParams.put("token", token);
       
     }

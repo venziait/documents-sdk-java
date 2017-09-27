@@ -52,7 +52,6 @@ public class Evidence  {
   private Geolocation geolocation = null;
   private Integer imageQuality = null;
   private Integer imageScaleFactor = null;
-  private String wacomURL = null;
   private OcrData ocr = null;
   private EvidenceGeneric genericData = null;
 
@@ -409,19 +408,6 @@ public class Evidence  {
 
   
   /**
-   * (since 3.5.0, internal) url que permite el uso de tabletas wacom
-   **/
-  @ApiModelProperty(required = false, value = "(since 3.5.0, internal) url que permite el uso de tabletas wacom")
-  @JsonProperty("wacomURL")
-  public String getWacomURL() {
-    return wacomURL;
-  }
-  public void setWacomURL(String wacomURL) {
-    this.wacomURL = wacomURL;
-  }
-
-  
-  /**
    **/
   @ApiModelProperty(required = false, value = "")
   @JsonProperty("ocr")
@@ -480,7 +466,6 @@ public class Evidence  {
     sb.append("  geolocation: ").append(geolocation).append("\n");
     sb.append("  imageQuality: ").append(imageQuality).append("\n");
     sb.append("  imageScaleFactor: ").append(imageScaleFactor).append("\n");
-    sb.append("  wacomURL: ").append(wacomURL).append("\n");
     sb.append("  ocr: ").append(ocr).append("\n");
     sb.append("  genericData: ").append(genericData).append("\n");
     sb.append("}\n");
