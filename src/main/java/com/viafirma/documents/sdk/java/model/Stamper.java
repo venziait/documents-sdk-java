@@ -22,6 +22,7 @@ public class Stamper  {
   private Integer yAxis = null;
   private Integer page = null;
   private String imageBase64 = null;
+  private String positionsKey = null;
 
   
   /**
@@ -74,7 +75,7 @@ public class Stamper  {
   
   /**
    **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("xAxis")
   public Integer getXAxis() {
     return xAxis;
@@ -86,7 +87,7 @@ public class Stamper  {
   
   /**
    **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("yAxis")
   public Integer getYAxis() {
     return yAxis;
@@ -98,7 +99,7 @@ public class Stamper  {
   
   /**
    **/
-  @ApiModelProperty(required = true, value = "")
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("page")
   public Integer getPage() {
     return page;
@@ -120,6 +121,18 @@ public class Stamper  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("positionsKey")
+  public String getPositionsKey() {
+    return positionsKey;
+  }
+  public void setPositionsKey(String positionsKey) {
+    this.positionsKey = positionsKey;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -134,6 +147,7 @@ public class Stamper  {
     sb.append("  yAxis: ").append(yAxis).append("\n");
     sb.append("  page: ").append(page).append("\n");
     sb.append("  imageBase64: ").append(imageBase64).append("\n");
+    sb.append("  positionsKey: ").append(positionsKey).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

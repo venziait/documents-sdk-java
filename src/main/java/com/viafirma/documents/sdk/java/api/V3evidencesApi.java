@@ -186,7 +186,7 @@ public class V3evidencesApi {
     
 
     // create path and map variables
-    String path = "/v3/evidences/otp/sms/prepare/{messageCode}/{policyCode}/{evidenceCode}".replaceAll("\\{format\\}","json")
+    String path = "/v3/evidences/otp/sms/prepare/{messageCode}/{evidenceCode}".replaceAll("\\{format\\}","json")
       .replaceAll("\\{" + "messageCode" + "\\}", ApiInvoker.getInstance().escapeString(messageCode.toString()))
       .replaceAll("\\{" + "evidenceCode" + "\\}", ApiInvoker.getInstance().escapeString(evidenceCode.toString()));
 
