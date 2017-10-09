@@ -65,7 +65,7 @@ public class V3ApiTest {
 	private static final String DEVICE_CODE = "ipad-test";
 
 	private static final OAuthType OAUTH_TYPE = OAuthType.OAUTH_APPLICATION;
-	private static final String API_URL = "http://localhost:7080/documents/api";
+	private static final String API_URL = "http://localhost:8080/documents/api";
 	private static final String CONSUMER_KEY = "com.viafirma.mobile.services";
 	private static final String CONSUMER_SECRET = "XXXXXXXXXXXX";
 	private static final String AUTH_MODE = "client_auth";

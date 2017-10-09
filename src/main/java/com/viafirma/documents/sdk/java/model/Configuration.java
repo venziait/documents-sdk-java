@@ -1,9 +1,9 @@
 package com.viafirma.documents.sdk.java.model;
 
+import com.viafirma.documents.sdk.java.model.FinalizeAction;
 import com.viafirma.documents.sdk.java.model.MenuOption;
 import com.viafirma.documents.sdk.java.model.Version;
 import java.util.*;
-import com.viafirma.documents.sdk.java.model.FinalizeAction;
 
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;

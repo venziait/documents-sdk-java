@@ -8,8 +8,8 @@ import com.viafirma.documents.sdk.java.model.*;
 import java.util.*;
 
 import com.viafirma.documents.sdk.java.model.OcrMaskImage;
-import com.viafirma.documents.sdk.java.model.OcrPageResult;
 import com.viafirma.documents.sdk.java.model.OcrScanImageCustom;
+import com.viafirma.documents.sdk.java.model.OcrPageResult;
 
 import com.sun.jersey.multipart.FormDataMultiPart;
 
