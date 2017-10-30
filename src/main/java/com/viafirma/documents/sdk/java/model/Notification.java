@@ -24,7 +24,7 @@ public class Notification  {
   };
   private StatusEnum status = null;
   public enum NotificationTypeEnum {
-     PUSH,   CALLBACK,   MAIL,   SMS, 
+     PUSH_IOS,  PUSH_ANDROID,  CALLBACK,  MAIL,  SMS, 
   };
   private NotificationTypeEnum notificationType = null;
   private String location = null;
