@@ -3,6 +3,7 @@ package com.viafirma.documents.sdk.java.model;
 import com.viafirma.documents.sdk.java.model.SharedLink;
 import com.viafirma.documents.sdk.java.model.Param;
 import com.viafirma.documents.sdk.java.model.Device;
+import java.util.Date;
 import java.util.*;
 
 import com.wordnik.swagger.annotations.*;
@@ -13,16 +14,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Notification  {
   
   private String code = null;
+  private String messageCode = null;
   private String validateCode = null;
   private String text = null;
   private String detail = null;
   private String sound = null;
   public enum StatusEnum {
-     DISPATCHED,  DISPOSED,  READ,  RECEIVED,  COMPLETED,  REJECTED,  EXPIRED,  WAITING, 
+     SENT,  RECEIVED,  READ,  REJECTED,  EXPIRED,  ERROR,  RESENT, 
   };
   private StatusEnum status = null;
+  public enum NotificationTypeEnum {
+     PUSH,   CALLBACK,   MAIL,   SMS, 
+  };
+  private NotificationTypeEnum notificationType = null;
   private String location = null;
   private SharedLink sharedLink = null;
+  private Date updateDate = null;
   private List<Param> metadata = new ArrayList<Param>() ;
   private List<Device> devices = new ArrayList<Device>() ;
 
@@ -36,6 +43,18 @@ public class Notification  {
   }
   public void setCode(String code) {
     this.code = code;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("messageCode")
+  public String getMessageCode() {
+    return messageCode;
+  }
+  public void setMessageCode(String messageCode) {
+    this.messageCode = messageCode;
   }
 
   
@@ -102,6 +121,18 @@ public class Notification  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
+  @JsonProperty("notificationType")
+  public NotificationTypeEnum getNotificationType() {
+    return notificationType;
+  }
+  public void setNotificationType(NotificationTypeEnum notificationType) {
+    this.notificationType = notificationType;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("location")
   public String getLocation() {
     return location;
@@ -120,6 +151,18 @@ public class Notification  {
   }
   public void setSharedLink(SharedLink sharedLink) {
     this.sharedLink = sharedLink;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("updateDate")
+  public Date getUpdateDate() {
+    return updateDate;
+  }
+  public void setUpdateDate(Date updateDate) {
+    this.updateDate = updateDate;
   }
 
   
@@ -154,13 +197,16 @@ public class Notification  {
     sb.append("class Notification {\n");
     
     sb.append("  code: ").append(code).append("\n");
+    sb.append("  messageCode: ").append(messageCode).append("\n");
     sb.append("  validateCode: ").append(validateCode).append("\n");
     sb.append("  text: ").append(text).append("\n");
     sb.append("  detail: ").append(detail).append("\n");
     sb.append("  sound: ").append(sound).append("\n");
     sb.append("  status: ").append(status).append("\n");
+    sb.append("  notificationType: ").append(notificationType).append("\n");
     sb.append("  location: ").append(location).append("\n");
     sb.append("  sharedLink: ").append(sharedLink).append("\n");
+    sb.append("  updateDate: ").append(updateDate).append("\n");
     sb.append("  metadata: ").append(metadata).append("\n");
     sb.append("  devices: ").append(devices).append("\n");
     sb.append("}\n");
