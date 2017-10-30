@@ -29,6 +29,7 @@ public class Document  {
   private Boolean pdfaCompliant = null;
   private Font font = null;
   private String policyCode = null;
+  private String password = null;
 
   
   /**
@@ -213,6 +214,19 @@ public class Document  {
   }
 
   
+  /**
+   * (since 3.5.0) document password
+   **/
+  @ApiModelProperty(required = false, value = "(since 3.5.0) document password")
+  @JsonProperty("password")
+  public String getPassword() {
+    return password;
+  }
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -234,6 +248,7 @@ public class Document  {
     sb.append("  pdfaCompliant: ").append(pdfaCompliant).append("\n");
     sb.append("  font: ").append(font).append("\n");
     sb.append("  policyCode: ").append(policyCode).append("\n");
+    sb.append("  password: ").append(password).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

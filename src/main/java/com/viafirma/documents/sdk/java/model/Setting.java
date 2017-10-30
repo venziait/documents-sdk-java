@@ -3,6 +3,7 @@ package com.viafirma.documents.sdk.java.model;
 import com.viafirma.documents.sdk.java.model.Font;
 import com.viafirma.documents.sdk.java.model.Policy;
 import java.util.*;
+import com.viafirma.documents.sdk.java.model.AcrofieldPosition;
 
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,6 +23,7 @@ public class Setting  {
   private String validateCode = null;
   private String workflow = null;
   private Font font = null;
+  private List<AcrofieldPosition> acrofieldsPositions = new ArrayList<AcrofieldPosition>() ;
 
   
   /**
@@ -156,6 +158,18 @@ public class Setting  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("acrofieldsPositions")
+  public List<AcrofieldPosition> getAcrofieldsPositions() {
+    return acrofieldsPositions;
+  }
+  public void setAcrofieldsPositions(List<AcrofieldPosition> acrofieldsPositions) {
+    this.acrofieldsPositions = acrofieldsPositions;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -173,6 +187,7 @@ public class Setting  {
     sb.append("  validateCode: ").append(validateCode).append("\n");
     sb.append("  workflow: ").append(workflow).append("\n");
     sb.append("  font: ").append(font).append("\n");
+    sb.append("  acrofieldsPositions: ").append(acrofieldsPositions).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

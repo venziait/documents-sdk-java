@@ -13,6 +13,7 @@ import com.viafirma.documents.sdk.java.model.PrepareSignature;
 import com.viafirma.documents.sdk.java.model.DataToSign;
 import com.viafirma.documents.sdk.java.model.EvidenceSignature;
 import com.viafirma.documents.sdk.java.model.Policy;
+import com.viafirma.documents.sdk.java.model.Message;
 
 import com.sun.jersey.multipart.FormDataMultiPart;
 
@@ -225,6 +226,68 @@ public class V3signaturesApi {
       String response = ApiInvoker.getInstance().invokeAPI(path, "POST", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
         return (Signature) ApiInvoker.deserialize(response, "", Signature.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      if(ex.getCode() == 404) {
+      	return  null;
+      }
+      else {
+        throw ex;
+      }
+    }
+  }
+  
+    
+  public Message updateSignatureStatus (String messageCode, String signatureCode, String status) throws ApiException {
+    Object postBody = null;
+    
+
+    // create path and map variables
+    String path = "/v3/signatures/update/status".replaceAll("\\{format\\}","json");
+
+    // query params
+    Map<String, String> queryParams = new HashMap<String, String>();
+    Map<String, String> headerParams = new HashMap<String, String>();
+    Map<String, String> formParams = new HashMap<String, String>();
+
+    
+    
+    String[] contentTypes = {
+      "application/x-www-form-urlencoded"
+    };
+
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if(contentType.startsWith("multipart/form-data")) {
+      boolean hasFields = false;
+      FormDataMultiPart mp = new FormDataMultiPart();
+      
+      hasFields = true;
+      mp.field("messageCode", messageCode, MediaType.MULTIPART_FORM_DATA_TYPE);
+      
+      hasFields = true;
+      mp.field("signatureCode", signatureCode, MediaType.MULTIPART_FORM_DATA_TYPE);
+      
+      hasFields = true;
+      mp.field("status", status, MediaType.MULTIPART_FORM_DATA_TYPE);
+      
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+      formParams.put("messageCode", messageCode);
+      formParams.put("signatureCode", signatureCode);
+      formParams.put("status", status);
+      
+    }
+
+    try {
+      String response = ApiInvoker.getInstance().invokeAPI(path, "POST", queryParams, postBody, headerParams, formParams, contentType);
+      if(response != null){
+        return (Message) ApiInvoker.deserialize(response, "", Message.class);
       }
       else {
         return null;

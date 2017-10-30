@@ -16,7 +16,7 @@ public class Signature  {
   private TypeEnum type = null;
   private String code = null;
   public enum StatusEnum {
-     PENDING,  RECEIVED,  SIGNED,   PREPARED, 
+     PENDING,  RECEIVED,  SIGNED,  PREPARED,  CLICKED,  CLIENT_OPENED, 
   };
   private StatusEnum status = null;
   private String helpText = null;
@@ -30,6 +30,7 @@ public class Signature  {
   private String idSign = null;
   private Boolean custodyDisabled = null;
   private List<Stamper> stampers = new ArrayList<Stamper>() ;
+  private Long lastUpdated = null;
   public enum CertificationLevelEnum {
      NOT_CERTIFIED,  CERTIFIED_NO_CHANGES_ALLOWED,  CERTIFIED_FORM_FILLING,  CERTIFIED_FORM_FILLING_AND_ANNOTATIONS, 
   };
@@ -171,6 +172,18 @@ public class Signature  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
+  @JsonProperty("lastUpdated")
+  public Long getLastUpdated() {
+    return lastUpdated;
+  }
+  public void setLastUpdated(Long lastUpdated) {
+    this.lastUpdated = lastUpdated;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("certificationLevel")
   public CertificationLevelEnum getCertificationLevel() {
     return certificationLevel;
@@ -197,6 +210,7 @@ public class Signature  {
     sb.append("  idSign: ").append(idSign).append("\n");
     sb.append("  custodyDisabled: ").append(custodyDisabled).append("\n");
     sb.append("  stampers: ").append(stampers).append("\n");
+    sb.append("  lastUpdated: ").append(lastUpdated).append("\n");
     sb.append("  certificationLevel: ").append(certificationLevel).append("\n");
     sb.append("}\n");
     return sb.toString();
