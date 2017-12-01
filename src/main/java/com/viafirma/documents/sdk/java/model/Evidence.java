@@ -27,6 +27,7 @@ public class Evidence  {
   };
   private StatusEnum status = null;
   private String helpText = null;
+  private String helpDetail = null;
   private String temporalReference = null;
   private List<Position> positions = new ArrayList<Position>() ;
   private List<Param> metadataList = new ArrayList<Param>() ;
@@ -54,6 +55,8 @@ public class Evidence  {
   private Integer imageScaleFactor = null;
   private OcrData ocr = null;
   private EvidenceGeneric genericData = null;
+  private String base64Image = null;
+  private String imageType = null;
 
   
   /**
@@ -101,6 +104,18 @@ public class Evidence  {
   }
   public void setHelpText(String helpText) {
     this.helpText = helpText;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("helpDetail")
+  public String getHelpDetail() {
+    return helpDetail;
+  }
+  public void setHelpDetail(String helpDetail) {
+    this.helpDetail = helpDetail;
   }
 
   
@@ -395,9 +410,9 @@ public class Evidence  {
 
   
   /**
-   * (since 3.5.0) factor multiplicador del tamaño de la imagen, para permitir zoom
+   * (since 3.5.0) factor multiplicador del tamaño de la imagen, para permitir zoom, 1, 2, 3
    **/
-  @ApiModelProperty(required = false, value = "(since 3.5.0) factor multiplicador del tamaño de la imagen, para permitir zoom")
+  @ApiModelProperty(required = false, value = "(since 3.5.0) factor multiplicador del tamaño de la imagen, para permitir zoom, 1, 2, 3")
   @JsonProperty("imageScaleFactor")
   public Integer getImageScaleFactor() {
     return imageScaleFactor;
@@ -431,6 +446,30 @@ public class Evidence  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("base64Image")
+  public String getBase64Image() {
+    return base64Image;
+  }
+  public void setBase64Image(String base64Image) {
+    this.base64Image = base64Image;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("imageType")
+  public String getImageType() {
+    return imageType;
+  }
+  public void setImageType(String imageType) {
+    this.imageType = imageType;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -441,6 +480,7 @@ public class Evidence  {
     sb.append("  code: ").append(code).append("\n");
     sb.append("  status: ").append(status).append("\n");
     sb.append("  helpText: ").append(helpText).append("\n");
+    sb.append("  helpDetail: ").append(helpDetail).append("\n");
     sb.append("  temporalReference: ").append(temporalReference).append("\n");
     sb.append("  positions: ").append(positions).append("\n");
     sb.append("  metadataList: ").append(metadataList).append("\n");
@@ -468,6 +508,8 @@ public class Evidence  {
     sb.append("  imageScaleFactor: ").append(imageScaleFactor).append("\n");
     sb.append("  ocr: ").append(ocr).append("\n");
     sb.append("  genericData: ").append(genericData).append("\n");
+    sb.append("  base64Image: ").append(base64Image).append("\n");
+    sb.append("  imageType: ").append(imageType).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

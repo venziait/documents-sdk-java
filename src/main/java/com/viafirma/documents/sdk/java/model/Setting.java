@@ -24,6 +24,7 @@ public class Setting  {
   private String workflow = null;
   private Font font = null;
   private List<AcrofieldPosition> acrofieldsPositions = new ArrayList<AcrofieldPosition>() ;
+  private Boolean readDocumentRequired = null;
 
   
   /**
@@ -170,6 +171,18 @@ public class Setting  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("readDocumentRequired")
+  public Boolean getReadDocumentRequired() {
+    return readDocumentRequired;
+  }
+  public void setReadDocumentRequired(Boolean readDocumentRequired) {
+    this.readDocumentRequired = readDocumentRequired;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -188,6 +201,7 @@ public class Setting  {
     sb.append("  workflow: ").append(workflow).append("\n");
     sb.append("  font: ").append(font).append("\n");
     sb.append("  acrofieldsPositions: ").append(acrofieldsPositions).append("\n");
+    sb.append("  readDocumentRequired: ").append(readDocumentRequired).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

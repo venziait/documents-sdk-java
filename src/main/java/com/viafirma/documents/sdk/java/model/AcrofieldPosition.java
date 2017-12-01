@@ -10,8 +10,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class AcrofieldPosition  {
   
   private String id = null;
-  private Integer page = null;
   private Rectangle rectangle = null;
+  private Integer page = null;
 
   
   /**
@@ -29,24 +29,24 @@ public class AcrofieldPosition  {
   /**
    **/
   @ApiModelProperty(required = true, value = "")
-  @JsonProperty("page")
-  public Integer getPage() {
-    return page;
-  }
-  public void setPage(Integer page) {
-    this.page = page;
-  }
-
-  
-  /**
-   **/
-  @ApiModelProperty(required = true, value = "")
   @JsonProperty("rectangle")
   public Rectangle getRectangle() {
     return rectangle;
   }
   public void setRectangle(Rectangle rectangle) {
     this.rectangle = rectangle;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty("page")
+  public Integer getPage() {
+    return page;
+  }
+  public void setPage(Integer page) {
+    this.page = page;
   }
 
   
@@ -57,8 +57,8 @@ public class AcrofieldPosition  {
     sb.append("class AcrofieldPosition {\n");
     
     sb.append("  id: ").append(id).append("\n");
-    sb.append("  page: ").append(page).append("\n");
     sb.append("  rectangle: ").append(rectangle).append("\n");
+    sb.append("  page: ").append(page).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

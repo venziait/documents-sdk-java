@@ -30,6 +30,7 @@ public class Document  {
   private Font font = null;
   private String policyCode = null;
   private String password = null;
+  private Boolean readRequired = null;
 
   
   /**
@@ -227,6 +228,18 @@ public class Document  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("readRequired")
+  public Boolean getReadRequired() {
+    return readRequired;
+  }
+  public void setReadRequired(Boolean readRequired) {
+    this.readRequired = readRequired;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -249,6 +262,7 @@ public class Document  {
     sb.append("  font: ").append(font).append("\n");
     sb.append("  policyCode: ").append(policyCode).append("\n");
     sb.append("  password: ").append(password).append("\n");
+    sb.append("  readRequired: ").append(readRequired).append("\n");
     sb.append("}\n");
     return sb.toString();
   }
