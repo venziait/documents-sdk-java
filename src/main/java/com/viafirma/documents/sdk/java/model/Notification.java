@@ -24,12 +24,13 @@ public class Notification  {
   };
   private StatusEnum status = null;
   public enum NotificationTypeEnum {
-     PUSH_IOS,  PUSH_ANDROID,  CALLBACK,  MAIL,  SMS, 
+     PUSH_IOS,  PUSH_ANDROID,  CALLBACK,  CALLBACK_MAIL,  MAIL,  SMS,   MAIL_SMS, 
   };
   private NotificationTypeEnum notificationType = null;
   private String location = null;
   private SharedLink sharedLink = null;
   private Date updateDate = null;
+  private Long retryTime = null;
   private List<Param> metadata = new ArrayList<Param>() ;
   private List<Device> devices = new ArrayList<Device>() ;
 
@@ -169,6 +170,18 @@ public class Notification  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
+  @JsonProperty("retryTime")
+  public Long getRetryTime() {
+    return retryTime;
+  }
+  public void setRetryTime(Long retryTime) {
+    this.retryTime = retryTime;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("metadata")
   public List<Param> getMetadata() {
     return metadata;
@@ -207,6 +220,7 @@ public class Notification  {
     sb.append("  location: ").append(location).append("\n");
     sb.append("  sharedLink: ").append(sharedLink).append("\n");
     sb.append("  updateDate: ").append(updateDate).append("\n");
+    sb.append("  retryTime: ").append(retryTime).append("\n");
     sb.append("  metadata: ").append(metadata).append("\n");
     sb.append("  devices: ").append(devices).append("\n");
     sb.append("}\n");

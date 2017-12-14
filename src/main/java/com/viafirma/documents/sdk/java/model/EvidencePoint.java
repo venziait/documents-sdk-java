@@ -12,6 +12,9 @@ public class EvidencePoint  {
   private Double y = null;
   private Double pressure = null;
   private Long milliseconds = null;
+  private Double penElevation = null;
+  private Double penRotation = null;
+  private Double penAzimuth = null;
 
   
   /**
@@ -62,6 +65,42 @@ public class EvidencePoint  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("penElevation")
+  public Double getPenElevation() {
+    return penElevation;
+  }
+  public void setPenElevation(Double penElevation) {
+    this.penElevation = penElevation;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("penRotation")
+  public Double getPenRotation() {
+    return penRotation;
+  }
+  public void setPenRotation(Double penRotation) {
+    this.penRotation = penRotation;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("penAzimuth")
+  public Double getPenAzimuth() {
+    return penAzimuth;
+  }
+  public void setPenAzimuth(Double penAzimuth) {
+    this.penAzimuth = penAzimuth;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -72,6 +111,9 @@ public class EvidencePoint  {
     sb.append("  y: ").append(y).append("\n");
     sb.append("  pressure: ").append(pressure).append("\n");
     sb.append("  milliseconds: ").append(milliseconds).append("\n");
+    sb.append("  penElevation: ").append(penElevation).append("\n");
+    sb.append("  penRotation: ").append(penRotation).append("\n");
+    sb.append("  penAzimuth: ").append(penAzimuth).append("\n");
     sb.append("}\n");
     return sb.toString();
   }
