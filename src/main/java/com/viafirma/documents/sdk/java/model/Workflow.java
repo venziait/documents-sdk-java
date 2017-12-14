@@ -1,11 +1,12 @@
 package com.viafirma.documents.sdk.java.model;
 
+import java.util.ArrayList;
 import java.util.Date;
-import com.viafirma.documents.sdk.java.model.EventHistory;
-import java.util.*;
+import java.util.List;
 
-import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.wordnik.swagger.annotations.ApiModel;
+import com.wordnik.swagger.annotations.ApiModelProperty;
 
 
 @ApiModel(description = "")
@@ -19,7 +20,7 @@ public class Workflow  {
   private Date lastUpdated = null;
   private Date expires = null;
   public enum TypeEnum {
-     APP,  WEB;, 
+        APP, WEB;
   };
   private TypeEnum type = null;
 
