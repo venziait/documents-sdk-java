@@ -4,6 +4,7 @@ import com.viafirma.documents.sdk.java.model.Document;
 import com.viafirma.documents.sdk.java.model.Param;
 import com.viafirma.documents.sdk.java.model.Workflow;
 import java.util.Date;
+import com.viafirma.documents.sdk.java.model.Auditory;
 import com.viafirma.documents.sdk.java.model.Policy;
 import com.viafirma.documents.sdk.java.model.ErrorResponse;
 import java.util.*;
@@ -35,6 +36,7 @@ public class Message  {
   private Date processTimeExpired = null;
   private String commentReject = null;
   private String callbackResponse = null;
+  private List<Auditory> auditory = new ArrayList<Auditory>() ;
 
   
   /**
@@ -265,6 +267,18 @@ public class Message  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("auditory")
+  public List<Auditory> getAuditory() {
+    return auditory;
+  }
+  public void setAuditory(List<Auditory> auditory) {
+    this.auditory = auditory;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -290,6 +304,7 @@ public class Message  {
     sb.append("  processTimeExpired: ").append(processTimeExpired).append("\n");
     sb.append("  commentReject: ").append(commentReject).append("\n");
     sb.append("  callbackResponse: ").append(callbackResponse).append("\n");
+    sb.append("  auditory: ").append(auditory).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

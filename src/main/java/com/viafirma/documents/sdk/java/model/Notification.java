@@ -4,6 +4,7 @@ import com.viafirma.documents.sdk.java.model.SharedLink;
 import com.viafirma.documents.sdk.java.model.Param;
 import com.viafirma.documents.sdk.java.model.Device;
 import java.util.Date;
+import com.viafirma.documents.sdk.java.model.Customization;
 import java.util.*;
 
 import com.wordnik.swagger.annotations.*;
@@ -31,6 +32,7 @@ public class Notification  {
   private SharedLink sharedLink = null;
   private Date updateDate = null;
   private Long retryTime = null;
+  private Customization customization = null;
   private List<Param> metadata = new ArrayList<Param>() ;
   private List<Device> devices = new ArrayList<Device>() ;
 
@@ -182,6 +184,18 @@ public class Notification  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
+  @JsonProperty("customization")
+  public Customization getCustomization() {
+    return customization;
+  }
+  public void setCustomization(Customization customization) {
+    this.customization = customization;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("metadata")
   public List<Param> getMetadata() {
     return metadata;
@@ -221,6 +235,7 @@ public class Notification  {
     sb.append("  sharedLink: ").append(sharedLink).append("\n");
     sb.append("  updateDate: ").append(updateDate).append("\n");
     sb.append("  retryTime: ").append(retryTime).append("\n");
+    sb.append("  customization: ").append(customization).append("\n");
     sb.append("  metadata: ").append(metadata).append("\n");
     sb.append("  devices: ").append(devices).append("\n");
     sb.append("}\n");

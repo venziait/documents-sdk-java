@@ -1,11 +1,10 @@
 package com.viafirma.documents.sdk.java.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.viafirma.documents.sdk.java.model.Status;
+import java.util.*;
 
+import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wordnik.swagger.annotations.ApiModel;
-import com.wordnik.swagger.annotations.ApiModelProperty;
 
 
 @ApiModel(description = "")
@@ -15,7 +14,7 @@ public class WorkflowConfig  {
   private String description = null;
   private List<Status> status = new ArrayList<Status>() ;
   public enum TypeEnum {
-        APP, WEB;
+     APP,  WEB, 
   };
   private TypeEnum type = null;
 

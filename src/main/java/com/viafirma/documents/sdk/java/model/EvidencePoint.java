@@ -15,6 +15,7 @@ public class EvidencePoint  {
   private Double penElevation = null;
   private Double penRotation = null;
   private Double penAzimuth = null;
+  private Boolean s = null;
 
   
   /**
@@ -101,6 +102,18 @@ public class EvidencePoint  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("s")
+  public Boolean getS() {
+    return s;
+  }
+  public void setS(Boolean s) {
+    this.s = s;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -114,6 +127,7 @@ public class EvidencePoint  {
     sb.append("  penElevation: ").append(penElevation).append("\n");
     sb.append("  penRotation: ").append(penRotation).append("\n");
     sb.append("  penAzimuth: ").append(penAzimuth).append("\n");
+    sb.append("  s: ").append(s).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

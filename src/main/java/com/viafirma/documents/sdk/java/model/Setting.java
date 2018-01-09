@@ -2,6 +2,7 @@ package com.viafirma.documents.sdk.java.model;
 
 import com.viafirma.documents.sdk.java.model.Font;
 import com.viafirma.documents.sdk.java.model.Policy;
+import com.viafirma.documents.sdk.java.model.Customization;
 import java.util.*;
 import com.viafirma.documents.sdk.java.model.AcrofieldPosition;
 
@@ -25,6 +26,7 @@ public class Setting  {
   private Font font = null;
   private List<AcrofieldPosition> acrofieldsPositions = new ArrayList<AcrofieldPosition>() ;
   private Boolean readDocumentRequired = null;
+  private Customization customization = null;
 
   
   /**
@@ -183,6 +185,18 @@ public class Setting  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("customization")
+  public Customization getCustomization() {
+    return customization;
+  }
+  public void setCustomization(Customization customization) {
+    this.customization = customization;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -202,6 +216,7 @@ public class Setting  {
     sb.append("  font: ").append(font).append("\n");
     sb.append("  acrofieldsPositions: ").append(acrofieldsPositions).append("\n");
     sb.append("  readDocumentRequired: ").append(readDocumentRequired).append("\n");
+    sb.append("  customization: ").append(customization).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

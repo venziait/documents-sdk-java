@@ -1,5 +1,6 @@
 package com.viafirma.documents.sdk.java.model;
 
+import java.util.*;
 
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -25,6 +26,7 @@ public class User  {
   private String changePassToken = null;
   private Boolean logDevice = null;
   private String status = null;
+  private List<String> groups = new ArrayList<String>() ;
   private String mobile = null;
   private String channel = null;
 
@@ -236,6 +238,18 @@ public class User  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
+  @JsonProperty("groups")
+  public List<String> getGroups() {
+    return groups;
+  }
+  public void setGroups(List<String> groups) {
+    this.groups = groups;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("mobile")
   public String getMobile() {
     return mobile;
@@ -280,6 +294,7 @@ public class User  {
     sb.append("  changePassToken: ").append(changePassToken).append("\n");
     sb.append("  logDevice: ").append(logDevice).append("\n");
     sb.append("  status: ").append(status).append("\n");
+    sb.append("  groups: ").append(groups).append("\n");
     sb.append("  mobile: ").append(mobile).append("\n");
     sb.append("  channel: ").append(channel).append("\n");
     sb.append("}\n");
