@@ -1,6 +1,7 @@
 package com.viafirma.documents.sdk.java.model;
 
 import java.util.Date;
+import com.viafirma.documents.sdk.java.model.Geolocation;
 
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -11,8 +12,12 @@ public class Auditory  {
   
   private Date date = null;
   private String ip = null;
-  private String coordinates = null;
-  private String action = null;
+  private Geolocation geolocation = null;
+  public enum ActionEnum {
+     RECEIVED,   MAIL_SENT,   MAIL_READ,   MAIL_CALLBACK_SENT,   MAIL_CALLBACK_READ, 
+  };
+  private ActionEnum action = null;
+  private String data = null;
   private String detail = null;
 
   
@@ -43,12 +48,12 @@ public class Auditory  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
-  @JsonProperty("coordinates")
-  public String getCoordinates() {
-    return coordinates;
+  @JsonProperty("geolocation")
+  public Geolocation getGeolocation() {
+    return geolocation;
   }
-  public void setCoordinates(String coordinates) {
-    this.coordinates = coordinates;
+  public void setGeolocation(Geolocation geolocation) {
+    this.geolocation = geolocation;
   }
 
   
@@ -56,11 +61,23 @@ public class Auditory  {
    **/
   @ApiModelProperty(required = false, value = "")
   @JsonProperty("action")
-  public String getAction() {
+  public ActionEnum getAction() {
     return action;
   }
-  public void setAction(String action) {
+  public void setAction(ActionEnum action) {
     this.action = action;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("data")
+  public String getData() {
+    return data;
+  }
+  public void setData(String data) {
+    this.data = data;
   }
 
   
@@ -84,8 +101,9 @@ public class Auditory  {
     
     sb.append("  date: ").append(date).append("\n");
     sb.append("  ip: ").append(ip).append("\n");
-    sb.append("  coordinates: ").append(coordinates).append("\n");
+    sb.append("  geolocation: ").append(geolocation).append("\n");
     sb.append("  action: ").append(action).append("\n");
+    sb.append("  data: ").append(data).append("\n");
     sb.append("  detail: ").append(detail).append("\n");
     sb.append("}\n");
     return sb.toString();

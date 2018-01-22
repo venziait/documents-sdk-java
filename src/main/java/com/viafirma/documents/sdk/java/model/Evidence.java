@@ -43,6 +43,8 @@ public class Evidence  {
   private String metadataCipherPublicKey = null;
   private String encryptionKeyAlias = null;
   private Boolean optional = null;
+  private String ratioH = null;
+  private String ratioW = null;
   private EvidenceSignature signatureData = null;
   private EvidenceFingerPrint fingerPrintData = null;
   private EvidenceImage imageData = null;
@@ -302,6 +304,30 @@ public class Evidence  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
+  @JsonProperty("ratioH")
+  public String getRatioH() {
+    return ratioH;
+  }
+  public void setRatioH(String ratioH) {
+    this.ratioH = ratioH;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("ratioW")
+  public String getRatioW() {
+    return ratioW;
+  }
+  public void setRatioW(String ratioW) {
+    this.ratioW = ratioW;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("signatureData")
   public EvidenceSignature getSignatureData() {
     return signatureData;
@@ -496,6 +522,8 @@ public class Evidence  {
     sb.append("  metadataCipherPublicKey: ").append(metadataCipherPublicKey).append("\n");
     sb.append("  encryptionKeyAlias: ").append(encryptionKeyAlias).append("\n");
     sb.append("  optional: ").append(optional).append("\n");
+    sb.append("  ratioH: ").append(ratioH).append("\n");
+    sb.append("  ratioW: ").append(ratioW).append("\n");
     sb.append("  signatureData: ").append(signatureData).append("\n");
     sb.append("  fingerPrintData: ").append(fingerPrintData).append("\n");
     sb.append("  imageData: ").append(imageData).append("\n");

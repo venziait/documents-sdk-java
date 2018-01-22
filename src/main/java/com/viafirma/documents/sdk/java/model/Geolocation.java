@@ -13,6 +13,7 @@ public class Geolocation  {
   private Double longitude = null;
   private String locationData = null;
   private String locationInfo = null;
+  private String type = null;
 
   
   /**
@@ -75,6 +76,18 @@ public class Geolocation  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("type")
+  public String getType() {
+    return type;
+  }
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -86,6 +99,7 @@ public class Geolocation  {
     sb.append("  longitude: ").append(longitude).append("\n");
     sb.append("  locationData: ").append(locationData).append("\n");
     sb.append("  locationInfo: ").append(locationInfo).append("\n");
+    sb.append("  type: ").append(type).append("\n");
     sb.append("}\n");
     return sb.toString();
   }
