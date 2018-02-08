@@ -27,134 +27,139 @@ import com.sun.jersey.oauth.signature.OAuthParameters;
 import com.sun.jersey.oauth.signature.OAuthSecrets;
 
 public class ApiInvoker {
-  private static ApiInvoker INSTANCE = new ApiInvoker();
-  private Map<String, Client> hostMap = new HashMap<String, Client>();
-  private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
-  private boolean isDebug = false;
+    private static ApiInvoker INSTANCE = new ApiInvoker();
+    private Map<String, Client> hostMap = new HashMap<String, Client>();
+    private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
+    private boolean isDebug = false;
 
-  String basePath = null;
-  String consumerKey = null;
-  String consumerSecret = null;
-  String token = null;
-  String tokenSecret = null;
-  String proxyHost = null;
-  int proxyPort = 0;
+    private Integer timeoutInMillis;
 
-  public void setBasePath(String basePath) {
-    this.basePath = basePath;
-  }
+    String basePath = null;
+    String consumerKey = null;
+    String consumerSecret = null;
+    String token = null;
+    String tokenSecret = null;
+    String proxyHost = null;
+    int proxyPort = 0;
 
-  public String getBasePath() {
-    return basePath;
-  }
-
-  public void setConsumerKey(String consumerKey) {
-     this.consumerKey = consumerKey;
-  }
-
-  public String getConsumerKey() {
-    return consumerKey;
-  }
-
-  public void setConsumerSecret(String consumerSecret) {
-    this.consumerSecret = consumerSecret;
-  }
-
-  public String getConsumerSecret() {
-    return consumerSecret;
-  }
-
-  public String getToken() {
-    return token;
-  }
-
-  public void setToken(String token) {
-    this.token = token;
-  }
-
-  public String getTokenSecret() {
-    return tokenSecret;
-  }
-
-  public void setTokenSecret(String tokenSecret) {
-    this.tokenSecret = tokenSecret;
-  }
-
-  public String getProxyHost() {
-    return proxyHost;
-  }
-
-  public void setProxyHost(String proxyHost) {
-    this.proxyHost = proxyHost;
-  }
-
-  public int getProxyPort() {
-    return proxyPort;
-  }
-
-  public void setProxyPort(int proxyPort) {
-    this.proxyPort = proxyPort;
-  }
-
-  public void enableDebug() {
-    isDebug = true;
-  }
-
-  public static ApiInvoker getInstance() {
-    return INSTANCE;
-  }
-
-  public void addDefaultHeader(String key, String value) {
-     defaultHeaderMap.put(key, value);
-  }
-
-  public String escapeString(String str) {
-    try{
-      return URLEncoder.encode(str, "utf8").replaceAll("\\+", "%20");
+    public void setBasePath(String basePath) {
+        this.basePath = basePath;
     }
-    catch(UnsupportedEncodingException e) {
-      return str;
-    }
-  }
 
-  public static Object deserialize(String json, String containerType, Class cls) throws ApiException {
-    if(null != containerType) {
-        containerType = containerType.toLowerCase();
+    public String getBasePath() {
+        return basePath;
     }
-    try{
-      if("list".equals(containerType) || "array".equals(containerType)) {
-        JavaType typeInfo = JsonUtil.getJsonMapper().getTypeFactory().constructCollectionType(List.class, cls);
-        List response = (List<?>) JsonUtil.getJsonMapper().readValue(json, typeInfo);
-        return response;
-      }
-      else if(String.class.equals(cls)) {
-        if(json != null && json.startsWith("\"") && json.endsWith("\"") && json.length() > 1)
-          return json.substring(1, json.length() - 1);
-        else
-          return json;
-      }
-      else {
-        return JsonUtil.getJsonMapper().readValue(json, cls);
-      }
-    }
-    catch (IOException e) {
-      throw new ApiException(500, e.getMessage());
-    }
-  }
 
-  public static String serialize(Object obj) throws ApiException {
-    try {
-      if (obj != null)
-        return JsonUtil.getJsonMapper().writeValueAsString(obj);
-      else
-        return null;
+    public void setConsumerKey(String consumerKey) {
+        this.consumerKey = consumerKey;
     }
-    catch (Exception e) {
-      throw new ApiException(500, e.getMessage());
-    }
-  }
 
-  public String invokeAPI(String path, String method, Map<String, String> queryParams, Object body, Map<String, String> headerParams, Map<String, String> formParams, String contentType)
+    public String getConsumerKey() {
+        return consumerKey;
+    }
+
+    public void setConsumerSecret(String consumerSecret) {
+        this.consumerSecret = consumerSecret;
+    }
+
+    public String getConsumerSecret() {
+        return consumerSecret;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getTokenSecret() {
+        return tokenSecret;
+    }
+
+    public void setTokenSecret(String tokenSecret) {
+        this.tokenSecret = tokenSecret;
+    }
+
+    public String getProxyHost() {
+        return proxyHost;
+    }
+
+    public void setProxyHost(String proxyHost) {
+        this.proxyHost = proxyHost;
+    }
+
+    public int getProxyPort() {
+        return proxyPort;
+    }
+
+    public void setProxyPort(int proxyPort) {
+        this.proxyPort = proxyPort;
+    }
+
+    public Integer getTimeoutInMillis() {
+        return timeoutInMillis;
+    }
+
+    public void setTimeoutInMillis(Integer timeoutInMillis) {
+        this.timeoutInMillis = timeoutInMillis;
+    }
+
+    public void enableDebug() {
+        isDebug = true;
+    }
+
+    public static ApiInvoker getInstance() {
+        return INSTANCE;
+    }
+
+    public void addDefaultHeader(String key, String value) {
+        defaultHeaderMap.put(key, value);
+    }
+
+    public String escapeString(String str) {
+        try {
+            return URLEncoder.encode(str, "utf8").replaceAll("\\+", "%20");
+        } catch (UnsupportedEncodingException e) {
+            return str;
+        }
+    }
+
+    public static Object deserialize(String json, String containerType, Class cls) throws ApiException {
+        if (null != containerType) {
+            containerType = containerType.toLowerCase();
+        }
+        try {
+            if ("list".equals(containerType) || "array".equals(containerType)) {
+                JavaType typeInfo = JsonUtil.getJsonMapper().getTypeFactory().constructCollectionType(List.class, cls);
+                List response = (List<?>) JsonUtil.getJsonMapper().readValue(json, typeInfo);
+                return response;
+            } else if (String.class.equals(cls)) {
+                if (json != null && json.startsWith("\"") && json.endsWith("\"") && json.length() > 1)
+                    return json.substring(1, json.length() - 1);
+                else
+                    return json;
+            } else {
+                return JsonUtil.getJsonMapper().readValue(json, cls);
+            }
+        } catch (IOException e) {
+            throw new ApiException(500, e.getMessage());
+        }
+    }
+
+    public static String serialize(Object obj) throws ApiException {
+        try {
+            if (obj != null)
+                return JsonUtil.getJsonMapper().writeValueAsString(obj);
+            else
+                return null;
+        } catch (Exception e) {
+            throw new ApiException(500, e.getMessage());
+        }
+    }
+
+    public String invokeAPI(String path, String method, Map<String, String> queryParams, Object body, Map<String, String> headerParams, Map<String, String> formParams, String contentType)
             throws ApiException {
         Client client = getClient(basePath, proxyHost, proxyPort);
 
@@ -205,7 +210,7 @@ public class ApiInvoker {
                 }
             }
             resource = client.resource(basePath + path + "?" + formParamBuilder.toString());
-        }else{
+        } else {
             resource = client.resource(basePath + path + querystring);
         }
         resource.addFilter(filter);
@@ -224,7 +229,7 @@ public class ApiInvoker {
         ClientResponse response = null;
 
         if ("GET".equals(method)) {
-            response = (ClientResponse) builder.get(ClientResponse.class);
+            response = builder.get(ClientResponse.class);
         } else if ("POST".equals(method)) {
             if ("application/x-www-form-urlencoded".equals(contentType)) {
                 StringBuilder formParamBuilder = new StringBuilder();
@@ -274,30 +279,35 @@ public class ApiInvoker {
         if (response.getClientResponseStatus() == ClientResponse.Status.NO_CONTENT) {
             return null;
         } else if (response.getClientResponseStatus().getFamily() == Family.SUCCESSFUL) {
-            return (String) response.getEntity(String.class);
+            return response.getEntity(String.class);
         } else {
             throw new ApiException(response.getClientResponseStatus().getStatusCode(), response.getEntity(String.class));
         }
     }
 
-  private Client getClient(String host, final String proxyHost, final int proxyPort) {
-    if(!hostMap.containsKey(host)) {
-        Client client = new Client(new URLConnectionClientHandler(new HttpURLConnectionFactory() {
-            @Override
-            public HttpURLConnection getHttpURLConnection(URL url) throws IOException {
-                if (proxyHost != null && proxyPort != 0) {
-                    Proxy p = new Proxy(Proxy.Type.HTTP,new InetSocketAddress(proxyHost,proxyPort));
-                    return (HttpURLConnection) url.openConnection(p);
-                }else {
-                    return (HttpURLConnection) url.openConnection(Proxy.NO_PROXY);
+    private Client getClient(String host, final String proxyHost, final int proxyPort) {
+        if (!hostMap.containsKey(host)) {
+            Client client = new Client(new URLConnectionClientHandler(new HttpURLConnectionFactory() {
+                @Override
+                public HttpURLConnection getHttpURLConnection(URL url) throws IOException {
+                    if (proxyHost != null && proxyPort != 0) {
+                        Proxy p = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(proxyHost, proxyPort));
+                        return (HttpURLConnection) url.openConnection(p);
+                    } else {
+                        return (HttpURLConnection) url.openConnection(Proxy.NO_PROXY);
+                    }
                 }
+            }));
+            if (timeoutInMillis != null && timeoutInMillis > 0) {
+                client.setConnectTimeout(timeoutInMillis);
+                client.setReadTimeout(timeoutInMillis);
             }
-        }));
 
-      if(isDebug)
-        client.addFilter(new LoggingFilter());
-      hostMap.put(host, client);
+            if (isDebug) {
+                client.addFilter(new LoggingFilter());
+            }
+            hostMap.put(host, client);
+        }
+        return hostMap.get(host);
     }
-    return hostMap.get(host);
-  }
 }

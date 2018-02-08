@@ -114,6 +114,19 @@ public class V3Api {
         this.validateResponse = validateResponse;
     }
 
+    public Integer getTimeoutInMillis() {
+        return apiInvoker.getTimeoutInMillis();
+    }
+
+    /**
+     * Establish timeout for connection / read in milliseconds
+     * 
+     * @param timeoutInMillis
+     */
+    public void setTimeoutInMillis(Integer timeoutInMillis) {
+        apiInvoker.setTimeoutInMillis(timeoutInMillis);
+    }
+
     public void generateNewToken() throws ApiException {
         setToken(null);
         setTokenSecret(null);
