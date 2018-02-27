@@ -1,10 +1,10 @@
 package com.viafirma.documents.sdk.java.model;
 
+import com.viafirma.documents.sdk.java.model.Geolocation;
+import com.viafirma.documents.sdk.java.model.Position;
 import com.viafirma.documents.sdk.java.model.EvidenceDevice;
 import com.viafirma.documents.sdk.java.model.Param;
-import com.viafirma.documents.sdk.java.model.Position;
 import java.util.*;
-import com.viafirma.documents.sdk.java.model.Geolocation;
 
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,6 +22,7 @@ public class EvidenceGeneric  {
   private String base64Image = null;
   private String providerId = null;
   private String evidenceDescription = null;
+  private Long expirationTime = null;
   private Integer imageQuality = null;
   private Integer imageScaleFactor = null;
 
@@ -137,6 +138,18 @@ public class EvidenceGeneric  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
+  @JsonProperty("expirationTime")
+  public Long getExpirationTime() {
+    return expirationTime;
+  }
+  public void setExpirationTime(Long expirationTime) {
+    this.expirationTime = expirationTime;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("imageQuality")
   public Integer getImageQuality() {
     return imageQuality;
@@ -173,6 +186,7 @@ public class EvidenceGeneric  {
     sb.append("  base64Image: ").append(base64Image).append("\n");
     sb.append("  providerId: ").append(providerId).append("\n");
     sb.append("  evidenceDescription: ").append(evidenceDescription).append("\n");
+    sb.append("  expirationTime: ").append(expirationTime).append("\n");
     sb.append("  imageQuality: ").append(imageQuality).append("\n");
     sb.append("  imageScaleFactor: ").append(imageScaleFactor).append("\n");
     sb.append("}\n");

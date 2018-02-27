@@ -1,10 +1,10 @@
 package com.viafirma.documents.sdk.java.model;
 
 import com.viafirma.documents.sdk.java.model.FormNestedValue;
-import com.viafirma.documents.sdk.java.model.Setting;
-import com.viafirma.documents.sdk.java.model.FormValue;
-import java.util.*;
 import com.viafirma.documents.sdk.java.model.Container;
+import com.viafirma.documents.sdk.java.model.FormValue;
+import com.viafirma.documents.sdk.java.model.Setting;
+import java.util.*;
 
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;

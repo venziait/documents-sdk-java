@@ -13,7 +13,10 @@ public class WorkflowConfig  {
   private String code = null;
   private String description = null;
   private List<Status> status = new ArrayList<Status>() ;
-  private String type = null;
+  public enum TypeEnum {
+     APP,  WEB, 
+  };
+  private TypeEnum type = null;
 
   
   /**
@@ -56,10 +59,10 @@ public class WorkflowConfig  {
    **/
   @ApiModelProperty(required = false, value = "")
   @JsonProperty("type")
-  public String getType() {
+  public TypeEnum getType() {
     return type;
   }
-  public void setType(String type) {
+  public void setType(TypeEnum type) {
     this.type = type;
   }
 

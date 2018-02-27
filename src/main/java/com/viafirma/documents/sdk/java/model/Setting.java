@@ -1,8 +1,10 @@
 package com.viafirma.documents.sdk.java.model;
 
-import com.viafirma.documents.sdk.java.model.Font;
 import com.viafirma.documents.sdk.java.model.Policy;
+import com.viafirma.documents.sdk.java.model.Customization;
 import java.util.*;
+import com.viafirma.documents.sdk.java.model.AcrofieldPosition;
+import com.viafirma.documents.sdk.java.model.Font;
 
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,6 +24,9 @@ public class Setting  {
   private String validateCode = null;
   private String workflow = null;
   private Font font = null;
+  private List<AcrofieldPosition> acrofieldsPositions = new ArrayList<AcrofieldPosition>() ;
+  private Boolean readDocumentRequired = null;
+  private Customization customization = null;
 
   
   /**
@@ -156,6 +161,42 @@ public class Setting  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("acrofieldsPositions")
+  public List<AcrofieldPosition> getAcrofieldsPositions() {
+    return acrofieldsPositions;
+  }
+  public void setAcrofieldsPositions(List<AcrofieldPosition> acrofieldsPositions) {
+    this.acrofieldsPositions = acrofieldsPositions;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("readDocumentRequired")
+  public Boolean getReadDocumentRequired() {
+    return readDocumentRequired;
+  }
+  public void setReadDocumentRequired(Boolean readDocumentRequired) {
+    this.readDocumentRequired = readDocumentRequired;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("customization")
+  public Customization getCustomization() {
+    return customization;
+  }
+  public void setCustomization(Customization customization) {
+    this.customization = customization;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -173,6 +214,9 @@ public class Setting  {
     sb.append("  validateCode: ").append(validateCode).append("\n");
     sb.append("  workflow: ").append(workflow).append("\n");
     sb.append("  font: ").append(font).append("\n");
+    sb.append("  acrofieldsPositions: ").append(acrofieldsPositions).append("\n");
+    sb.append("  readDocumentRequired: ").append(readDocumentRequired).append("\n");
+    sb.append("  customization: ").append(customization).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

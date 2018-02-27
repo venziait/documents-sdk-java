@@ -1,7 +1,7 @@
 package com.viafirma.documents.sdk.java.model;
 
-import com.viafirma.documents.sdk.java.model.Row;
 import java.util.*;
+import com.viafirma.documents.sdk.java.model.Row;
 
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;

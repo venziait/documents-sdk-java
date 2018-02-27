@@ -1,8 +1,8 @@
 package com.viafirma.documents.sdk.java.model;
 
-import java.util.Date;
 import com.viafirma.documents.sdk.java.model.EventHistory;
 import java.util.*;
+import java.util.Date;
 
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -18,7 +18,10 @@ public class Workflow  {
   private Date initiate = null;
   private Date lastUpdated = null;
   private Date expires = null;
-  private String type = null;
+  public enum TypeEnum {
+     APP,  WEB, 
+  };
+  private TypeEnum type = null;
 
   
   /**
@@ -109,10 +112,10 @@ public class Workflow  {
    **/
   @ApiModelProperty(required = false, value = "")
   @JsonProperty("type")
-  public String getType() {
+  public TypeEnum getType() {
     return type;
   }
-  public void setType(String type) {
+  public void setType(TypeEnum type) {
     this.type = type;
   }
 

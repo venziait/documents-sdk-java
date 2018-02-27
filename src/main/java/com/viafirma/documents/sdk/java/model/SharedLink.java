@@ -14,6 +14,7 @@ public class SharedLink  {
   private String appCode = null;
   private String email = null;
   private String subject = null;
+  private String phone = null;
 
   
   /**
@@ -88,6 +89,18 @@ public class SharedLink  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("phone")
+  public String getPhone() {
+    return phone;
+  }
+  public void setPhone(String phone) {
+    this.phone = phone;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -100,6 +113,7 @@ public class SharedLink  {
     sb.append("  appCode: ").append(appCode).append("\n");
     sb.append("  email: ").append(email).append("\n");
     sb.append("  subject: ").append(subject).append("\n");
+    sb.append("  phone: ").append(phone).append("\n");
     sb.append("}\n");
     return sb.toString();
   }
