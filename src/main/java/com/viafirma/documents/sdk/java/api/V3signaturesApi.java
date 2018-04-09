@@ -9,10 +9,10 @@ import java.util.*;
 
 import com.viafirma.documents.sdk.java.model.WrapSignature;
 import com.viafirma.documents.sdk.java.model.Signature;
-import com.viafirma.documents.sdk.java.model.PrepareSignature;
 import com.viafirma.documents.sdk.java.model.DataToSign;
-import com.viafirma.documents.sdk.java.model.EvidenceSignature;
+import com.viafirma.documents.sdk.java.model.PrepareSignature;
 import com.viafirma.documents.sdk.java.model.Policy;
+import com.viafirma.documents.sdk.java.model.EvidenceSignature;
 import com.viafirma.documents.sdk.java.model.Message;
 
 import com.sun.jersey.multipart.FormDataMultiPart;

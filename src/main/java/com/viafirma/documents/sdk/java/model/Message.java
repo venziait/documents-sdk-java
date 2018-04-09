@@ -1,14 +1,14 @@
 package com.viafirma.documents.sdk.java.model;
 
-import com.viafirma.documents.sdk.java.model.Document;
+import com.viafirma.documents.sdk.java.model.Policy;
+import com.viafirma.documents.sdk.java.model.Auditory;
 import com.viafirma.documents.sdk.java.model.Param;
 import com.viafirma.documents.sdk.java.model.Workflow;
-import java.util.Date;
-import com.viafirma.documents.sdk.java.model.Auditory;
-import com.viafirma.documents.sdk.java.model.Policy;
-import com.viafirma.documents.sdk.java.model.ErrorResponse;
 import java.util.*;
+import com.viafirma.documents.sdk.java.model.Document;
 import com.viafirma.documents.sdk.java.model.Notification;
+import java.util.Date;
+import com.viafirma.documents.sdk.java.model.ErrorResponse;
 
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;

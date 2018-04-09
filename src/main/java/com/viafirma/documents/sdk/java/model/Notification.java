@@ -1,11 +1,11 @@
 package com.viafirma.documents.sdk.java.model;
 
-import com.viafirma.documents.sdk.java.model.SharedLink;
-import com.viafirma.documents.sdk.java.model.Param;
-import com.viafirma.documents.sdk.java.model.Device;
-import java.util.Date;
 import com.viafirma.documents.sdk.java.model.Customization;
+import com.viafirma.documents.sdk.java.model.Device;
+import com.viafirma.documents.sdk.java.model.Param;
 import java.util.*;
+import com.viafirma.documents.sdk.java.model.SharedLink;
+import java.util.Date;
 
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;

@@ -1,14 +1,14 @@
 package com.viafirma.documents.sdk.java.model;
 
-import com.viafirma.documents.sdk.java.model.OcrData;
+import com.viafirma.documents.sdk.java.model.Geolocation;
+import com.viafirma.documents.sdk.java.model.Position;
 import com.viafirma.documents.sdk.java.model.EvidenceSignature;
 import com.viafirma.documents.sdk.java.model.Param;
-import com.viafirma.documents.sdk.java.model.EvidenceGeneric;
-import com.viafirma.documents.sdk.java.model.Position;
-import com.viafirma.documents.sdk.java.model.EvidenceImage;
-import java.util.*;
-import com.viafirma.documents.sdk.java.model.Geolocation;
 import com.viafirma.documents.sdk.java.model.EvidenceFingerPrint;
+import com.viafirma.documents.sdk.java.model.EvidenceGeneric;
+import java.util.*;
+import com.viafirma.documents.sdk.java.model.OcrData;
+import com.viafirma.documents.sdk.java.model.EvidenceImage;
 
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;

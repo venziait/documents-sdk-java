@@ -1,7 +1,7 @@
 package com.viafirma.documents.sdk.java.model;
 
-import java.util.Date;
 import com.viafirma.documents.sdk.java.model.Geolocation;
+import java.util.Date;
 
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;

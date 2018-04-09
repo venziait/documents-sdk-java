@@ -1,5 +1,7 @@
 package com.viafirma.documents.sdk.java.model;
 
+import com.viafirma.documents.sdk.java.model.JSFieldExtractionResultDerivedData;
+import java.util.*;
 
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -8,11 +10,24 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @ApiModel(description = "")
 public class JSOcrFieldExtractionResult  {
   
+  private List<JSFieldExtractionResultDerivedData> derived = new ArrayList<JSFieldExtractionResultDerivedData>() ;
   private Double confidence = null;
   private String key = null;
   private Boolean valid = null;
   private String value = null;
   private String title = null;
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("derived")
+  public List<JSFieldExtractionResultDerivedData> getDerived() {
+    return derived;
+  }
+  public void setDerived(List<JSFieldExtractionResultDerivedData> derived) {
+    this.derived = derived;
+  }
 
   
   /**
@@ -81,6 +96,7 @@ public class JSOcrFieldExtractionResult  {
     StringBuilder sb = new StringBuilder();
     sb.append("class JSOcrFieldExtractionResult {\n");
     
+    sb.append("  derived: ").append(derived).append("\n");
     sb.append("  confidence: ").append(confidence).append("\n");
     sb.append("  key: ").append(key).append("\n");
     sb.append("  valid: ").append(valid).append("\n");

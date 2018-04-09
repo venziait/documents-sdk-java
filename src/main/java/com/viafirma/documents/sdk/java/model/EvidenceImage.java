@@ -1,10 +1,10 @@
 package com.viafirma.documents.sdk.java.model;
 
-import com.viafirma.documents.sdk.java.model.EvidenceDevice;
-import com.viafirma.documents.sdk.java.model.OcrData;
-import com.viafirma.documents.sdk.java.model.Position;
-import java.util.*;
 import com.viafirma.documents.sdk.java.model.Geolocation;
+import com.viafirma.documents.sdk.java.model.Position;
+import com.viafirma.documents.sdk.java.model.EvidenceDevice;
+import java.util.*;
+import com.viafirma.documents.sdk.java.model.OcrData;
 
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,6 +22,8 @@ public class EvidenceImage  {
   private Integer imageQuality = null;
   private Integer imageScaleFactor = null;
   private OcrData ocr = null;
+  private String ocrTemplate = null;
+  private String ocrFields = null;
 
   
   /**
@@ -132,6 +134,30 @@ public class EvidenceImage  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("ocrTemplate")
+  public String getOcrTemplate() {
+    return ocrTemplate;
+  }
+  public void setOcrTemplate(String ocrTemplate) {
+    this.ocrTemplate = ocrTemplate;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("ocrFields")
+  public String getOcrFields() {
+    return ocrFields;
+  }
+  public void setOcrFields(String ocrFields) {
+    this.ocrFields = ocrFields;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -147,6 +173,8 @@ public class EvidenceImage  {
     sb.append("  imageQuality: ").append(imageQuality).append("\n");
     sb.append("  imageScaleFactor: ").append(imageScaleFactor).append("\n");
     sb.append("  ocr: ").append(ocr).append("\n");
+    sb.append("  ocrTemplate: ").append(ocrTemplate).append("\n");
+    sb.append("  ocrFields: ").append(ocrFields).append("\n");
     sb.append("}\n");
     return sb.toString();
   }
