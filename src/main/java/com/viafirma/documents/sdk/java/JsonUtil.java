@@ -14,6 +14,7 @@ public class JsonUtil {
   	mapper = new ObjectMapper();
 	  mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 	  mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+    mapper.configure(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT, true);
 	  mapper.registerModule(new JodaModule());
 	}
 
