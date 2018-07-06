@@ -10,7 +10,6 @@ public class DataToSign  {
   
   private String algorithm = null;
   private String hash = null;
-  private String idSign = null;
 
   
   /**
@@ -39,18 +38,6 @@ public class DataToSign  {
   }
 
   
-  /**
-   **/
-  @ApiModelProperty(required = false, value = "")
-  @JsonProperty("idSign")
-  public String getIdSign() {
-    return idSign;
-  }
-  public void setIdSign(String idSign) {
-    this.idSign = idSign;
-  }
-
-  
 
   @Override
   public String toString()  {
@@ -59,7 +46,6 @@ public class DataToSign  {
     
     sb.append("  algorithm: ").append(algorithm).append("\n");
     sb.append("  hash: ").append(hash).append("\n");
-    sb.append("  idSign: ").append(idSign).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

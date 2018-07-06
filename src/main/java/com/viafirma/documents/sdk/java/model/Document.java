@@ -20,7 +20,7 @@ public class Document  {
   private String signedID = null;
   private String signedReference = null;
   public enum TemplateTypeEnum {
-     docx,  odt,  url,  pdf,  base64, 
+     docx,  odt,  url,  pdf,  cache,  base64, 
   };
   private TemplateTypeEnum templateType = null;
   private Boolean formRequired = null;
@@ -31,7 +31,6 @@ public class Document  {
   private String policyCode = null;
   private String password = null;
   private Boolean readRequired = null;
-  private Integer numPages = null;
 
   
   /**
@@ -241,18 +240,6 @@ public class Document  {
   }
 
   
-  /**
-   **/
-  @ApiModelProperty(required = false, value = "")
-  @JsonProperty("numPages")
-  public Integer getNumPages() {
-    return numPages;
-  }
-  public void setNumPages(Integer numPages) {
-    this.numPages = numPages;
-  }
-
-  
 
   @Override
   public String toString()  {
@@ -276,7 +263,6 @@ public class Document  {
     sb.append("  policyCode: ").append(policyCode).append("\n");
     sb.append("  password: ").append(password).append("\n");
     sb.append("  readRequired: ").append(readRequired).append("\n");
-    sb.append("  numPages: ").append(numPages).append("\n");
     sb.append("}\n");
     return sb.toString();
   }
