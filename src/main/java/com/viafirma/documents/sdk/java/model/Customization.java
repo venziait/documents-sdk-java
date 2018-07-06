@@ -23,6 +23,7 @@ public class Customization  {
   private String callbackMailErrorBody = null;
   private String callbackMailReminderBody = null;
   private String callbackMailReminderSubject = null;
+  private String successMessage = null;
 
   
   /**
@@ -205,6 +206,18 @@ public class Customization  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("successMessage")
+  public String getSuccessMessage() {
+    return successMessage;
+  }
+  public void setSuccessMessage(String successMessage) {
+    this.successMessage = successMessage;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -226,6 +239,7 @@ public class Customization  {
     sb.append("  callbackMailErrorBody: ").append(callbackMailErrorBody).append("\n");
     sb.append("  callbackMailReminderBody: ").append(callbackMailReminderBody).append("\n");
     sb.append("  callbackMailReminderSubject: ").append(callbackMailReminderSubject).append("\n");
+    sb.append("  successMessage: ").append(successMessage).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

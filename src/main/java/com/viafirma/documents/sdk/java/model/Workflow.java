@@ -19,7 +19,7 @@ public class Workflow  {
   private Date lastUpdated = null;
   private Date expires = null;
   public enum TypeEnum {
-     APP,  WEB, 
+     APP,  WEB,  PRESENTIAL, 
   };
   private TypeEnum type = null;
 

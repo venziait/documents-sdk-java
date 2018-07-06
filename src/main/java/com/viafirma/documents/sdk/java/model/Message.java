@@ -30,6 +30,8 @@ public class Message  {
   private String callbackURL = null;
   private String callbackMails = null;
   private List<String> callbackMailsFormKeys = new ArrayList<String>() ;
+  private String callbackMailFilename = null;
+  private String callbackAuthorization = null;
   private ErrorResponse error = null;
   private String pid = null;
   private String server = null;
@@ -198,6 +200,30 @@ public class Message  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
+  @JsonProperty("callbackMailFilename")
+  public String getCallbackMailFilename() {
+    return callbackMailFilename;
+  }
+  public void setCallbackMailFilename(String callbackMailFilename) {
+    this.callbackMailFilename = callbackMailFilename;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("callbackAuthorization")
+  public String getCallbackAuthorization() {
+    return callbackAuthorization;
+  }
+  public void setCallbackAuthorization(String callbackAuthorization) {
+    this.callbackAuthorization = callbackAuthorization;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("error")
   public ErrorResponse getError() {
     return error;
@@ -298,6 +324,8 @@ public class Message  {
     sb.append("  callbackURL: ").append(callbackURL).append("\n");
     sb.append("  callbackMails: ").append(callbackMails).append("\n");
     sb.append("  callbackMailsFormKeys: ").append(callbackMailsFormKeys).append("\n");
+    sb.append("  callbackMailFilename: ").append(callbackMailFilename).append("\n");
+    sb.append("  callbackAuthorization: ").append(callbackAuthorization).append("\n");
     sb.append("  error: ").append(error).append("\n");
     sb.append("  pid: ").append(pid).append("\n");
     sb.append("  server: ").append(server).append("\n");

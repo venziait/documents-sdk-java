@@ -1,5 +1,6 @@
 package com.viafirma.documents.sdk.java.model;
 
+import com.viafirma.documents.sdk.java.model.Param;
 import java.util.*;
 
 import com.wordnik.swagger.annotations.*;
@@ -27,6 +28,7 @@ public class User  {
   private Boolean logDevice = null;
   private String status = null;
   private List<String> groups = new ArrayList<String>() ;
+  private List<Param> properties = new ArrayList<Param>() ;
   private String mobile = null;
   private String channel = null;
 
@@ -250,6 +252,18 @@ public class User  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
+  @JsonProperty("properties")
+  public List<Param> getProperties() {
+    return properties;
+  }
+  public void setProperties(List<Param> properties) {
+    this.properties = properties;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("mobile")
   public String getMobile() {
     return mobile;
@@ -295,6 +309,7 @@ public class User  {
     sb.append("  logDevice: ").append(logDevice).append("\n");
     sb.append("  status: ").append(status).append("\n");
     sb.append("  groups: ").append(groups).append("\n");
+    sb.append("  properties: ").append(properties).append("\n");
     sb.append("  mobile: ").append(mobile).append("\n");
     sb.append("  channel: ").append(channel).append("\n");
     sb.append("}\n");

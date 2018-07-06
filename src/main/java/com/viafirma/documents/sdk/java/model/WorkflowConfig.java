@@ -14,7 +14,7 @@ public class WorkflowConfig  {
   private String description = null;
   private List<Status> status = new ArrayList<Status>() ;
   public enum TypeEnum {
-     APP,  WEB, 
+     APP,  WEB,  PRESENTIAL, 
   };
   private TypeEnum type = null;
 
