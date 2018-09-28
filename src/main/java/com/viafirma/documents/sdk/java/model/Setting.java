@@ -18,6 +18,7 @@ public class Setting  {
   private Policy policy = null;
   private String computec_key = null;
   private List<Policy> policies = new ArrayList<Policy>() ;
+  private String callbackAuthorization = null;
   private String callbackURL = null;
   private String callbackMails = null;
   private List<String> callbackMailsFormKeys = new ArrayList<String>() ;
@@ -86,6 +87,18 @@ public class Setting  {
   }
   public void setPolicies(List<Policy> policies) {
     this.policies = policies;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("callbackAuthorization")
+  public String getCallbackAuthorization() {
+    return callbackAuthorization;
+  }
+  public void setCallbackAuthorization(String callbackAuthorization) {
+    this.callbackAuthorization = callbackAuthorization;
   }
 
   
@@ -208,6 +221,7 @@ public class Setting  {
     sb.append("  policy: ").append(policy).append("\n");
     sb.append("  computec_key: ").append(computec_key).append("\n");
     sb.append("  policies: ").append(policies).append("\n");
+    sb.append("  callbackAuthorization: ").append(callbackAuthorization).append("\n");
     sb.append("  callbackURL: ").append(callbackURL).append("\n");
     sb.append("  callbackMails: ").append(callbackMails).append("\n");
     sb.append("  callbackMailsFormKeys: ").append(callbackMailsFormKeys).append("\n");

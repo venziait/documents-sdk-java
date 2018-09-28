@@ -5,7 +5,7 @@
   <artifactId>documents-sdk-java</artifactId>
   <packaging>jar</packaging>
   <name>documents-sdk-java</name>
-  <version>3.5.51</version>
+  <version>3.5.70</version>
   <scm>
     <connection>scm:git:git@github.com:wordnik/swagger-mustache.git</connection>
     <developerConnection>scm:git:git@github.com:wordnik/swagger-codegen.git</developerConnection>
