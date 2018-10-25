@@ -17,7 +17,7 @@ public class Template  {
   private Form form = null;
   private String version = null;
   public enum TypeEnum {
-     docx,  odt,  url,  pdf,  cache,  base64, 
+     docx,  odt,  url,  pdf,  base64,  message, 
   };
   private TypeEnum type = null;
 

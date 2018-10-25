@@ -17,6 +17,8 @@ public class Customization  {
   private String callbackMailSuccessBody = null;
   private String callbackMailExpiredSubject = null;
   private String callbackMailExpiredBody = null;
+  private String callbackMailWaitingCheckSubject = null;
+  private String callbackMailWaitingCheckBody = null;
   private String callbackMailRejectedSubject = null;
   private String callbackMailRejectedBody = null;
   private String callbackMailErrorSubject = null;
@@ -137,6 +139,30 @@ public class Customization  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
+  @JsonProperty("callbackMailWaitingCheckSubject")
+  public String getCallbackMailWaitingCheckSubject() {
+    return callbackMailWaitingCheckSubject;
+  }
+  public void setCallbackMailWaitingCheckSubject(String callbackMailWaitingCheckSubject) {
+    this.callbackMailWaitingCheckSubject = callbackMailWaitingCheckSubject;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("callbackMailWaitingCheckBody")
+  public String getCallbackMailWaitingCheckBody() {
+    return callbackMailWaitingCheckBody;
+  }
+  public void setCallbackMailWaitingCheckBody(String callbackMailWaitingCheckBody) {
+    this.callbackMailWaitingCheckBody = callbackMailWaitingCheckBody;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("callbackMailRejectedSubject")
   public String getCallbackMailRejectedSubject() {
     return callbackMailRejectedSubject;
@@ -233,6 +259,8 @@ public class Customization  {
     sb.append("  callbackMailSuccessBody: ").append(callbackMailSuccessBody).append("\n");
     sb.append("  callbackMailExpiredSubject: ").append(callbackMailExpiredSubject).append("\n");
     sb.append("  callbackMailExpiredBody: ").append(callbackMailExpiredBody).append("\n");
+    sb.append("  callbackMailWaitingCheckSubject: ").append(callbackMailWaitingCheckSubject).append("\n");
+    sb.append("  callbackMailWaitingCheckBody: ").append(callbackMailWaitingCheckBody).append("\n");
     sb.append("  callbackMailRejectedSubject: ").append(callbackMailRejectedSubject).append("\n");
     sb.append("  callbackMailRejectedBody: ").append(callbackMailRejectedBody).append("\n");
     sb.append("  callbackMailErrorSubject: ").append(callbackMailErrorSubject).append("\n");

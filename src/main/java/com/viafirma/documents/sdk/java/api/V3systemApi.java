@@ -10,7 +10,7 @@ import java.util.*;
 import com.viafirma.documents.sdk.java.model.Alive;
 import com.viafirma.documents.sdk.java.model.Configuration;
 import com.viafirma.documents.sdk.java.model.InfoSystemStatus;
-import com.viafirma.documents.sdk.java.model.TaskManager;
+import com.viafirma.documents.sdk.java.model.WorkflowManager;
 
 import com.sun.jersey.multipart.FormDataMultiPart;
 
@@ -181,7 +181,7 @@ public class V3systemApi {
   }
   
     
-  public TaskManager getWorkflowConfiguration () throws ApiException {
+  public WorkflowManager getWorkflowConfiguration () throws ApiException {
     Object postBody = null;
     
 
@@ -215,7 +215,7 @@ public class V3systemApi {
     try {
       String response = ApiInvoker.getInstance().invokeAPI(path, "GET", queryParams, postBody, headerParams, formParams, contentType);
       if(response != null){
-        return (TaskManager) ApiInvoker.deserialize(response, "", TaskManager.class);
+        return (WorkflowManager) ApiInvoker.deserialize(response, "", WorkflowManager.class);
       }
       else {
         return null;

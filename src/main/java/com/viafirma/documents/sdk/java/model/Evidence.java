@@ -21,6 +21,9 @@ public class Evidence  {
      SIGNATURE,  FINGERPRINT,  IMAGE,  ANNOTATION,  FINGER_PRINT,  OTP_SMS,  GENERIC, 
   };
   private TypeEnum type = null;
+  private String id = null;
+  private String enabledExpression = null;
+  private Boolean enabled = null;
   private String code = null;
   public enum StatusEnum {
      PENDING,  RECEIVED,  ADDED, 
@@ -59,6 +62,7 @@ public class Evidence  {
   private EvidenceGeneric genericData = null;
   private String base64Image = null;
   private String imageType = null;
+  private Boolean addLink = null;
 
   
   /**
@@ -70,6 +74,42 @@ public class Evidence  {
   }
   public void setType(TypeEnum type) {
     this.type = type;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("id")
+  public String getId() {
+    return id;
+  }
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("enabledExpression")
+  public String getEnabledExpression() {
+    return enabledExpression;
+  }
+  public void setEnabledExpression(String enabledExpression) {
+    this.enabledExpression = enabledExpression;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("enabled")
+  public Boolean getEnabled() {
+    return enabled;
+  }
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
   
@@ -496,6 +536,18 @@ public class Evidence  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("addLink")
+  public Boolean getAddLink() {
+    return addLink;
+  }
+  public void setAddLink(Boolean addLink) {
+    this.addLink = addLink;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -503,6 +555,9 @@ public class Evidence  {
     sb.append("class Evidence {\n");
     
     sb.append("  type: ").append(type).append("\n");
+    sb.append("  id: ").append(id).append("\n");
+    sb.append("  enabledExpression: ").append(enabledExpression).append("\n");
+    sb.append("  enabled: ").append(enabled).append("\n");
     sb.append("  code: ").append(code).append("\n");
     sb.append("  status: ").append(status).append("\n");
     sb.append("  helpText: ").append(helpText).append("\n");
@@ -538,6 +593,7 @@ public class Evidence  {
     sb.append("  genericData: ").append(genericData).append("\n");
     sb.append("  base64Image: ").append(base64Image).append("\n");
     sb.append("  imageType: ").append(imageType).append("\n");
+    sb.append("  addLink: ").append(addLink).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

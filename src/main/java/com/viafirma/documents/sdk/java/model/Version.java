@@ -13,6 +13,7 @@ public class Version  {
   private Boolean showUpdate = null;
   private String installURL = null;
   private String installMessage = null;
+  private String iconURL = null;
 
   
   /**
@@ -75,6 +76,18 @@ public class Version  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("iconURL")
+  public String getIconURL() {
+    return iconURL;
+  }
+  public void setIconURL(String iconURL) {
+    this.iconURL = iconURL;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -86,6 +99,7 @@ public class Version  {
     sb.append("  showUpdate: ").append(showUpdate).append("\n");
     sb.append("  installURL: ").append(installURL).append("\n");
     sb.append("  installMessage: ").append(installMessage).append("\n");
+    sb.append("  iconURL: ").append(iconURL).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

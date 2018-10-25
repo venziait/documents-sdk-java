@@ -20,7 +20,7 @@ public class Document  {
   private String signedID = null;
   private String signedReference = null;
   public enum TemplateTypeEnum {
-     docx,  odt,  url,  pdf,  cache,  base64, 
+     docx,  odt,  url,  pdf,  base64,  message, 
   };
   private TemplateTypeEnum templateType = null;
   private Boolean formRequired = null;
@@ -31,6 +31,9 @@ public class Document  {
   private String policyCode = null;
   private String password = null;
   private Boolean readRequired = null;
+  private Integer numPages = null;
+  private Boolean allowResend = null;
+  private String watermarkText = null;
 
   
   /**
@@ -240,6 +243,42 @@ public class Document  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("numPages")
+  public Integer getNumPages() {
+    return numPages;
+  }
+  public void setNumPages(Integer numPages) {
+    this.numPages = numPages;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("allowResend")
+  public Boolean getAllowResend() {
+    return allowResend;
+  }
+  public void setAllowResend(Boolean allowResend) {
+    this.allowResend = allowResend;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("watermarkText")
+  public String getWatermarkText() {
+    return watermarkText;
+  }
+  public void setWatermarkText(String watermarkText) {
+    this.watermarkText = watermarkText;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -263,6 +302,9 @@ public class Document  {
     sb.append("  policyCode: ").append(policyCode).append("\n");
     sb.append("  password: ").append(password).append("\n");
     sb.append("  readRequired: ").append(readRequired).append("\n");
+    sb.append("  numPages: ").append(numPages).append("\n");
+    sb.append("  allowResend: ").append(allowResend).append("\n");
+    sb.append("  watermarkText: ").append(watermarkText).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

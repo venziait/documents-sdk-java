@@ -27,6 +27,7 @@ public class Setting  {
   private Font font = null;
   private List<AcrofieldPosition> acrofieldsPositions = new ArrayList<AcrofieldPosition>() ;
   private Boolean readDocumentRequired = null;
+  private Boolean allowDocumentResend = null;
   private Customization customization = null;
 
   
@@ -201,6 +202,18 @@ public class Setting  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
+  @JsonProperty("allowDocumentResend")
+  public Boolean getAllowDocumentResend() {
+    return allowDocumentResend;
+  }
+  public void setAllowDocumentResend(Boolean allowDocumentResend) {
+    this.allowDocumentResend = allowDocumentResend;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("customization")
   public Customization getCustomization() {
     return customization;
@@ -230,6 +243,7 @@ public class Setting  {
     sb.append("  font: ").append(font).append("\n");
     sb.append("  acrofieldsPositions: ").append(acrofieldsPositions).append("\n");
     sb.append("  readDocumentRequired: ").append(readDocumentRequired).append("\n");
+    sb.append("  allowDocumentResend: ").append(allowDocumentResend).append("\n");
     sb.append("  customization: ").append(customization).append("\n");
     sb.append("}\n");
     return sb.toString();
