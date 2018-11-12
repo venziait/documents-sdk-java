@@ -20,6 +20,7 @@ public class Setting  {
   private List<Policy> policies = new ArrayList<Policy>() ;
   private String callbackAuthorization = null;
   private String callbackURL = null;
+  private String callbackCheckListMails = null;
   private String callbackMails = null;
   private List<String> callbackMailsFormKeys = new ArrayList<String>() ;
   private String validateCode = null;
@@ -112,6 +113,18 @@ public class Setting  {
   }
   public void setCallbackURL(String callbackURL) {
     this.callbackURL = callbackURL;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("callbackCheckListMails")
+  public String getCallbackCheckListMails() {
+    return callbackCheckListMails;
+  }
+  public void setCallbackCheckListMails(String callbackCheckListMails) {
+    this.callbackCheckListMails = callbackCheckListMails;
   }
 
   
@@ -236,6 +249,7 @@ public class Setting  {
     sb.append("  policies: ").append(policies).append("\n");
     sb.append("  callbackAuthorization: ").append(callbackAuthorization).append("\n");
     sb.append("  callbackURL: ").append(callbackURL).append("\n");
+    sb.append("  callbackCheckListMails: ").append(callbackCheckListMails).append("\n");
     sb.append("  callbackMails: ").append(callbackMails).append("\n");
     sb.append("  callbackMailsFormKeys: ").append(callbackMailsFormKeys).append("\n");
     sb.append("  validateCode: ").append(validateCode).append("\n");

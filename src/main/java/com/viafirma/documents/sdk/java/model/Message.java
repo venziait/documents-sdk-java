@@ -29,6 +29,7 @@ public class Message  {
   private List<Policy> policies = new ArrayList<Policy>() ;
   private String callbackURL = null;
   private String callbackMails = null;
+  private String callbackCheckListMails = null;
   private List<String> callbackMailsFormKeys = new ArrayList<String>() ;
   private String callbackMailFilename = null;
   private String callbackAuthorization = null;
@@ -188,6 +189,18 @@ public class Message  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
+  @JsonProperty("callbackCheckListMails")
+  public String getCallbackCheckListMails() {
+    return callbackCheckListMails;
+  }
+  public void setCallbackCheckListMails(String callbackCheckListMails) {
+    this.callbackCheckListMails = callbackCheckListMails;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("callbackMailsFormKeys")
   public List<String> getCallbackMailsFormKeys() {
     return callbackMailsFormKeys;
@@ -323,6 +336,7 @@ public class Message  {
     sb.append("  policies: ").append(policies).append("\n");
     sb.append("  callbackURL: ").append(callbackURL).append("\n");
     sb.append("  callbackMails: ").append(callbackMails).append("\n");
+    sb.append("  callbackCheckListMails: ").append(callbackCheckListMails).append("\n");
     sb.append("  callbackMailsFormKeys: ").append(callbackMailsFormKeys).append("\n");
     sb.append("  callbackMailFilename: ").append(callbackMailFilename).append("\n");
     sb.append("  callbackAuthorization: ").append(callbackAuthorization).append("\n");

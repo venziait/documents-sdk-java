@@ -33,6 +33,7 @@ public class Document  {
   private Boolean readRequired = null;
   private Integer numPages = null;
   private Boolean allowResend = null;
+  private Boolean deleteSignedDocuments = null;
   private String watermarkText = null;
 
   
@@ -270,6 +271,18 @@ public class Document  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
+  @JsonProperty("deleteSignedDocuments")
+  public Boolean getDeleteSignedDocuments() {
+    return deleteSignedDocuments;
+  }
+  public void setDeleteSignedDocuments(Boolean deleteSignedDocuments) {
+    this.deleteSignedDocuments = deleteSignedDocuments;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("watermarkText")
   public String getWatermarkText() {
     return watermarkText;
@@ -304,6 +317,7 @@ public class Document  {
     sb.append("  readRequired: ").append(readRequired).append("\n");
     sb.append("  numPages: ").append(numPages).append("\n");
     sb.append("  allowResend: ").append(allowResend).append("\n");
+    sb.append("  deleteSignedDocuments: ").append(deleteSignedDocuments).append("\n");
     sb.append("  watermarkText: ").append(watermarkText).append("\n");
     sb.append("}\n");
     return sb.toString();

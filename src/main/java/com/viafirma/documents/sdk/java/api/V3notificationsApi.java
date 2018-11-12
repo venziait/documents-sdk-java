@@ -398,6 +398,57 @@ public class V3notificationsApi {
   }
   
     
+  public Notification findNotificationsByMessageCode (String code) throws ApiException {
+    Object postBody = null;
+    
+
+    // create path and map variables
+    String path = "/v3/notifications/messageCode/{code}".replaceAll("\\{format\\}","json")
+      .replaceAll("\\{" + "code" + "\\}", ApiInvoker.getInstance().escapeString(code.toString()));
+
+    // query params
+    Map<String, String> queryParams = new HashMap<String, String>();
+    Map<String, String> headerParams = new HashMap<String, String>();
+    Map<String, String> formParams = new HashMap<String, String>();
+
+    
+    
+    String[] contentTypes = {
+      
+    };
+
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if(contentType.startsWith("multipart/form-data")) {
+      boolean hasFields = false;
+      FormDataMultiPart mp = new FormDataMultiPart();
+      
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+      
+    }
+
+    try {
+      String response = ApiInvoker.getInstance().invokeAPI(path, "GET", queryParams, postBody, headerParams, formParams, contentType);
+      if(response != null){
+        return (Notification) ApiInvoker.deserialize(response, "", Notification.class);
+      }
+      else {
+        return null;
+      }
+    } catch (ApiException ex) {
+      if(ex.getCode() == 404) {
+      	return  null;
+      }
+      else {
+        throw ex;
+      }
+    }
+  }
+  
+    
   public List<Notification> findNotificationsByUserAndStatusAndDevice (String status, String app_code, String user_code, String device_code, String index, String page_size) throws ApiException {
     Object postBody = null;
     
