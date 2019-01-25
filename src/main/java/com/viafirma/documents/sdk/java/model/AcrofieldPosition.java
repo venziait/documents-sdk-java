@@ -12,6 +12,7 @@ public class AcrofieldPosition  {
   private String id = null;
   private Integer page = null;
   private Rectangle rectangle = null;
+  private String positionMatchId = null;
 
   
   /**
@@ -50,6 +51,18 @@ public class AcrofieldPosition  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("positionMatchId")
+  public String getPositionMatchId() {
+    return positionMatchId;
+  }
+  public void setPositionMatchId(String positionMatchId) {
+    this.positionMatchId = positionMatchId;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -59,6 +72,7 @@ public class AcrofieldPosition  {
     sb.append("  id: ").append(id).append("\n");
     sb.append("  page: ").append(page).append("\n");
     sb.append("  rectangle: ").append(rectangle).append("\n");
+    sb.append("  positionMatchId: ").append(positionMatchId).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

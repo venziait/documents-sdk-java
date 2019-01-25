@@ -18,6 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Message  {
   
   private String code = null;
+  private String externalCode = null;
   private String userCode = null;
   private String groupCode = null;
   private String appCode = null;
@@ -51,6 +52,18 @@ public class Message  {
   }
   public void setCode(String code) {
     this.code = code;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("externalCode")
+  public String getExternalCode() {
+    return externalCode;
+  }
+  public void setExternalCode(String externalCode) {
+    this.externalCode = externalCode;
   }
 
   
@@ -325,6 +338,7 @@ public class Message  {
     sb.append("class Message {\n");
     
     sb.append("  code: ").append(code).append("\n");
+    sb.append("  externalCode: ").append(externalCode).append("\n");
     sb.append("  userCode: ").append(userCode).append("\n");
     sb.append("  groupCode: ").append(groupCode).append("\n");
     sb.append("  appCode: ").append(appCode).append("\n");

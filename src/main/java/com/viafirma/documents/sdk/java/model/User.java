@@ -1,5 +1,6 @@
 package com.viafirma.documents.sdk.java.model;
 
+import com.viafirma.documents.sdk.java.model.Group;
 import com.viafirma.documents.sdk.java.model.Param;
 import java.util.*;
 
@@ -28,6 +29,7 @@ public class User  {
   private Boolean logDevice = null;
   private String status = null;
   private List<String> groups = new ArrayList<String>() ;
+  private List<Group> groupsInfo = new ArrayList<Group>() ;
   private List<Param> properties = new ArrayList<Param>() ;
   private String mobile = null;
   private String channel = null;
@@ -252,6 +254,18 @@ public class User  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
+  @JsonProperty("groupsInfo")
+  public List<Group> getGroupsInfo() {
+    return groupsInfo;
+  }
+  public void setGroupsInfo(List<Group> groupsInfo) {
+    this.groupsInfo = groupsInfo;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("properties")
   public List<Param> getProperties() {
     return properties;
@@ -309,6 +323,7 @@ public class User  {
     sb.append("  logDevice: ").append(logDevice).append("\n");
     sb.append("  status: ").append(status).append("\n");
     sb.append("  groups: ").append(groups).append("\n");
+    sb.append("  groupsInfo: ").append(groupsInfo).append("\n");
     sb.append("  properties: ").append(properties).append("\n");
     sb.append("  mobile: ").append(mobile).append("\n");
     sb.append("  channel: ").append(channel).append("\n");

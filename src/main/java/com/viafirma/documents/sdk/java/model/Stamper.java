@@ -1,5 +1,7 @@
 package com.viafirma.documents.sdk.java.model;
 
+import com.viafirma.documents.sdk.java.model.PositionsMatch;
+import java.util.*;
 
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -9,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Stamper  {
   
   public enum TypeEnum {
-     PDF417,  QR_BARCODE128,  QR,  BARCODE128,  IMAGE,  TEXT,  MIN_TEXT, 
+     PDF417,  QR_BARCODE128,  QR,  QR_REDUCED,  BARCODE128,  IMAGE,  TEXT,  MIN_TEXT, 
   };
   private TypeEnum type = null;
   public enum RotationEnum {
@@ -23,6 +25,7 @@ public class Stamper  {
   private Integer page = null;
   private String imageBase64 = null;
   private String positionsKey = null;
+  private List<PositionsMatch> positionsMatch = new ArrayList<PositionsMatch>() ;
 
   
   /**
@@ -133,6 +136,18 @@ public class Stamper  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("positionsMatch")
+  public List<PositionsMatch> getPositionsMatch() {
+    return positionsMatch;
+  }
+  public void setPositionsMatch(List<PositionsMatch> positionsMatch) {
+    this.positionsMatch = positionsMatch;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -148,6 +163,7 @@ public class Stamper  {
     sb.append("  page: ").append(page).append("\n");
     sb.append("  imageBase64: ").append(imageBase64).append("\n");
     sb.append("  positionsKey: ").append(positionsKey).append("\n");
+    sb.append("  positionsMatch: ").append(positionsMatch).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

@@ -1,5 +1,6 @@
 package com.viafirma.documents.sdk.java.model;
 
+import com.viafirma.documents.sdk.java.model.PositionsMatch;
 import com.viafirma.documents.sdk.java.model.Geolocation;
 import com.viafirma.documents.sdk.java.model.Position;
 import com.viafirma.documents.sdk.java.model.EvidenceSignature;
@@ -52,6 +53,7 @@ public class Evidence  {
   private EvidenceFingerPrint fingerPrintData = null;
   private EvidenceImage imageData = null;
   private String positionsKey = null;
+  private List<PositionsMatch> positionsMatch = new ArrayList<PositionsMatch>() ;
   private Integer stampsMin = null;
   private String stampsPolicy = null;
   private List<String> stylus = new ArrayList<String>() ;
@@ -416,6 +418,18 @@ public class Evidence  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
+  @JsonProperty("positionsMatch")
+  public List<PositionsMatch> getPositionsMatch() {
+    return positionsMatch;
+  }
+  public void setPositionsMatch(List<PositionsMatch> positionsMatch) {
+    this.positionsMatch = positionsMatch;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("stampsMin")
   public Integer getStampsMin() {
     return stampsMin;
@@ -583,6 +597,7 @@ public class Evidence  {
     sb.append("  fingerPrintData: ").append(fingerPrintData).append("\n");
     sb.append("  imageData: ").append(imageData).append("\n");
     sb.append("  positionsKey: ").append(positionsKey).append("\n");
+    sb.append("  positionsMatch: ").append(positionsMatch).append("\n");
     sb.append("  stampsMin: ").append(stampsMin).append("\n");
     sb.append("  stampsPolicy: ").append(stampsPolicy).append("\n");
     sb.append("  stylus: ").append(stylus).append("\n");

@@ -1,20 +1,16 @@
 package com.viafirma.documents.sdk.java.model;
 
-import java.util.Date;
 
 import com.wordnik.swagger.annotations.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 @ApiModel(description = "")
-public class TemplateList  {
+public class Group  {
   
   private String code = null;
   private String title = null;
   private String description = null;
-  private Date creationDate = null;
-  private String groups = null;
-  private String version = null;
 
   
   /**
@@ -53,54 +49,15 @@ public class TemplateList  {
   }
 
   
-  /**
-   **/
-  @ApiModelProperty(required = false, value = "")
-  @JsonProperty("creationDate")
-  public Date getCreationDate() {
-    return creationDate;
-  }
-  public void setCreationDate(Date creationDate) {
-    this.creationDate = creationDate;
-  }
-
-  
-  /**
-   **/
-  @ApiModelProperty(required = false, value = "")
-  @JsonProperty("groups")
-  public String getGroups() {
-    return groups;
-  }
-  public void setGroups(String groups) {
-    this.groups = groups;
-  }
-
-  
-  /**
-   **/
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("version")
-  public String getVersion() {
-    return version;
-  }
-  public void setVersion(String version) {
-    this.version = version;
-  }
-
-  
 
   @Override
   public String toString()  {
     StringBuilder sb = new StringBuilder();
-    sb.append("class TemplateList {\n");
+    sb.append("class Group {\n");
     
     sb.append("  code: ").append(code).append("\n");
     sb.append("  title: ").append(title).append("\n");
     sb.append("  description: ").append(description).append("\n");
-    sb.append("  creationDate: ").append(creationDate).append("\n");
-    sb.append("  groups: ").append(groups).append("\n");
-    sb.append("  version: ").append(version).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

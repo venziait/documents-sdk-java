@@ -1,5 +1,6 @@
 package com.viafirma.documents.sdk.java.model;
 
+import com.viafirma.documents.sdk.java.model.Group;
 import com.viafirma.documents.sdk.java.model.FinalizeAction;
 import com.viafirma.documents.sdk.java.model.MenuOption;
 import com.viafirma.documents.sdk.java.model.Version;
@@ -31,6 +32,7 @@ public class Configuration  {
   private List<Version> versions = new ArrayList<Version>() ;
   private Boolean clientSignature = null;
   private List<FinalizeAction> finalizeActions = new ArrayList<FinalizeAction>() ;
+  private List<Group> groups = new ArrayList<Group>() ;
   private Boolean sSLPinningEnabled = null;
 
   
@@ -265,6 +267,18 @@ public class Configuration  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
+  @JsonProperty("groups")
+  public List<Group> getGroups() {
+    return groups;
+  }
+  public void setGroups(List<Group> groups) {
+    this.groups = groups;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("sSLPinningEnabled")
   public Boolean getSSLPinningEnabled() {
     return sSLPinningEnabled;
@@ -299,6 +313,7 @@ public class Configuration  {
     sb.append("  versions: ").append(versions).append("\n");
     sb.append("  clientSignature: ").append(clientSignature).append("\n");
     sb.append("  finalizeActions: ").append(finalizeActions).append("\n");
+    sb.append("  groups: ").append(groups).append("\n");
     sb.append("  sSLPinningEnabled: ").append(sSLPinningEnabled).append("\n");
     sb.append("}\n");
     return sb.toString();
