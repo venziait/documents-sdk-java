@@ -14,6 +14,7 @@ public class TemplateList  {
   private String description = null;
   private Date creationDate = null;
   private String groups = null;
+  private Boolean onlyWacom = null;
   private String version = null;
 
   
@@ -79,6 +80,18 @@ public class TemplateList  {
   
   /**
    **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("onlyWacom")
+  public Boolean getOnlyWacom() {
+    return onlyWacom;
+  }
+  public void setOnlyWacom(Boolean onlyWacom) {
+    this.onlyWacom = onlyWacom;
+  }
+
+  
+  /**
+   **/
   @ApiModelProperty(required = true, value = "")
   @JsonProperty("version")
   public String getVersion() {
@@ -100,6 +113,7 @@ public class TemplateList  {
     sb.append("  description: ").append(description).append("\n");
     sb.append("  creationDate: ").append(creationDate).append("\n");
     sb.append("  groups: ").append(groups).append("\n");
+    sb.append("  onlyWacom: ").append(onlyWacom).append("\n");
     sb.append("  version: ").append(version).append("\n");
     sb.append("}\n");
     return sb.toString();

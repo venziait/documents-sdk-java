@@ -23,6 +23,7 @@ public class Customization  {
   private String callbackMailRejectedBody = null;
   private String callbackMailErrorSubject = null;
   private String callbackMailErrorBody = null;
+  private String callbackSmsReminderBody = null;
   private String callbackMailReminderBody = null;
   private String callbackMailReminderSubject = null;
   private String successMessage = null;
@@ -211,6 +212,18 @@ public class Customization  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
+  @JsonProperty("callbackSmsReminderBody")
+  public String getCallbackSmsReminderBody() {
+    return callbackSmsReminderBody;
+  }
+  public void setCallbackSmsReminderBody(String callbackSmsReminderBody) {
+    this.callbackSmsReminderBody = callbackSmsReminderBody;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("callbackMailReminderBody")
   public String getCallbackMailReminderBody() {
     return callbackMailReminderBody;
@@ -265,6 +278,7 @@ public class Customization  {
     sb.append("  callbackMailRejectedBody: ").append(callbackMailRejectedBody).append("\n");
     sb.append("  callbackMailErrorSubject: ").append(callbackMailErrorSubject).append("\n");
     sb.append("  callbackMailErrorBody: ").append(callbackMailErrorBody).append("\n");
+    sb.append("  callbackSmsReminderBody: ").append(callbackSmsReminderBody).append("\n");
     sb.append("  callbackMailReminderBody: ").append(callbackMailReminderBody).append("\n");
     sb.append("  callbackMailReminderSubject: ").append(callbackMailReminderSubject).append("\n");
     sb.append("  successMessage: ").append(successMessage).append("\n");

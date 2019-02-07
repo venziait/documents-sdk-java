@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Stamper  {
   
   public enum TypeEnum {
-     PDF417,  QR_BARCODE128,  QR,  QR_REDUCED,  BARCODE128,  IMAGE,  TEXT,  MIN_TEXT, 
+     PDF417,  QR_BARCODE128,  QR,  BARCODE128,  IMAGE,  TEXT,  QR_NO_TEXT,  QR_SCALED,  CUSTOM_TEXT,  QR_REDUCED, 
   };
   private TypeEnum type = null;
   public enum RotationEnum {
