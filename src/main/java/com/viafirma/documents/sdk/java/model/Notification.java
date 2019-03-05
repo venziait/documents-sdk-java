@@ -21,7 +21,7 @@ public class Notification  {
   private String detail = null;
   private String sound = null;
   public enum StatusEnum {
-     SENT,  RECEIVED,  READ,  ERROR,  REJECTED,  EXPIRED,  RESENT,  DISPATCHED,  DISPOSED,  COMPLETED,  WAITING, 
+     SENT,  RECEIVED,  READ,  ERROR,  REJECTED,  EXPIRED,  RESENT,  DISPATCHED,  DISPOSED,  COMPLETED,  WAITING,  INVALID, 
   };
   private StatusEnum status = null;
   public enum NotificationTypeEnum {

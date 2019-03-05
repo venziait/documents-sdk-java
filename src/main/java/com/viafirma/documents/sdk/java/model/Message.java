@@ -20,6 +20,7 @@ public class Message  {
   private String code = null;
   private String externalCode = null;
   private String externalStatus = null;
+  private Boolean disabled = null;
   private String userCode = null;
   private String groupCode = null;
   private String appCode = null;
@@ -77,6 +78,18 @@ public class Message  {
   }
   public void setExternalStatus(String externalStatus) {
     this.externalStatus = externalStatus;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("disabled")
+  public Boolean getDisabled() {
+    return disabled;
+  }
+  public void setDisabled(Boolean disabled) {
+    this.disabled = disabled;
   }
 
   
@@ -353,6 +366,7 @@ public class Message  {
     sb.append("  code: ").append(code).append("\n");
     sb.append("  externalCode: ").append(externalCode).append("\n");
     sb.append("  externalStatus: ").append(externalStatus).append("\n");
+    sb.append("  disabled: ").append(disabled).append("\n");
     sb.append("  userCode: ").append(userCode).append("\n");
     sb.append("  groupCode: ").append(groupCode).append("\n");
     sb.append("  appCode: ").append(appCode).append("\n");

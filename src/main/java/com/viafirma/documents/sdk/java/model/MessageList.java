@@ -18,6 +18,8 @@ public class MessageList  {
   private String groupCode = null;
   private String templateCode = null;
   private Date creationDate = null;
+  private String externalCode = null;
+  private String externalStatus = null;
 
   
   /**
@@ -98,6 +100,32 @@ public class MessageList  {
   }
 
   
+  /**
+   * (since 3.5.120, internal) external code
+   **/
+  @ApiModelProperty(required = true, value = "(since 3.5.120, internal) external code")
+  @JsonProperty("externalCode")
+  public String getExternalCode() {
+    return externalCode;
+  }
+  public void setExternalCode(String externalCode) {
+    this.externalCode = externalCode;
+  }
+
+  
+  /**
+   * (since 3.5.120, internal) external status
+   **/
+  @ApiModelProperty(required = true, value = "(since 3.5.120, internal) external status")
+  @JsonProperty("externalStatus")
+  public String getExternalStatus() {
+    return externalStatus;
+  }
+  public void setExternalStatus(String externalStatus) {
+    this.externalStatus = externalStatus;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -110,6 +138,8 @@ public class MessageList  {
     sb.append("  groupCode: ").append(groupCode).append("\n");
     sb.append("  templateCode: ").append(templateCode).append("\n");
     sb.append("  creationDate: ").append(creationDate).append("\n");
+    sb.append("  externalCode: ").append(externalCode).append("\n");
+    sb.append("  externalStatus: ").append(externalStatus).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

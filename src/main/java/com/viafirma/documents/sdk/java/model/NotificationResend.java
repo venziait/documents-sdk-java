@@ -11,6 +11,8 @@ public class NotificationResend  {
   private String messageCode = null;
   private String email = null;
   private String phone = null;
+  private String userCode = null;
+  private String deviceCode = null;
 
   
   /**
@@ -49,6 +51,30 @@ public class NotificationResend  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("userCode")
+  public String getUserCode() {
+    return userCode;
+  }
+  public void setUserCode(String userCode) {
+    this.userCode = userCode;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("deviceCode")
+  public String getDeviceCode() {
+    return deviceCode;
+  }
+  public void setDeviceCode(String deviceCode) {
+    this.deviceCode = deviceCode;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -58,6 +84,8 @@ public class NotificationResend  {
     sb.append("  messageCode: ").append(messageCode).append("\n");
     sb.append("  email: ").append(email).append("\n");
     sb.append("  phone: ").append(phone).append("\n");
+    sb.append("  userCode: ").append(userCode).append("\n");
+    sb.append("  deviceCode: ").append(deviceCode).append("\n");
     sb.append("}\n");
     return sb.toString();
   }
