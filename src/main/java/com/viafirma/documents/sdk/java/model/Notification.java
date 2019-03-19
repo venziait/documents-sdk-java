@@ -17,6 +17,7 @@ public class Notification  {
   private String code = null;
   private String messageCode = null;
   private String validateCode = null;
+  private String validateCodeFinish = null;
   private String text = null;
   private String detail = null;
   private String sound = null;
@@ -70,6 +71,18 @@ public class Notification  {
   }
   public void setValidateCode(String validateCode) {
     this.validateCode = validateCode;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("validateCodeFinish")
+  public String getValidateCodeFinish() {
+    return validateCodeFinish;
+  }
+  public void setValidateCodeFinish(String validateCodeFinish) {
+    this.validateCodeFinish = validateCodeFinish;
   }
 
   
@@ -226,6 +239,7 @@ public class Notification  {
     sb.append("  code: ").append(code).append("\n");
     sb.append("  messageCode: ").append(messageCode).append("\n");
     sb.append("  validateCode: ").append(validateCode).append("\n");
+    sb.append("  validateCodeFinish: ").append(validateCodeFinish).append("\n");
     sb.append("  text: ").append(text).append("\n");
     sb.append("  detail: ").append(detail).append("\n");
     sb.append("  sound: ").append(sound).append("\n");

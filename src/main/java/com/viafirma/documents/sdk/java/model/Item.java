@@ -35,6 +35,7 @@ public class Item  {
   private String minLength = null;
   private List<String> monthNames = new ArrayList<String>() ;
   private List<String> dayNames = new ArrayList<String>() ;
+  private String defaultCountry = null;
   private Integer increment = null;
 
   
@@ -353,6 +354,18 @@ public class Item  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
+  @JsonProperty("defaultCountry")
+  public String getDefaultCountry() {
+    return defaultCountry;
+  }
+  public void setDefaultCountry(String defaultCountry) {
+    this.defaultCountry = defaultCountry;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("increment")
   public Integer getIncrement() {
     return increment;
@@ -394,6 +407,7 @@ public class Item  {
     sb.append("  minLength: ").append(minLength).append("\n");
     sb.append("  monthNames: ").append(monthNames).append("\n");
     sb.append("  dayNames: ").append(dayNames).append("\n");
+    sb.append("  defaultCountry: ").append(defaultCountry).append("\n");
     sb.append("  increment: ").append(increment).append("\n");
     sb.append("}\n");
     return sb.toString();

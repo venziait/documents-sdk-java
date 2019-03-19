@@ -24,6 +24,7 @@ public class Setting  {
   private String callbackMails = null;
   private List<String> callbackMailsFormKeys = new ArrayList<String>() ;
   private String validateCode = null;
+  private String validateCodeFinish = null;
   private String workflow = null;
   private Font font = null;
   private List<AcrofieldPosition> acrofieldsPositions = new ArrayList<AcrofieldPosition>() ;
@@ -167,6 +168,18 @@ public class Setting  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
+  @JsonProperty("validateCodeFinish")
+  public String getValidateCodeFinish() {
+    return validateCodeFinish;
+  }
+  public void setValidateCodeFinish(String validateCodeFinish) {
+    this.validateCodeFinish = validateCodeFinish;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("workflow")
   public String getWorkflow() {
     return workflow;
@@ -253,6 +266,7 @@ public class Setting  {
     sb.append("  callbackMails: ").append(callbackMails).append("\n");
     sb.append("  callbackMailsFormKeys: ").append(callbackMailsFormKeys).append("\n");
     sb.append("  validateCode: ").append(validateCode).append("\n");
+    sb.append("  validateCodeFinish: ").append(validateCodeFinish).append("\n");
     sb.append("  workflow: ").append(workflow).append("\n");
     sb.append("  font: ").append(font).append("\n");
     sb.append("  acrofieldsPositions: ").append(acrofieldsPositions).append("\n");
