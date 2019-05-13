@@ -37,6 +37,7 @@ public class Item  {
   private List<String> dayNames = new ArrayList<String>() ;
   private String defaultCountry = null;
   private Integer increment = null;
+  private String originalValue = null;
 
   
   /**
@@ -375,6 +376,18 @@ public class Item  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("originalValue")
+  public String getOriginalValue() {
+    return originalValue;
+  }
+  public void setOriginalValue(String originalValue) {
+    this.originalValue = originalValue;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -409,6 +422,7 @@ public class Item  {
     sb.append("  dayNames: ").append(dayNames).append("\n");
     sb.append("  defaultCountry: ").append(defaultCountry).append("\n");
     sb.append("  increment: ").append(increment).append("\n");
+    sb.append("  originalValue: ").append(originalValue).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

@@ -3,6 +3,7 @@ package com.viafirma.documents.sdk.java.model;
 import com.viafirma.documents.sdk.java.model.Policy;
 import com.viafirma.documents.sdk.java.model.Auditory;
 import com.viafirma.documents.sdk.java.model.Param;
+import com.viafirma.documents.sdk.java.model.Transfer;
 import com.viafirma.documents.sdk.java.model.Workflow;
 import java.util.*;
 import com.viafirma.documents.sdk.java.model.Document;
@@ -43,6 +44,7 @@ public class Message  {
   private String commentReject = null;
   private String callbackResponse = null;
   private List<Auditory> auditory = new ArrayList<Auditory>() ;
+  private List<Transfer> transfers = new ArrayList<Transfer>() ;
 
   
   /**
@@ -357,6 +359,18 @@ public class Message  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("transfers")
+  public List<Transfer> getTransfers() {
+    return transfers;
+  }
+  public void setTransfers(List<Transfer> transfers) {
+    this.transfers = transfers;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -389,6 +403,7 @@ public class Message  {
     sb.append("  commentReject: ").append(commentReject).append("\n");
     sb.append("  callbackResponse: ").append(callbackResponse).append("\n");
     sb.append("  auditory: ").append(auditory).append("\n");
+    sb.append("  transfers: ").append(transfers).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

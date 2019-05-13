@@ -31,6 +31,7 @@ public class Setting  {
   private Boolean readDocumentRequired = null;
   private Boolean allowDocumentResend = null;
   private Customization customization = null;
+  private List<String> callbackMailsFromForm = new ArrayList<String>() ;
 
   
   /**
@@ -249,6 +250,18 @@ public class Setting  {
   }
 
   
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("callbackMailsFromForm")
+  public List<String> getCallbackMailsFromForm() {
+    return callbackMailsFromForm;
+  }
+  public void setCallbackMailsFromForm(List<String> callbackMailsFromForm) {
+    this.callbackMailsFromForm = callbackMailsFromForm;
+  }
+
+  
 
   @Override
   public String toString()  {
@@ -273,6 +286,7 @@ public class Setting  {
     sb.append("  readDocumentRequired: ").append(readDocumentRequired).append("\n");
     sb.append("  allowDocumentResend: ").append(allowDocumentResend).append("\n");
     sb.append("  customization: ").append(customization).append("\n");
+    sb.append("  callbackMailsFromForm: ").append(callbackMailsFromForm).append("\n");
     sb.append("}\n");
     return sb.toString();
   }

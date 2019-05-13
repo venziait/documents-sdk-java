@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Auditory  {
   
   public enum ActionEnum {
-     RECEIVED,   MAIL_SENT,   MAIL_READ,   MAIL_CALLBACK_SENT,   MAIL_CALLBACK_READ,   LOAD_REQUEST, 
+     RECEIVED,   MAIL_SENT,   MAIL_READ,   MAIL_CALLBACK_SENT,   MAIL_CALLBACK_READ,   LOAD_REQUEST,   LOAD_APPROVAL, 
   };
   private ActionEnum action = null;
   private Date date = null;
