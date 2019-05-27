@@ -5,7 +5,7 @@
   <artifactId>documents-sdk-java</artifactId>
   <packaging>jar</packaging>
   <name>documents-sdk-java</name>
-  <version>3.5.128</version>
+  <version>3.5.133</version>
   <scm>
     <connection>scm:git:git@github.com:wordnik/swagger-mustache.git</connection>
     <developerConnection>scm:git:git@github.com:wordnik/swagger-codegen.git</developerConnection>
@@ -69,8 +69,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>2.3.2</version>
         <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
+          <source>1.7</source>
+          <target>1.7</target>
         </configuration>
       </plugin>
     </plugins>
