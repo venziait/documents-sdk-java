@@ -11,8 +11,8 @@ public class AcrofieldPosition  {
   
   private String id = null;
   private Integer page = null;
-  private Rectangle rectangle = null;
   private String positionMatchId = null;
+  private Rectangle rectangle = null;
 
   
   /**
@@ -41,18 +41,6 @@ public class AcrofieldPosition  {
   
   /**
    **/
-  @ApiModelProperty(required = true, value = "")
-  @JsonProperty("rectangle")
-  public Rectangle getRectangle() {
-    return rectangle;
-  }
-  public void setRectangle(Rectangle rectangle) {
-    this.rectangle = rectangle;
-  }
-
-  
-  /**
-   **/
   @ApiModelProperty(required = false, value = "")
   @JsonProperty("positionMatchId")
   public String getPositionMatchId() {
@@ -60,6 +48,18 @@ public class AcrofieldPosition  {
   }
   public void setPositionMatchId(String positionMatchId) {
     this.positionMatchId = positionMatchId;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = true, value = "")
+  @JsonProperty("rectangle")
+  public Rectangle getRectangle() {
+    return rectangle;
+  }
+  public void setRectangle(Rectangle rectangle) {
+    this.rectangle = rectangle;
   }
 
   
@@ -71,8 +71,8 @@ public class AcrofieldPosition  {
     
     sb.append("  id: ").append(id).append("\n");
     sb.append("  page: ").append(page).append("\n");
-    sb.append("  rectangle: ").append(rectangle).append("\n");
     sb.append("  positionMatchId: ").append(positionMatchId).append("\n");
+    sb.append("  rectangle: ").append(rectangle).append("\n");
     sb.append("}\n");
     return sb.toString();
   }
