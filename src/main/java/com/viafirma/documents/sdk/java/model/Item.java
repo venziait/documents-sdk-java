@@ -37,6 +37,7 @@ public class Item  {
   private List<String> dayNames = new ArrayList<String>() ;
   private String defaultCountry = null;
   private Integer increment = null;
+  private List<String> scanTypes = new ArrayList<String>() ;
   private String originalValue = null;
 
   
@@ -379,6 +380,18 @@ public class Item  {
   /**
    **/
   @ApiModelProperty(required = false, value = "")
+  @JsonProperty("scanTypes")
+  public List<String> getScanTypes() {
+    return scanTypes;
+  }
+  public void setScanTypes(List<String> scanTypes) {
+    this.scanTypes = scanTypes;
+  }
+
+  
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
   @JsonProperty("originalValue")
   public String getOriginalValue() {
     return originalValue;
@@ -422,6 +435,7 @@ public class Item  {
     sb.append("  dayNames: ").append(dayNames).append("\n");
     sb.append("  defaultCountry: ").append(defaultCountry).append("\n");
     sb.append("  increment: ").append(increment).append("\n");
+    sb.append("  scanTypes: ").append(scanTypes).append("\n");
     sb.append("  originalValue: ").append(originalValue).append("\n");
     sb.append("}\n");
     return sb.toString();
