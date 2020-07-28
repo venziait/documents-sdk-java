@@ -45,6 +45,7 @@ public class Message  {
   private String callbackResponse = null;
   private List<Auditory> auditory = new ArrayList<Auditory>() ;
   private List<Transfer> transfers = new ArrayList<Transfer>() ;
+  private String auditTrailPage = null;
 
   
   /**
@@ -334,6 +335,17 @@ public class Message  {
     this.commentReject = commentReject;
   }
 
+
+  /**
+   **/
+  @ApiModelProperty(required = false, value = "")
+  @JsonProperty("auditTrailPage")
+  public String getAuditTrailPage() {
+    return auditTrailPage;
+  }
+  public void setAuditTrailPage(String auditTrailPage) {
+    this.auditTrailPage = auditTrailPage;
+  }
   
   /**
    **/
